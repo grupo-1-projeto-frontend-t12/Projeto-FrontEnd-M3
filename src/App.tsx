@@ -1,13 +1,14 @@
-import TagHeader from "./components/Header/header";
+
 import AuthContext from "../src/context/AuthContext";
 import { AppDiv } from "./styles/appCSS/AppCSS";
+import Header from "./components/Header/header";
 
 function App() {
 
   return (
    <AuthContext>
     <AppDiv>
-    <TagHeader/>
+    <Header/>
     </AppDiv>
    </AuthContext>
   );
