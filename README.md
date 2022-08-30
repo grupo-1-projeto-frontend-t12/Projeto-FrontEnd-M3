@@ -1,6 +1,6 @@
-![KenzieMED (1)](https://user-images.githubusercontent.com/102538748/187499688-9e96dfd9-9acd-496e-8d87-7529acf06d14.png)
-
-
+<div style={backgroung: grey;}>
+  ![KenzieMED (1)](https://user-images.githubusercontent.com/102538748/187499688-9e96dfd9-9acd-496e-8d87-7529acf06d14.png)
+</div>
 Kenzie MED - API
 
 Este é o backend da aplicação Kenzie MED - A kenzieMed é um sistema de agendamento de consultas e exames, facilitando a vida dos médicos e usuários. Um sistema fácil e simples de usar, trazendo agilidade na hora de escolher um médico e fazer o agendamento de consulta ou exame, sem a necessidade de entrar em contato com o teleatendimento, em poucos cliques você já tem sua consulta/exame agendada. 
