@@ -1,16 +1,17 @@
-
 import AuthContext from "./context/authContext";
 import { AppDiv } from "./styles/appCSS/appCSS";
-import Header from "./components/header/header";
+
+import Login from "./pages/modalLogin/modalLogin";
+import AllRoutes from "./routes/routes";
 
 function App() {
-
   return (
-   <AuthContext>
-    <AppDiv>
-    <Header/>
-    </AppDiv>
-   </AuthContext>
+    <AuthContext>
+      <AppDiv>
+        {/* <AllRoutes /> */}
+        <Login/>
+      </AppDiv>
+    </AuthContext>
   );
 }
 
