@@ -3,6 +3,7 @@ import { AppDiv } from "./styles/appCSS/AppCSS";
 import Header from "./components/Header/header";
 import Menu from "./components/menu/menu";
 import ButtonAppointment from "./components/ButtonAppointment/buttonAppointment";
+import Footer from "./components/Footer/footer";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Menu/>
         <ButtonAppointment/>
+        <Footer/>
       </AppDiv>
     </AuthContext>
   );

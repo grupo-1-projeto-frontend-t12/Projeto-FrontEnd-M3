@@ -9,9 +9,8 @@ const GlobalStyle = createGlobalStyle`
     --color-grey: #F2F2F2;
     --color-transparencia: #99A8A5;
 
-    --color-fontescura: #0B362F;
+    --color-fontescura: #0B362F;  
    
-    font-size: 60%;   
   }
   * {
     margin: 0;

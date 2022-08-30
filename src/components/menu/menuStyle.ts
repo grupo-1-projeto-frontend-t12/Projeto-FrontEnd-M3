@@ -4,8 +4,8 @@ export const ContainerMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
-  height: 48px;
+  width: 280px;
+  height: 38px;
   background: var(--color-grey);
   color: var(--color-fontescura);
   gap: 10px;
