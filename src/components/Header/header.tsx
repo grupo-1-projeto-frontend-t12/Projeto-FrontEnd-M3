@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { UserContext } from "../../context/AuthContext";
-import { TagHeader } from "../Header/headerCSS"
+import { UserContext } from "../../context/authContext";
+import { TagHeader } from "./headerCSS"
 
 const Header = () => {
 

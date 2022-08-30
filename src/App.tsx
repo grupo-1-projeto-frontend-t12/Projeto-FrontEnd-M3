@@ -1,7 +1,7 @@
 
-import AuthContext from "../src/context/AuthContext";
-import { AppDiv } from "./styles/appCSS/AppCSS";
-import Header from "./components/Header/header";
+import AuthContext from "./context/authContext";
+import { AppDiv } from "./styles/appCSS/appCSS";
+import Header from "./components/header/header";
 
 function App() {
 
