@@ -11,9 +11,9 @@ A API tem um total de XXXX endpoints, podendo ser cadastrados novos usuarios par
 
 O url base da API é https://api-kenzie-med.herokuapp.com
 
-                                                  **********************************************************
-                                                  **********Rotas que não precisam de autenticação**********
-                                                  **********************************************************
+                                       **********************************************************
+                                       **********Rotas que não precisam de autenticação**********
+                                       **********************************************************
 
 ***************************
 *****Listando usuários*****
@@ -26,7 +26,6 @@ GET /doctors - FORMATO DA RESPOSTA - STATUS 200
 ![111](https://user-images.githubusercontent.com/102538748/187497062-ceda362e-7774-4634-9192-eeda71a6b862.png)
 
 
--/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 
 Podemos utilizar os query params para mudar a lista, mudando a paginação, podemos alterar quantos usuários queremos no perPage, e alterar a página no parâmetro page. Uma requisição apenas no /doctors irá trazer xxx usuários na página 1. Com o parâmetro tech, podemos filtrar por tecnologia.
 
@@ -53,7 +52,6 @@ nextUrl: https://api-kenzie-med.herokuapp.com/doctors?perPage=10&page=2
 page: 1
 perPage: 10
 
--/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 
 Podemos acessar um médico específico utilizando o endpoint:
 
@@ -61,7 +59,6 @@ GET /doctors/ ${ID}- FORMATO DA RESPOSTA - STATUS 200
 
 ![222](https://user-images.githubusercontent.com/102538748/187497589-ee978cc1-30ad-4e86-80b7-11b71e4d2014.png)
 
--/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
  
 ****************************
 *****Criação de usuário*****
@@ -78,8 +75,7 @@ POST /users - FORMATO DA RESPOSTA - STATUS 201
 
 ![444](https://user-images.githubusercontent.com/102538748/187498169-26d5d60b-9dcb-4258-b6ff-d84a360468f7.png)
 
-  
--/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+
 
 POST /users - FORMATO DA RESPOSTA - STATUS 400
 
@@ -115,7 +111,6 @@ POST /users - FORMATO DA RESPOSTA - STATUS 400
   
 }
 
--/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 
 ***************
 *****Login*****
@@ -136,11 +131,10 @@ POST /sessions - FORMATO DA RESPOSTA - STATUS 201
 Com essa resposta, vemos que temos duas informações, o user.id e o token respectivo, dessa forma você pode guardar o token e o 
 usuário logado no localStorage para fazer a gestão do usuário no seu frontend.
 
--/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 
-                                            *********************************************
-                                            *****Rotas que necessitam de autorização*****
-                                            *********************************************
+                                 *********************************************
+                                 *****Rotas que necessitam de autorização*****
+                                 *********************************************
 
 Rotas que necessitam de autorização deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma:
 
