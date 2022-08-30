@@ -8,8 +8,10 @@ const GlobalStyle = createGlobalStyle`
     --color-white: #FFFFFF;
     --color-grey: #F2F2F2;
     --color-transparencia: #99A8A5;
-   
-    font-size: 60%;   
+
+    --color-fontescura: #0B362F; 
+
+    font-family: "Inter", sans-serif;
   }
   * {
     margin: 0;
@@ -25,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+    font-family: "Inter", sans-serif;
   }
 
 `;

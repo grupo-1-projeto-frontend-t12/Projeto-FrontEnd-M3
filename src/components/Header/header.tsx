@@ -1,16 +1,14 @@
-import { useContext } from "react";
-import { UserContext } from "../../context/AuthContext";
+import Menu from "../menu/menu";
+import Logo from "../../assets/img/logo/KenzieMED.png"
 import { TagHeader } from "./headerCSS";
 
 const Header = () => {
-  const { login, setLogin } = useContext(UserContext);
-  console.log("LOG DO LOGIN ", login); // APAGAR DEPOIS
-
   return (
     <TagHeader>
-      <button type="button" onClick={() => setLogin(!login)}>
-        TEST
-      </button>
+      <div>
+        <img src={Logo} alt="Logo KenzieMED" />
+        <Menu />
+      </div>
     </TagHeader>
   );
 };
