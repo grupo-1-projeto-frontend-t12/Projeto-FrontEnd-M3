@@ -9,7 +9,7 @@ export const ContainerMenu = styled.div`
   background: var(--color-grey);
   color: var(--color-fontescura);
   gap: 10px;
-  border-radius: 17px;
+  border-radius: 25px;
   font-size: 12px;
   line-height: 26.39px;
   font-weight: 500;
@@ -18,14 +18,12 @@ export const ContainerMenu = styled.div`
   button{
     border: none;  
     width: 100px;
-    
   }
 
   button:focus{
     background-color: var(--color-green);
     color: var(--color-white);  
     height: 100%;
-    border-radius: 17px;
+    border-radius: 25px;
   }
- 
 `
