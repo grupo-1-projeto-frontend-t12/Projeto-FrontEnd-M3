@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const TagHeader = styled.header`
+export const TagHeader = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;

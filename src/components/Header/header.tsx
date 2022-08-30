@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext } from "react"
 import { UserContext } from "../../context/authContext";
 import { TagHeader } from "./headerCSS"
 
@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <TagHeader>
-            <button type="button" onClick={() => setLogin(!login)}>TEST</button>
+           
         </TagHeader>
     )
 }
