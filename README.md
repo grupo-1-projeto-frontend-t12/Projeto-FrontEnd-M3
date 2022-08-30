@@ -33,10 +33,15 @@ Podemos utilizar os query params para mudar a lista, mudando a paginação, pode
 GET /doctors?perPage=  xxxx   &page=1&speciality= xxxx - FORMATO DA RESPOSTA - STATUS 200
 
 [
+
   {
+  
     xxx
+    
     xxx
+    
     xxx
+    
     xxx
     
 ]
@@ -91,16 +96,23 @@ A senha necessita de 6 caracteres.
 POST /users - FORMATO DA RESPOSTA - STATUS 400
 
 {
+
   "status": "error",
+  
   "message": ["password: minimum is 6 characters"]
+  
 }
+
 Email já cadastrado:
 
 POST /users - FORMATO DA RESPOSTA - STATUS 400
 
 {
+
   "status": "error",
+  
   "message": "Email already exists"
+  
 }
 
 -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
@@ -144,9 +156,13 @@ Na requisição apenas é necessário o TOKEN, a aplicação ficará responsáve
 GET / xxxxxx - FORMATO DA RESPOSTA - STATUS 200
 
 {
+
  xxxx
+ 
  xxxx
+ 
  xxxx
+ 
 }
 
 *********************************
@@ -156,9 +172,13 @@ GET / xxxxxx - FORMATO DA RESPOSTA - STATUS 200
 POST /users/doctors - FORMATO DA REQUISIÇÃO
 
 {
+
  xxxx
+ 
  xxxx
+ 
  xxxx
+ 
 }
 
 Caso você tente criar uma tecnologia com o mesmo nome para o seu perfil, receberá este erro:
@@ -166,8 +186,11 @@ Caso você tente criar uma tecnologia com o mesmo nome para o seu perfil, recebe
 POST /users/techs - FORMATO DA RESPOSTA - STATUS 401
 
 {
+
   "status": "error",
+  
   "message": "O Senhor já tem uma consulta agendada com esté médico."
+  
 }
 
 Ou seja, você pode apenas modificar a consulta que já estão no seu perfil. Utilizando este endpoint:
@@ -175,7 +198,9 @@ Ou seja, você pode apenas modificar a consulta que já estão no seu perfil. Ut
 PUT / xxxxxx - FORMATO DA REQUISIÇÃO
 
 {
+
   xxxxx
+  
 }
 
 ********************************************************
