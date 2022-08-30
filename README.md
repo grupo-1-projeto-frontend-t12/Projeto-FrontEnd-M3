@@ -23,71 +23,74 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver os profiss
 GET /doctors - FORMATO DA RESPOSTA - STATUS 200
 
 [
-  	{
-		"userId": 2,
-		"name": " Albert Einstein",
-		"email": "fisicalbert@kenziemed.com",
-		"password": "123456",
-		"CRM": "12345678901",
-		"age": 80,
-		"sex": "Masculino",
-		"address": "Alemanha",
-		"speciality": " Traumatologista ",
-		"type": "medico",
-		"id": 1
-	},
-	{
-		"userId": 2,
-		"name": " Michael Joseph Jackson ",
-		"email": "menininhos@kenziemed.com",
-		"password": "123456",
-		"CRM": "12345678901",
-		"age": 58,
-		"sex": "Masculino",
-		"address": "Indiana",
-		"speciality": " Neurologista ",
-		"type": "medico",
-		"id": 2
-	},
-	{
-		"userId": 2,
-		"name": " Isabel Bowes-Lyon ",
-		"email": "queenelizabeth@kenziemed.com",
-		"password": "123456",
-		"CRM": "12345678901",
-		"age": 3750,
-		"sex": "Feminino",
-		"address": "Inglaterra",
-		"speciality": "Neurologista",
-		"type": "medico",
-		"id": 3
-	},
-	{
-		"userId": 2,
-		"name": " Osama Bin Mohammed Bin Awad Bin Laden ",
-		"email": "obmbabl@kenziemed.com",
-		"password": "123456",
-		"CRM": "12345678901",
-		"age": 57,
-		"sex": "Masculino",
-		"address": "Amazonas",
-		"speciality": "Pediatra",
-		"type": "Oftalmologista",
-		"id": 4
-	},
-	{
-		"userId": 2,
-		"name": " Arnold Schwarzenegger ",
-		"email": "reimaromba@kenziemed.com",
-		"password": "123456",
-		"CRM": "12345678901",
-		"age": 75,
-		"sex": "Masculino",
-		"address": "Espirito Santo",
-		"speciality": "Endocrinologista",
-		"type": "medico",
-		"id": 5
-	}
+ {
+"userId": 2,
+"name": " Albert Einstein",
+"email": "fisicalbert@kenziemed.com",
+"password": "123456",
+"CRM": "12345678901",
+"age": 80,
+"sex": "Masculino",
+"address": "Alemanha",
+"speciality": " Traumatologista ",
+"type": "medico",
+"id": 1
+},
+
+{
+"userId": 2,
+"name": " Michael Joseph Jackson ",
+"email": "menininhos@kenziemed.com",
+"password": "123456",
+"CRM": "12345678901",
+"age": 58,
+"sex": "Masculino",
+"address": "Indiana",
+"speciality": " Neurologista ",
+"type": "medico",
+"id": 2
+},
+
+{
+"userId": 2,
+"name": " Isabel Bowes-Lyon ",
+"email": "queenelizabeth@kenziemed.com",
+"password": "123456",
+"CRM": "12345678901",
+"age": 3750,
+"sex": "Feminino",
+"address": "Inglaterra",
+"speciality": "Neurologista",
+"type": "medico",
+"id": 3
+},
+{
+"userId": 2,
+"name": " Osama Bin Mohammed Bin Awad Bin Laden ",
+"email": "obmbabl@kenziemed.com",
+"password": "123456",
+"CRM": "12345678901",
+"age": 57,
+"sex": "Masculino",
+"address": "Amazonas",
+"speciality": "Pediatra",
+"type": "Oftalmologista",
+"id": 4
+},
+
+{
+"userId": 2,
+"name": " Arnold Schwarzenegger ",
+"email": "reimaromba@kenziemed.com",
+"password": "123456",
+"CRM": "12345678901",
+"age": 75,
+"sex": "Masculino",
+"address": "Espirito Santo",
+"speciality": "Endocrinologista",
+"type": "medico",
+"id": 5
+}
 ]
 
 -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
