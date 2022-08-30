@@ -149,9 +149,9 @@ Com essa resposta, vemos que temos duas informações, o user.id e o token respe
 usuário logado no localStorage para fazer a gestão do usuário no seu frontend.
 
 
-                                 *********************************************
-                                 *****Rotas que necessitam de autorização*****
-                                 *********************************************
+                           *********************************************
+                           *****Rotas que necessitam de autorização*****
+                           *********************************************
 
 Rotas que necessitam de autorização deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma:
 
