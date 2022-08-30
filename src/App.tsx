@@ -1,16 +1,14 @@
-
-import AuthContext from "./context/authContext";
-import { AppDiv } from "./styles/appCSS/appCSS";
-import Header from "./components/header/header";
+import AuthContext from "./context/AuthContext";
+import { AppDiv } from "./styles/appCSS/AppCSS";
+import Header from "./components/Header/header";
 
 function App() {
-
   return (
-   <AuthContext>
-    <AppDiv>
-    <Header/>
-    </AppDiv>
-   </AuthContext>
+    <AuthContext>
+      <AppDiv>
+        <Header />
+      </AppDiv>
+    </AuthContext>
   );
 }
 
