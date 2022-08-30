@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
 
     --color-fontescura: #0B362F; 
 
+    --bg-color: rgb(18,128,110);
+    --bg-color-linear: linear-gradient(155deg, rgba(18,128,110,1) 0%, rgba(0,164,139,1) 53%, rgba(111,239,210,1) 100%);
+
     font-family: "Inter", sans-serif;
   }
   * {
