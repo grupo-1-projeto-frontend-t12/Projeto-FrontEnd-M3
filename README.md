@@ -1,9 +1,10 @@
-<div style={backgroung: grey;}>
-  ![KenzieMED (1)](https://user-images.githubusercontent.com/102538748/187499688-9e96dfd9-9acd-496e-8d87-7529acf06d14.png)
-</div>
+![KenzieMED (1)](https://user-images.githubusercontent.com/102538748/187525599-a2f97112-e643-408a-ac72-e54516151816.png)
+
 Kenzie MED - API
 
-Este é o backend da aplicação Kenzie MED - A kenzieMed é um sistema de agendamento de consultas e exames, facilitando a vida dos médicos e usuários. Um sistema fácil e simples de usar, trazendo agilidade na hora de escolher um médico e fazer o agendamento de consulta ou exame, sem a necessidade de entrar em contato com o teleatendimento, em poucos cliques você já tem sua consulta/exame agendada. 
+Este é o backend da aplicação Kenzie MED - A kenzieMed é um sistema de agendamento de consultas e exames, facilitando a vida dos médicos 
+e usuários. Um sistema fácil e simples de usar, trazendo agilidade na hora de escolher um médico e fazer o agendamento de consulta ou exame,
+sem a necessidade de entrar em contato com o teleatendimento, em poucos cliques você já tem sua consulta/exame agendada. 
 
 Endpoints
 A API tem um total de XXXX endpoints, podendo ser cadastrados novos usuarios para poder ter total acesso as funcionabilidades do site.
@@ -16,48 +17,22 @@ O url base da API é https://api-kenzie-med.herokuapp.com
                                        **********************************************************
 
 ***************************
-*****Listando usuários*****
+*****Listando Médicos*****
 ***************************
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver os profissionanis Médicos já cadastrados na plataforma, na API podemos acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas especialidades.
+Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver os profissionanis Médicos já cadastrados na plataforma, na API podemos 
+acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas especialidades.
 
-GET /doctors - FORMATO DA RESPOSTA - STATUS 200
+![image (3)](https://user-images.githubusercontent.com/102538748/187532534-68ee5e10-4ba2-41ee-9572-cb5cf176662c.png)
 
-![111](https://user-images.githubusercontent.com/102538748/187497062-ceda362e-7774-4634-9192-eeda71a6b862.png)
+GET /users/?type=doctor - FORMATO DA RESPOSTA - STATUS 200
 
-
-
-Podemos utilizar os query params para mudar a lista, mudando a paginação, podemos alterar quantos usuários queremos no perPage, e alterar a página no parâmetro page. Uma requisição apenas no /doctors irá trazer xxx usuários na página 1. Com o parâmetro tech, podemos filtrar por tecnologia.
-
-GET /doctors?perPage=  xxxx   &page=1&speciality= xxxx - FORMATO DA RESPOSTA - STATUS 200
-
-[
-
-  {
-  
-    xxx
-    
-    xxx
-    
-    xxx
-    
-    xxx
-    
-]
-
-Lembrando que no cabeçalho da resposta, temos as informações sobre a paginação, e o nextUrl para acessar a próxima página.
-Cabeçalho da resposta:
-
-nextUrl: https://api-kenzie-med.herokuapp.com/doctors?perPage=10&page=2
-page: 1
-perPage: 10
-
+![image (4)](https://user-images.githubusercontent.com/102538748/187525824-21066938-dec8-4926-bbb5-a1ded55b167b.png)
 
 Podemos acessar um médico específico utilizando o endpoint:
 
-GET /doctors/ ${ID}- FORMATO DA RESPOSTA - STATUS 200
+GET /users/?id=6&type=doctor - FORMATO DA RESPOSTA - STATUS 200
 
-![222](https://user-images.githubusercontent.com/102538748/187497589-ee978cc1-30ad-4e86-80b7-11b71e4d2014.png)
 
  
 ****************************
@@ -66,16 +41,13 @@ GET /doctors/ ${ID}- FORMATO DA RESPOSTA - STATUS 200
 
 POST /users - FORMATO DA REQUISIÇÃO
 
-![333](https://user-images.githubusercontent.com/102538748/187497988-09d1cb6b-f44c-4e29-ba34-68367a5e07bf.png)
-
+![image (2)](https://user-images.githubusercontent.com/102538748/187525087-c8c794ca-42b4-427a-8668-25d8090891fc.png)
 
 Caso dê tudo certo, a resposta será assim:
 
 POST /users - FORMATO DA RESPOSTA - STATUS 201
 
-![444](https://user-images.githubusercontent.com/102538748/187498169-26d5d60b-9dcb-4258-b6ff-d84a360468f7.png)
-
-
+![image (5)](https://user-images.githubusercontent.com/102538748/187525860-b1586357-9aab-47f7-b42e-32818798db3d.png)
 
 POST /users - FORMATO DA RESPOSTA - STATUS 400
 
@@ -111,22 +83,67 @@ POST /users - FORMATO DA RESPOSTA - STATUS 400
   
 }
 
+****************************
+*****Criação de Médico*****
+****************************
+
+POST /users - FORMATO DA REQUISIÇÃO
+
+![image](https://user-images.githubusercontent.com/102538748/187526123-44d58b01-8db2-4dd4-8b4d-0d3f0c8fe391.png)
+
+Caso dê tudo certo, a resposta será assim:
+
+POST /users - FORMATO DA RESPOSTA - STATUS 201
+
+![image (1)](https://user-images.githubusercontent.com/102538748/187526171-263f3e9f-28e9-43d2-a92f-326b5100b81d.png)
+
+POST /users - FORMATO DA RESPOSTA - STATUS 400
+
+{
+
+"status": "error",
+
+"message": ["password is required", "email is required"]
+
+}
+
+A senha necessita de 6 caracteres.
+
+POST /users - FORMATO DA RESPOSTA - STATUS 400
+
+{
+
+  "status": "error",
+  
+  "message": ["password: minimum is 6 characters"]
+  
+}
+
+Email já cadastrado:
+
+POST /users - FORMATO DA RESPOSTA - STATUS 400
+
+{
+
+  "status": "error",
+  
+  "message": "Email already exists"
+  
+}
 
 ***************
 *****Login*****
 ***************
 
-POST /sessions - FORMATO DA REQUISIÇÃO
+POST /login - FORMATO DA REQUISIÇÃO
 
-![555](https://user-images.githubusercontent.com/102538748/187498569-01864803-d40f-42cc-8797-8c8cb1c3f63c.png)
-
+![image](https://user-images.githubusercontent.com/102538748/187526436-42cb9a20-1801-464c-a635-1d5934366b0e.png)
 
 Caso dê tudo certo, a resposta será assim:
 
-POST /sessions - FORMATO DA RESPOSTA - STATUS 201
+POST /login - FORMATO DA RESPOSTA - STATUS 201
 
-![666](https://user-images.githubusercontent.com/102538748/187498712-5bec5b41-b5ec-4e01-8d14-62acdbb395dc.png)
-
+![image (1)](https://user-images.githubusercontent.com/102538748/187526498-b8e71733-577d-4a9f-b859-5f5c90945434.png)
 
 Com essa resposta, vemos que temos duas informações, o user.id e o token respectivo, dessa forma você pode guardar o token e o 
 usuário logado no localStorage para fazer a gestão do usuário no seu frontend.
@@ -143,41 +160,31 @@ Authorization: Bearer {token}
 Após o usuário estar logado, ele deve conseguir informar as especialidades que ele contratou até agora.
 
 Buscar Perfil do usuário logado (token)
-GET /  xxxxx - FORMATO DA REQUISIÇÃO
+GET /users/?id=${userId} - FORMATO DA REQUISIÇÃO
 
 Na requisição apenas é necessário o TOKEN, a aplicação ficará responsável em buscar o id do usuário no token e retorna ele.
 
-GET / xxxxxx - FORMATO DA RESPOSTA - STATUS 200
+GET /users/?id=${userId} - FORMATO DA RESPOSTA - STATUS 200
 
-{
-
- xxxx
- 
- xxxx
- 
- xxxx
- 
-}
+![image](https://user-images.githubusercontent.com/102538748/187527230-1d55e964-8cb6-49c6-81d2-dc6aae6a8992.png)
 
 *********************************
 *****Cadastrar nova consulta*****
 *********************************
 
-POST /users/doctors - FORMATO DA REQUISIÇÃO
+POST /schedules - FORMATO DA REQUISIÇÃO
 
-{
+![image (1)](https://user-images.githubusercontent.com/102538748/187527613-1652dcd5-d9be-4a66-9b8f-4b5fd69dc6ee.png)
 
- xxxx
- 
- xxxx
- 
- xxxx
- 
-}
+Caso dê tudo certo, a resposta será assim:
+
+POST /schedules - FORMATO DA RESPOSTA - STATUS 201
+
+![image (2)](https://user-images.githubusercontent.com/102538748/187527779-f5923a03-019f-414f-a9a9-c3a8fcb3501e.png)
 
 Caso você tente criar uma tecnologia com o mesmo nome para o seu perfil, receberá este erro:
 
-POST /users/techs - FORMATO DA RESPOSTA - STATUS 401
+POST /schedules - FORMATO DA RESPOSTA - STATUS 401
 
 {
 
@@ -187,29 +194,42 @@ POST /users/techs - FORMATO DA RESPOSTA - STATUS 401
   
 }
 
+***************************************
+*****Modificar o perfil do Usuario*****
+***************************************
+
 Ou seja, você pode apenas modificar a consulta que já estão no seu perfil. Utilizando este endpoint:
 
-PUT / xxxxxx - FORMATO DA REQUISIÇÃO
+PUT /users/${userId} - FORMATO DA REQUISIÇÃO
 
-{
+![image (3)](https://user-images.githubusercontent.com/102538748/187532660-a0ca902d-1883-4508-9959-3f08b8e8b808.png)
 
-  xxxxx
-  
-}
+Caso dê tudo certo, a resposta será assim:
+
+PUT /users/${userId} - FORMATO DA RESPOSTA - STATUS 201
+
+![image](https://user-images.githubusercontent.com/102538748/187532795-82bd76cc-29cf-45e9-9fdd-3bf99a1152ed.png)
+
+**************************** 
+*****Deletar um usuario*****
+****************************
+
+DELETE /users/${userId}
+
+OBSERVAÇÃO: Não é necessário um corpo da requisição.
+
+Caso dê tudo certo, a resposta será assim:
+
+![image](https://user-images.githubusercontent.com/102538748/187533082-329c6942-329d-497a-8898-67d7efa5021f.png)
 
 ********************************************************
 *****Deletar uma consulta, utilizando este endpoint*****
 ********************************************************
 
-DELETE / xxxxx
+DELETE schedules/${userId}
 
 OBSERVAÇÃO: Não é necessário um corpo da requisição.
 
+Caso dê tudo certo, a resposta será assim:
 
-**************************************************
-*****Endpoint para atualizar a foto de perfil*****
-**************************************************
-
-PATCH /users/image - FORMATO DA REQUISIÇÃO
-
-image: <Arquivo de imagem>
+![image (1)](https://user-images.githubusercontent.com/102538748/187534182-ca8fa2d0-3a61-4201-95fc-f2ca83a40fd8.png)
