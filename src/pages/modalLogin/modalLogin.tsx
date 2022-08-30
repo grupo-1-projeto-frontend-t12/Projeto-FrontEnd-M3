@@ -43,14 +43,14 @@ const schema = yup.object({
             Entrar
           </button>
   
-          <p>Ainda não possui uma Conta ?</p>
+          <p>Ainda não possui uma conta ?</p>
           <button
           className="btnCadastrar"
           /* onClick={() => {
             navigate("/register");
           }} */
         >
-          Cadastre-se
+          Clique aqui para realizar cadastro!
         </button>
 
         </CotainerForm>
