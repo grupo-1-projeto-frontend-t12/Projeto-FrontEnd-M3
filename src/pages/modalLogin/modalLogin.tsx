@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { IUser, UserContext } from "../../context/authContext";
+import { IUser, UserContext } from "../../context/AuthContext";
 import { CotainerForm } from "./modalLoginCSS";
 
 

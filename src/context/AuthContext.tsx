@@ -34,7 +34,6 @@ export interface IContextProvider {
 export const UserContext = createContext<IProviderProps>({} as IProviderProps);
 
 const AuthContext = ({ children }: IContextProvider) => {
-  const [login, setLogin] = useState(false);
 
     const [user, setUser] = useState<IUser>({} as IUser);
 
