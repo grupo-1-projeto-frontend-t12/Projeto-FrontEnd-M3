@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerMenu = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 280px;
   height: 38px;
@@ -11,11 +11,11 @@ export const ContainerMenu = styled.div`
   gap: 10px;
   border-radius: 25px;
   font-size: 12px;
-  line-height: 26.39px;
   font-weight: 500;
   color: var(--color-green3);
 
   button{
+    border-radius: 25px;
     border: none;  
     width: 100px;
   }
