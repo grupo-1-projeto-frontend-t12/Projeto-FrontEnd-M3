@@ -12,9 +12,9 @@ A API tem um total de XXXX endpoints, podendo ser cadastrados novos usuarios par
 
 O url base da API é https://api-kenzie-med.herokuapp.com
 
-                   **********************************************************
-                   **********Rotas que não precisam de autenticação**********
-                   **********************************************************
+                        **********************************************************
+                        **********Rotas que não precisam de autenticação**********
+                        **********************************************************
 
 ***************************
 *****Listando Médicos*****
