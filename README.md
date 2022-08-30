@@ -53,19 +53,7 @@ Podemos acessar um médico específico utilizando o endpoint:
 
 GET /doctors/ ${ID}- FORMATO DA RESPOSTA - STATUS 200
 
-{
-	"userId": 2,
-	"name": " Isabel Bowes-Lyon ",
-	"email": "queenelizabeth@kenziemed.com",
-	"password": "123456",
-	"CRM": "12345678901",
-	"age": 3750,
-	"sex": "Feminino",
-	"address": "Inglaterra",
-	"speciality": "Neurologista",
-	"type": "medico",
-	"id": 6
-}
+![222](https://user-images.githubusercontent.com/102538748/187497589-ee978cc1-30ad-4e86-80b7-11b71e4d2014.png)
 
 -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
  
@@ -75,41 +63,28 @@ GET /doctors/ ${ID}- FORMATO DA RESPOSTA - STATUS 200
 
 POST /users - FORMATO DA REQUISIÇÃO
 
-{
- "name": " Frederico Rook ",
- "email": "Fredrook@kenziemed.com",
- "password": "123456",
- "CPF": "12345678901",
- "age":33,
- "sex": "Masculino",
- "address": "Pão de Queijo"
-}
+![333](https://user-images.githubusercontent.com/102538748/187497988-09d1cb6b-f44c-4e29-ba34-68367a5e07bf.png)
+
 
 Caso dê tudo certo, a resposta será assim:
 
 POST /users - FORMATO DA RESPOSTA - STATUS 201
 
-{
-	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkZyZWRyb29rQGtlbnppZW1lZC5jb20iLCJpYXQiOjE2NjE4Nzc1MzcsImV4cCI6MTY2MTg4MTEzNywic3ViIjoiMyJ9.
-  3w4k_qbC1jaXbf1Wb1klvd55iBMqwM59qcHT99Fn9h0",
-	"user": {
-		"email": "Fredrook@kenziemed.com",
-		"name": " Frederico Rook ",
-		"CPF": "12345678901",
-		"age": 33,
-		"sex": "Masculino",
-		"address": "Pão de Queijo",
-		"id": 3
-	}
+![444](https://user-images.githubusercontent.com/102538748/187498169-26d5d60b-9dcb-4258-b6ff-d84a360468f7.png)
+
   
 -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 
 POST /users - FORMATO DA RESPOSTA - STATUS 400
 
 {
-  "status": "error",
-  "message": ["password is required", "email is required"]
+
+"status": "error",
+
+"message": ["password is required", "email is required"]
+
 }
+
 A senha necessita de 6 caracteres.
 
 POST /users - FORMATO DA RESPOSTA - STATUS 400
@@ -135,29 +110,15 @@ POST /users - FORMATO DA RESPOSTA - STATUS 400
 
 POST /sessions - FORMATO DA REQUISIÇÃO
 
-{
-  "email": "Fredrook@kenziemed.com",
-  "password": "123456"
-}
+![555](https://user-images.githubusercontent.com/102538748/187498569-01864803-d40f-42cc-8797-8c8cb1c3f63c.png)
+
 
 Caso dê tudo certo, a resposta será assim:
 
 POST /sessions - FORMATO DA RESPOSTA - STATUS 201
 
-{
-	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkZyZWRyb29rQGtlbnppZW1lZC5jb20iLCJpYXQiOjE2NjE4Nzc4NjYsImV4cCI6MTY2MTg4MTQ2Niwic3ViIjoiMyJ9.
-  sG7lIDEWxlsryqbhW13jlUIG-rPJhpEZHrH9Z6uCLYE",
-	"user": {
-		"email": "Fredrook@kenziemed.com",
-		"name": " Frederico Rook ",
-		"CPF": "12345678901",
-		"age": 33,
-		"sex": "Masculino",
-		"address": "Pão de Queijo",
-    "image": "url da Imagem do usuario" 
-		"id": 3
-	}
-}
+![666](https://user-images.githubusercontent.com/102538748/187498712-5bec5b41-b5ec-4e01-8d14-62acdbb395dc.png)
+
 
 Com essa resposta, vemos que temos duas informações, o user.id e o token respectivo, dessa forma você pode guardar o token e o 
 usuário logado no localStorage para fazer a gestão do usuário no seu frontend.
