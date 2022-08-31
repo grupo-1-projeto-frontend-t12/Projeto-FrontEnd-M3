@@ -1,6 +1,6 @@
 import { AppDiv } from "./styles/appCSS/AppCSS";
 import AllRoutes from "./routes/Routes";
-import Login from "./pages/modalLogin/modalLogin";
+import Login from "./pages/login/login";
 import AuthContext from "./context/AuthContext";
 import Footer from "./components/Footer/footer";
 

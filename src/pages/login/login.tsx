@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { AuthContext } from "../../context/AuthContext";
-import { Modal, CotainerForm } from "./modalLoginCSS";
+import { Modal, CotainerForm } from "./loginCSS";
 import { IUser } from "../../interface/IUser";
 
 
