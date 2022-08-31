@@ -9,8 +9,10 @@ const GlobalStyle = createGlobalStyle`
     --color-grey: #F2F2F2;
     --color-transparencia: #99A8A5;
     --color-fontescura: #0B362F; 
+    --color-blue: #169EDB;
     --bg-color: rgb(18,128,110);
-    --bg-color-linear: linear-gradient(155deg, rgba(18,128,110,1) 0%, rgba(0,164,139,1) 53%, rgba(111,239,210,1) 100%);
+    --bg-color-linear: linear-gradient(152deg, rgba(22,158,219,1) 0%, rgba(108,230,202,1) 53%, rgba(108,230,202,1) 100%);
+
 
     font-family: "Inter", sans-serif;
   }
@@ -19,11 +21,26 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+   
   }
-  body,html{
+  body{   
+    width: 100vw;
+    height: 100vh;      
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #root{   
     width: 100vw;
     height: 100vh;
+    display  :flex ;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
   }
+
   button {
     cursor: pointer;
     font-family: "Inter", sans-serif;
