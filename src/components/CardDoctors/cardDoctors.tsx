@@ -1,14 +1,12 @@
 import { ContainerDoctors, ListDoctors } from "./cardDoctorsStyle";
 import { BsCalendar3 } from "react-icons/bs";
-import { MdOutlinePlace, MdSchedule } from "react-icons/md";
+import { MdOutlinePlace } from "react-icons/md";
 import {  useContext, useEffect } from "react";
 import api from "../../services/api";
-
 import { AuthContext } from "../../context/AuthContext";
 
 const CardDoctors = () => {
 
-  
   const { setDoctorsList, doctorsList, setDoctorSchedule } = useContext(AuthContext)
 
   const getDoctor = async () =>{
@@ -25,7 +23,7 @@ const CardDoctors = () => {
       <h2>Corpo Clinico</h2>
         <ListDoctors>
           {doctorsList.map((doctor) => (           
-          <li>
+          <li key={doctor.id}>
                 <div className="containerHeader">
                   <h2>{doctor.name}</h2>
                   <button onClick={() => {                    
@@ -39,7 +37,7 @@ const CardDoctors = () => {
                 <h3>{doctor.speciality}</h3>
                 <h3>
                   <MdOutlinePlace />
-                  Endereço
+                  {doctor.address}
                 </h3>
           </li>
           ))}

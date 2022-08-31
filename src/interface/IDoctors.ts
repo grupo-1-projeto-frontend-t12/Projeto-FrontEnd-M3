@@ -1,6 +1,7 @@
 import { IDoctorSchedule } from "./IDoctorSchedule";
 
 export interface IDoctors{
+    id: number;
     email: string;
     name: string;
     age: string;

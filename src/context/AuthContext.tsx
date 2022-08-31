@@ -42,6 +42,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       localStorage.setItem("@context-KenzieMed:token", token);
 
+      setLogin(true)
+
       const state = location.state as ICustomizedState;
 
       let toNavigate = "/home";
@@ -67,7 +69,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, SignIn, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule}}>
+      value={{ user, login, setLogin, loading, SignIn, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
       {children}
     </AuthContext.Provider>
   );
