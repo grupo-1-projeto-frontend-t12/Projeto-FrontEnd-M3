@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
   body,html{
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
   }
   button {
     cursor: pointer;
