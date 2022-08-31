@@ -1,12 +1,15 @@
 import { AppDiv } from "./styles/appCSS/AppCSS";
-import AllRoutes from "./routes/Routes";
-import AuthProvider from "./context/AuthContext";
+import Header from "./components/Header/header";
+import Footer from "./components/Footer/footer";
+import CardScheduleDoctor from "./components/CardScheduleDoctors/cardScheduleDoctors";
 
 function App() {
   return (
     <AuthProvider>
       <AppDiv>
-        <AllRoutes />
+        <Header />
+        <CardScheduleDoctor/>
+        <Footer />
       </AppDiv>
     </AuthProvider>
   );
