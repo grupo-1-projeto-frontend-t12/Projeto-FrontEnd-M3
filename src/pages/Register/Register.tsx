@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
-import { IUser } from "../../context/AuthContext";
+import { IUser } from "../../interface/IUser";
 
 
 
@@ -88,7 +88,7 @@ const Register = () => {
             type="text"
             id="name"
             className="inputRegister"
-            placeholder="Digite aqui seu nome"
+            placeholder ="Digite aqui seu nome"
             {...register("name")}
           />
           {errors.name?.message}

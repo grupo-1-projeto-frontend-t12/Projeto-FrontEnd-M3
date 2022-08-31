@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
 import GlobalStyle from "./styles/Global Styles/Global StylesCSS";
 import AuthContext from "./context/AuthContext";
 

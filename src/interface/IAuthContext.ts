@@ -12,4 +12,5 @@ export interface IAuthContext {
     setLogin: (state: boolean) => void;
     loading: boolean;
     doctorsList: IDoctors[];
+    onSubmitRegister: (data:IUser)=>void;
 }

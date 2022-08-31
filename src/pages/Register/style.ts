@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 
 export const ContainerRegister = styled.div`
- background-color: #FFFFFF ;
+ background-color: rgba(0,0,0,0.5) ;
 color: #F8F9FA;
+display: flex;
+justify-content: center;
 align-items: center;
+padding: 22px 22px;
+gap: 20px;
+
 
 
 
@@ -13,9 +18,10 @@ align-items: center;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 370px;
-    height: auto;
+    width: 95%;
+    max-width: 370px;
     background-color: #FFFFFF;
+    
     
     
  
@@ -52,10 +58,7 @@ align-items: center;
 
 }
 .btnReturn:hover{
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  border: 3px solid red;
-  border-radius: 5%;
+  background: var(--color-green2);
 }
 
   .form{
@@ -78,10 +81,11 @@ align-items: center;
     width: 95%;
     margin-bottom: 20px;
     background-color: #F2F2F2;
-    color: #868E96;
+    color: #0B362F;
     font-size: 0.8rem;
     border-radius: 5px;
     border: none;
+    padding: 2% 3%;
   
   }
  
@@ -95,8 +99,11 @@ align-items: center;
     color: aliceblue;
     font-size: 1rem;
     margin-bottom: 20px;
+
   }
-  
+  .btnRegister:hover{
+    background: var(--color-green2);
+  }
   
   label{
     display: flex;
@@ -104,10 +111,14 @@ align-items: center;
     width: 95%;
     font-size: 0.8rem;
     color: #0B362F;
+    margin-bottom: 8px;
+  }
+  placeholder{
+    margin-left: 8px;
   }
 
  
-
+/* 
   @media (min-width: 375px) {
     .main{
       width: 365px;
@@ -138,5 +149,5 @@ align-items: center;
       width: 1440px;
       flex-wrap: wrap;
         }
-  }
+  } */
 `
