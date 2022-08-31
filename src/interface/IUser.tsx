@@ -6,7 +6,7 @@ export interface IUser {
     confirmPassword?: string,
     cpf: string;
     crm?: string;
-    age: number;
+    age: string;
     sex: string,
     address: string;
     type: string,

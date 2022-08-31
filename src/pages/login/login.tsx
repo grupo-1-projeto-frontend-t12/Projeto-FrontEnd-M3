@@ -4,25 +4,27 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { AuthContext } from "../../context/AuthContext";
-import { Modal, CotainerForm } from "./loginCSS";
-import { IUser } from "../../interface/IUser";
+import { CotainerForm, Modal } from "./loginCSS";
+import { IUserLogin } from "../../interface/IUserLogin";
 
 
-const schema = yup.object({
-    email: yup.string().email().required("Email Obrigatório!"),
+const schema = yup.object().shape({
+    email: yup.string().email("Email Invalido!").required("Email Obrigatório!"),
     password: yup
       .string()
-      .min(8, "Min 6 Caracteres, 1 núm, 1 letra e um caracter especial!")
+      .min(8, "Min 8 Caracteres!")
       .required(),
   });
   
   const Login = () => {
+   
     const { login } = useContext(AuthContext)
+   
+   const {SignIn} = useContext(AuthContext); //AQUI ENTRARÁ A FUNÇÃO "SIGNIN" 
   
-    const {SignIn} = useContext(AuthContext); //AQUI ENTRARÁ A FUNÇÃO "SIGNIN" 
-  
-    const {register, handleSubmit, formState: { errors }} = useForm<IUser>({
+    const {register, handleSubmit, formState: { errors }} = useForm<IUserLogin>({
       resolver: yupResolver(schema),
+      reValidateMode: "onSubmit"
     });
   
     const navigate = useNavigate(); // USAR NO PUSH PRO CADASTRAR
@@ -52,14 +54,12 @@ const schema = yup.object({
             className="btnCadastrar"
             onClick={() => {
               navigate("/register");
-            }}
-          >
-            Clique aqui para realizar cadastro!
-          </button>
+            }}>Clique aqui para realizar cadastro!
+            </button>
 
           </CotainerForm>
         </Modal>
-        }
+      } 
       </>
     );
   };

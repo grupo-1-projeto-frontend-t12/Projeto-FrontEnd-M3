@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from "react-router";
-import Home from "../pages/home/home";
-import Login from "../pages/login/login";
+import Home from "../pages/Home/home";
+import Login from "../pages/Login/login";
 
 
 const AllRoutes= () => {

@@ -5,10 +5,10 @@ import Logo from "../../assets/img/logo/KenzieMED (1).svg";
 import Medica from "../../assets/img/logo/medica.svg";
 import { TagHeader } from "./headerCSS";
 import { useContext } from "react";
-import { UserContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
-  const { login, setLogin } = useContext(UserContext)
+  const { login, setLogin } = useContext(AuthContext)
 
   return (
     <TagHeader login={login}>

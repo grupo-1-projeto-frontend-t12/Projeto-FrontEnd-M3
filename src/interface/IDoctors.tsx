@@ -1,4 +1,5 @@
 import { IDoctorSchedule } from "./IDoctorSchedule";
+
 export interface IDoctors{
     email: string,
     name: string,
