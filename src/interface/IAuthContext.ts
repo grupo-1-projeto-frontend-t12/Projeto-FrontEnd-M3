@@ -1,4 +1,5 @@
 import { IDoctors } from "./IDoctors";
+import { IDoctorSchedule } from "./IDoctorSchedule";
 import { IUser } from "./IUser";
 import { IUserLogin } from "./IUserLogin";
 
@@ -11,4 +12,7 @@ export interface IAuthContext {
   setLogin: (state: boolean) => void;
   loading: boolean;
   doctorsList: IDoctors[];
+  setDoctorsList: (state: IDoctors[]) => void;
+  doctorSchedule: IDoctorSchedule[];
+  setDoctorSchedule: (state: IDoctorSchedule[]) => void;
 };

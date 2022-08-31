@@ -1,4 +1,4 @@
-import { CotainerForm, Modal } from "./loginCSS";
+import { CotainerForm, Modal } from "./loginCSS"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <>
-      {login && (
+      {!login && (
         <Modal>
           <CotainerForm onSubmit={handleSubmit(SignIn)}>
             <h2>Login</h2>

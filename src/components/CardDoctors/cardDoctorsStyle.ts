@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerDoctors = styled.div`
+export const ListDoctors = styled.ul`
   background-color: var(--color-green);
   width: 267px;
   color: var(--color-white);
@@ -11,28 +11,35 @@ export const ContainerDoctors = styled.div`
     font-size: 18px;
     font-weight: 800;
   }
-
   span {
     font-size: 12px;
     font-weight: 300;
   }
-
   h3 {
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 5px;
   }
-
   .containerHeader {
     display: flex;
     width: 100%;
     justify-content: space-between;
   }
-
   .containerHeader button {
     background-color: transparent;
     border: none;
     color: var(--color-white);
     font-size: 20px;
+  }
+`;
+
+export const ContainerDoctors = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  color: var(--color-green3);
+  h2 {
+    margin-bottom: 20px;
   }
 `;
