@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
-  const { login, setLogin } = useContext(AuthContext)
+  const { login } = useContext(AuthContext)
 
   return (
     <TagHeader login={login}>
