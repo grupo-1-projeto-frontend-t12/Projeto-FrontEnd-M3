@@ -10,13 +10,17 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
+import { IDoctorSchedule } from "../interface/IDoctorSchedule";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-  const [user, setUser] = useState<IUser>({} as IUser);
+
+  const [user, setUser] = useState<IUser>({} as IUser); 
 
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
+  
+  const [doctorSchedule, setDoctorSchedule] = useState<IDoctorSchedule[]>([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -60,8 +64,10 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
+
   return (
-    <AuthContext.Provider value={{ user, login, setLogin, loading, SignIn, doctorsList }}>
+    <AuthContext.Provider
+      value={{ user, login, setLogin, loading, SignIn, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule}}>
       {children}
     </AuthContext.Provider>
   );

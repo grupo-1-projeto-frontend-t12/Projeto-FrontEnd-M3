@@ -1,14 +1,23 @@
+import { Dispatch } from "react";
 import { IDoctors } from "./IDoctors";
+import { IDoctorSchedule } from "./IDoctorSchedule";
 import { IUser } from "./IUser";
 import { IUserLogin } from "./IUserLogin";
 
 export interface IAuthContext {
-  user: IUser;
-  SignIn: (data: IUserLogin) => void; //ENTRARÁ A FUNÇÃO DE LOGIN VINDA DA API
-  /* CreateNewConsult: (data: ITechs) => void; */ //ENTRARÁ A FUNÇÃO DE CADASTRAR NOVA CONSULTA
-  /* DeleteConsult: (id: string) => void; */ //ENTRARÁ A FUNÇÃO DE DELETAR CONSULTA
-  login: boolean;
-  setLogin: (state: boolean) => void;
-  loading: boolean;
-  doctorsList: IDoctors[];
-};
+    user: IUser;
+    SignIn: (data: IUserLogin) => void;                     //ENTRARÁ A FUNÇÃO DE LOGIN VINDA DA API
+    /* CreateNewConsult: (data: ITechs) => void; */          //ENTRARÁ A FUNÇÃO DE CADASTRAR NOVA CONSULTA
+    /* DeleteConsult: (id: string) => void; */               //ENTRARÁ A FUNÇÃO DE DELETAR CONSULTA
+    /* ModifyTech: (data: ITechs, id: string) => void; */    //ENTRARÁ A FUNÇÃO DE MODIFICAR A CONSULTA
+    login: boolean;
+    setLogin: (state: boolean) => void;
+    loading: boolean;
+    doctorsList:  IDoctors[];
+    setDoctorsList: Dispatch<React.SetStateAction<IDoctors[]>>;
+    doctorSchedule: IDoctorSchedule[];
+    setDoctorSchedule: Dispatch<React.SetStateAction<IDoctorSchedule[]>>;
+
+    
+ 
+}

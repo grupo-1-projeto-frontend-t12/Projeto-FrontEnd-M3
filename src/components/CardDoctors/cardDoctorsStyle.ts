@@ -29,10 +29,26 @@ export const ContainerDoctors = styled.div`
     justify-content: space-between;
   }
 
-  .containerHeader button {
-    background-color: transparent;
-    border: none;
-    color: var(--color-white);
-    font-size: 20px;
-  }
-`;
+    .containerHeader button{
+        background-color: transparent;
+        border: none;
+        color: var(--color-white);
+        font-size: 20px;
+    }
+
+`
+
+
+export const ContainerDoctors = styled.div`
+    width: 80%; 
+    display:flex ;
+    flex-direction: column;   
+    height: 350px;
+    color: var(--color-green3);
+
+   h2{
+    margin-bottom: 20px;
+    }
+
+   
+`
