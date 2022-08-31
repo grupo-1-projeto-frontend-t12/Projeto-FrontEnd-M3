@@ -1,10 +1,10 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { IUser, UserContext } from "../../context/AuthContext";
-import { CotainerForm } from "./modalLoginCSS";
+import AuthContext, { IUser, UserContext } from "../../context/AuthContext";
+import { Modal, CotainerForm } from "./modalLoginCSS";
 
 
 const schema = yup.object({
@@ -16,6 +16,7 @@ const schema = yup.object({
   });
   
   const Login = () => {
+    const { login } = useContext(UserContext)
   
     /* const {SignIn} = useContext(UserContext); */ //AQUI ENTRARÁ A FUNÇÃO "SIGNIN" 
   
@@ -27,33 +28,37 @@ const schema = yup.object({
   
     return (
       <>
-          <CotainerForm /* onSubmit={handleSubmit(SignIn)} */>
-          <h2>Login</h2>
-          <label htmlFor="email">Email</label>
-          <input type="text" id="email" placeholder="Digite aqui seu E-Mail"
-           {...register("email")} />
-          <span>{errors.email?.message}</span>
-  
-          <label htmlFor="password">Senha</label>
-          <input type="password" id="password" placeholder="Digite aqui sua Senha"
-          {...register("password")} />
-          <span>{errors.password?.message}</span>
-  
-          <button className="btnEntrar" type="submit">
-            Entrar
+      {login && 
+        <Modal>
+            <CotainerForm /* onSubmit={handleSubmit(SignIn)} */>
+            <h2>Login</h2>
+            <label htmlFor="email">Email</label>
+            <input type="text" id="email" placeholder="Digite aqui seu E-Mail"
+            {...register("email")} />
+            <span>{errors.email?.message}</span>
+    
+            <label htmlFor="password">Senha</label>
+            <input type="password" id="password" placeholder="Digite aqui sua Senha"
+            {...register("password")} />
+            <span>{errors.password?.message}</span>
+    
+            <button className="btnEntrar" type="submit">
+              Entrar
+            </button>
+    
+            <p>Ainda não possui uma conta ?</p>
+            <button
+            className="btnCadastrar"
+            /* onClick={() => {
+              navigate("/register");
+            }} */
+          >
+            Clique aqui para realizar cadastro!
           </button>
-  
-          <p>Ainda não possui uma conta ?</p>
-          <button
-          className="btnCadastrar"
-          /* onClick={() => {
-            navigate("/register");
-          }} */
-        >
-          Clique aqui para realizar cadastro!
-        </button>
 
-        </CotainerForm>
+          </CotainerForm>
+        </Modal>
+        }
       </>
     );
   };

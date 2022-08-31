@@ -1,5 +1,16 @@
 import styled from "styled-components";
-import GlobalStyle from "../../styles/Global Styles/Global StylesCSS";
+
+export const Modal = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
 
 export const CotainerForm = styled.form`
   display: flex;
@@ -7,10 +18,10 @@ export const CotainerForm = styled.form`
   align-items: center;
   justify-content: center;
   padding: 22px 22px;
-  gap: 26px;
+  gap: 20px;
 
-  width: 369px;
-  height: 502px;
+  width: 95%;
+  max-width: 370px;
 
   background: var(--color-white);
   box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
@@ -19,6 +30,8 @@ export const CotainerForm = styled.form`
   z-index: 9999;
 
   h2 {
+
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -32,8 +45,7 @@ export const CotainerForm = styled.form`
 
   label {
     position: relative;
-    top: 0;
-    right: 146px;
+    align-self: baseline;
     
     font-family: 'Inter';
     font-style: normal;
@@ -51,32 +63,24 @@ export const CotainerForm = styled.form`
     padding: 0px 16.2426px;
     gap: 10.15px;
 
-    width: 329.93px;
+    width: 100%;
     height: 48px;
 
     background: var(--color-grey);
 
-    border: 1.2182px solid var(--color-grey);
+    border: none;
     border-radius: 4px;
   }
 
   span{
-    position: relative;
     bottom: 58px;
     left: 365px;
 
     text-align: center;
     font-family: "Inter";
     font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-
-    width: 117%;
-
-    margin-bottom: -35px;
-
-    border-radius: 5px;
-    background-color: var(--color-grey);
+    font-weight: 600;
+    font-size: 12px;
 
     color: var(--color-green3);
   }
@@ -89,7 +93,7 @@ export const CotainerForm = styled.form`
     padding: 0px 22.3336px;
     gap: 10.15px;
 
-    width: 324px;
+    width: 100%;
     height: 48px;
 
     margin-top: 20px;
@@ -97,14 +101,16 @@ export const CotainerForm = styled.form`
     background: var(--color-green);
     color: var(--color-white);
 
-    border: 1.2182px solid var(--color-green);
+    border: none;
     border-radius: 4.07px;
 
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
+
+    :hover {
+      background: var(--color-green2);
+    }
   }
 
   p {

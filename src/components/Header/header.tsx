@@ -4,9 +4,11 @@ import SearchBar from "../SearchBar/searchBar";
 import Logo from "../../assets/img/logo/KenzieMED (1).svg";
 import Medica from "../../assets/img/logo/medica.svg";
 import { TagHeader } from "./headerCSS";
+import { useContext } from "react";
+import { UserContext } from "../../context/AuthContext";
 
 const Header = () => {
-  const login = false;
+  const { login, setLogin } = useContext(UserContext)
 
   return (
     <TagHeader login={login}>
