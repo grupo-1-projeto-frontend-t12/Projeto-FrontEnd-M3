@@ -1,19 +1,20 @@
-import { createContext, useState } from "react";
-import { IAuthContext } from "../interface/IAuthContext";
-import { IAuthProvider } from "../interface/IAuthProvider";
-import { IUser } from "../interface/IUser";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { IPost } from "../interface/IPost";
+import { createContext, useState } from "react";
 import { ICustomizedState } from "../interface/ICustomizedState";
-import { IDoctors } from "../interface/IDoctors";
+import { IAuthProvider } from "../interface/IAuthProvider";
+import { IAuthContext } from "../interface/IAuthContext";
 import { AxiosError } from "axios";
 import { IUserLogin } from "../interface/IUserLogin";
+import { IDoctors } from "../interface/IDoctors";
+import { IUser } from "../interface/IUser";
+import { toast } from "react-toastify";
+import { IPost } from "../interface/IPost";
 import api from "../services/api";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
+
   const [user, setUser] = useState<IUser>({} as IUser);
 
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
@@ -29,7 +30,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const navigate = useNavigate();
 
   const SignIn = async (data: IUserLogin) => {
-    console.log("CLOG DATA SIGNIN 33", data);
     try {
       const res = await api.post<IPost>("/login", data);
 
@@ -63,8 +63,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, SignIn, doctorsList }}
-    >
+      value={{ user, login, setLogin, loading, SignIn, doctorsList }}>
       {children}
     </AuthContext.Provider>
   );

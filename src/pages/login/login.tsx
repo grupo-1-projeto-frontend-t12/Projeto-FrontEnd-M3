@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { AuthContext } from "../../context/AuthContext";
 import { CotainerForm, Modal } from "./loginCSS";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { IUserLogin } from "../../interface/IUserLogin";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 
 
 const schema = yup.object().shape({

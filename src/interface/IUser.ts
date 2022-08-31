@@ -3,12 +3,12 @@ export interface IUser {
     name: string;
     email: string;
     password: string;
-    confirmPassword?: string,
+    confirmPassword?: string;
     cpf: string;
     crm?: string;
     age: string;
-    sex: string,
+    sex: string;
     address: string;
-    type: string,
+    type: string;
     especiality?: string;
   }
