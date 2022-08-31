@@ -13,17 +13,15 @@ export const ContainerMenu = styled.div`
   font-size: 12px;
   font-weight: 500;
   color: var(--color-green3);
-
-  button{
+  button {
     border-radius: 25px;
-    border: none;  
+    border: none;
     width: 100px;
   }
-
-  button:focus{
+  button:focus {
     background-color: var(--color-green);
-    color: var(--color-white);  
+    color: var(--color-white);
     height: 100%;
     border-radius: 25px;
   }
-`
+`;
