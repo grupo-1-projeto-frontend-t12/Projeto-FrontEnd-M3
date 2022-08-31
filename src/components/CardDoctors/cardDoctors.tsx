@@ -5,7 +5,9 @@ import {MdOutlinePlace} from "react-icons/md"
 import { useContext, useState } from "react"
 import { UserContext } from "../../context/AuthContext"
 
-const {doctorsList} = useContext(UserContext)
+// const {doctorsList} = useContext(UserContext)
+
+const doctorsList = [{}]
 
 const CardDoctors = () =>{
 
