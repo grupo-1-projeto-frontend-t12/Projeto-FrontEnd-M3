@@ -1,6 +1,14 @@
+import Footer from "../../components/Footer/footer";
+import Header from "../../components/Header/header";
+
 const Home = () => {
     return(
-        <h1>TEST HOME</h1>
+      <>
+        <Header/>
+        {/* carrossel */}
+        <Footer/>
+      </>
+    
     )
 }
 
