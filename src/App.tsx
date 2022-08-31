@@ -4,11 +4,12 @@ import AuthProvider from "./context/AuthContext";
 
 function App() {
   return (
-    <AuthProvider>
-      <AppDiv>
-        <AllRoutes />
-      </AppDiv>
-    </AuthProvider>
+    <AppDiv>
+      <Header />
+      <Carousel />
+      <Footer />
+    </AppDiv>
+>>>>>>> 186e43cf813ee7659c5ba9df60f68da0f9882334
   );
 }
 
