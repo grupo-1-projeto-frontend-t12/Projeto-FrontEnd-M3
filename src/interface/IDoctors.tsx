@@ -2,7 +2,7 @@ import { IDoctorSchedule } from "./IDoctorSchedule";
 export interface IDoctors{
     email: string,
     name: string,
-    age: number,
+    age: string,
     sex: string,
     type: string
     CRM: string,
