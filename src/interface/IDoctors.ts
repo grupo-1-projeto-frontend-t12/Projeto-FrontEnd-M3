@@ -9,6 +9,6 @@ export interface IDoctors{
     CRM: string;
     address: string;
     speciality: string;
-    schedule: IDoctorSchedule[];
+    schedules: IDoctorSchedule[];
     img: string;
 };

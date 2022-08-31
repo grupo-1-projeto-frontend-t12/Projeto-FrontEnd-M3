@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from "react-router";
+import CorpoClinico from "../pages/CorpoClinico/corpoClinico";
 import Home from "../pages/Home/home";
 import Login from "../pages/Login/login";
 
@@ -9,7 +10,7 @@ const AllRoutes= () => {
       <Route path="*" element={<Navigate to="/" />} />
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      {/* <Route path="/corpoclinico" element={<CorpoClinico />} /> */}
+      <Route path="/corpoclinico" element={<CorpoClinico />} />
     </Routes>
   );
 };

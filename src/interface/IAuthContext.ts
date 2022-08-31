@@ -1,4 +1,6 @@
+import { Dispatch } from "react";
 import { IDoctors } from "./IDoctors";
+import { IDoctorSchedule } from "./IDoctorSchedule";
 import { IUser } from "./IUser";
 import { IUserLogin } from "./IUserLogin";
 
@@ -11,5 +13,11 @@ export interface IAuthContext {
     login: boolean;
     setLogin: (state: boolean) => void;
     loading: boolean;
-    doctorsList: IDoctors[];
+    doctorsList:  IDoctors[];
+    setDoctorsList: Dispatch<React.SetStateAction<IDoctors[]>>;
+    doctorSchedule: IDoctorSchedule[];
+    setDoctorSchedule: Dispatch<React.SetStateAction<IDoctorSchedule[]>>;
+
+    
+ 
 }

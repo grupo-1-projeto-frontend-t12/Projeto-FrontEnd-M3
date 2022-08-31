@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerDoctors = styled.div`
+export const ListDoctors = styled.ul`
 
     background-color: var(--color-green);
     width: 267px;  
@@ -39,4 +39,19 @@ export const ContainerDoctors = styled.div`
         font-size: 20px;
     }
 
+`
+
+
+export const ContainerDoctors = styled.div`
+    width: 80%; 
+    display:flex ;
+    flex-direction: column;   
+    height: 350px;
+    color: var(--color-green3);
+
+   h2{
+    margin-bottom: 20px;
+    }
+
+   
 `
