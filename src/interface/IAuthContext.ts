@@ -12,4 +12,6 @@ export interface IAuthContext {
     setLogin: (state: boolean) => void;
     loading: boolean;
     doctorsList: IDoctors[];
+    isOpenModal: boolean;
+    setIsOpenModal: (state: boolean) => void;
 }

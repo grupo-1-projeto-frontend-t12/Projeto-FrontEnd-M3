@@ -18,9 +18,7 @@ const schema = yup.object().shape({
   
   const Login = () => {
    
-    const { login } = useContext(AuthContext)
-   
-   const {SignIn} = useContext(AuthContext); //AQUI ENTRARÁ A FUNÇÃO "SIGNIN" 
+    const { SignIn, login } = useContext(AuthContext);
   
     const {register, handleSubmit, formState: { errors }} = useForm<IUserLogin>({
       resolver: yupResolver(schema),
