@@ -45,6 +45,14 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     font-family: "Inter", sans-serif;
   }
+
+  input:focus {
+    border: 1px solid var(--color-green2);
+  }
+
+  input:invalid {
+    border: 1px solid red;
+  }
 `;
 
 export default GlobalStyle;
