@@ -1,21 +1,20 @@
-import React from "react";
-import {Routes, Route, Navigate} from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router";
+import Home from "../pages/Home/home";
+import Login from "../pages/Login/login";
 import Register from "../pages/Register/Register";
-import AuthContext from "../context/AuthContext";
 
 
+const AllRoutes= () => {
+  return (
+    <Routes>
+      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={ <Register /> } />
 
+      {/* <Route path="/corpoclinico" element={<CorpoClinico />} /> */}
+    </Routes>
+  );
+};
 
-function AllRoutes() {
-    // const {users, setUsers, onSubmitLogin, navigate, onSubmitRegister } = useContext(allContext) 
-  
-  
-    return (
-      <Routes>
-        <Route path="/register" element={ <Register /> } />
-        <Route path="*" element={ <Navigate replace to="/menu"/> } />
-      </Routes>
-    );
-  }
-  
-  export default AllRoutes;
+export default AllRoutes;
