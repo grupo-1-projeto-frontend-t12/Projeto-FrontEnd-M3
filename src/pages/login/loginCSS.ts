@@ -9,8 +9,7 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-`
+`;
 
 export const CotainerForm = styled.form`
   display: flex;
@@ -30,13 +29,10 @@ export const CotainerForm = styled.form`
   z-index: 9999;
 
   h2 {
-
-
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 700;
 
-    
     font-size: 18px;
     line-height: 28px;
 
@@ -46,8 +42,8 @@ export const CotainerForm = styled.form`
   label {
     position: relative;
     align-self: baseline;
-    
-    font-family: 'Inter';
+
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 12.182px;
@@ -72,7 +68,7 @@ export const CotainerForm = styled.form`
     border-radius: 4px;
   }
 
-  span{
+  span {
     bottom: 58px;
     left: 365px;
 
@@ -114,7 +110,7 @@ export const CotainerForm = styled.form`
   }
 
   p {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 12px;

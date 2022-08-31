@@ -5,8 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const CardDoctors = () => {
-
-  const { doctorsList } = useContext(AuthContext)
+  const { doctorsList } = useContext(AuthContext);
 
   return (
     <ContainerDoctors>

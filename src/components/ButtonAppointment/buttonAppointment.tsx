@@ -1,14 +1,7 @@
-import { Button } from "./buttonStyle"
+import { Button } from "./buttonStyle";
 
-const ButtonAppointment = () =>{
+const ButtonAppointment = () => {
+  return <Button>Agendar Consulta / Exames</Button>;
+};
 
-
- return (
-   <Button>
-    Agendar Consulta / Exames
-   </Button>
- )
-
-}
-
-export default ButtonAppointment
+export default ButtonAppointment;
