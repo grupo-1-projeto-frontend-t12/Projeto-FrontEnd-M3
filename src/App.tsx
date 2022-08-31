@@ -7,8 +7,7 @@ function App() {
   return (
     <AuthContext>
       <AppDiv>
-        {/* <AllRoutes /> */}
-        <Login/>
+        <AllRoutes />
       </AppDiv>
     </AuthContext>
   );
