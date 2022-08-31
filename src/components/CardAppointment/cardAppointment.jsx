@@ -18,8 +18,7 @@ const CardAppointment = () =>{
                     <h3><BsCalendar3/> dia da semana</h3>
                     <h3><AiOutlineClockCircle/> horario</h3>
                     <h3><MdOutlinePlace/> Endereço</h3>
-                </div>
-              
+                </div>              
                 </>
             }
 
