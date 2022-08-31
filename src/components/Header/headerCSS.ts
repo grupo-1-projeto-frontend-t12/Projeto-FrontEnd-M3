@@ -60,8 +60,8 @@ export const TagHeader = styled.header<IHeaderProps>`
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    height: 68%;
+    align-items: end;
+    height: 60%;
 
     @media screen and (min-width: 768px) {
       position: absolute;
