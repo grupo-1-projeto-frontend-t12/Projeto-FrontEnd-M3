@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import AuthProvider, { IUser, AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { Modal, CotainerForm } from "./modalLoginCSS";
+import { IUser } from "../../interface/IUser";
 
 
 const schema = yup.object({
@@ -18,19 +19,19 @@ const schema = yup.object({
   const Login = () => {
     const { login } = useContext(AuthContext)
   
-    /* const {SignIn} = useContext(AuthContext); */ //AQUI ENTRARÁ A FUNÇÃO "SIGNIN" 
+    const {SignIn} = useContext(AuthContext); //AQUI ENTRARÁ A FUNÇÃO "SIGNIN" 
   
     const {register, handleSubmit, formState: { errors }} = useForm<IUser>({
       resolver: yupResolver(schema),
     });
   
-    /* const navigate = useNavigate(); */ // USAR NO PUSH PRO CADASTRAR
+    const navigate = useNavigate(); // USAR NO PUSH PRO CADASTRAR
   
     return (
       <>
       {login && 
         <Modal>
-            <CotainerForm /* onSubmit={handleSubmit(SignIn)} */>
+            <CotainerForm onSubmit={handleSubmit(SignIn)}>
             <h2>Login</h2>
             <label htmlFor="email">Email</label>
             <input type="text" id="email" placeholder="Digite aqui seu E-Mail"
@@ -49,9 +50,9 @@ const schema = yup.object({
             <p>Ainda não possui uma conta ?</p>
             <button
             className="btnCadastrar"
-            /* onClick={() => {
+            onClick={() => {
               navigate("/register");
-            }} */
+            }}
           >
             Clique aqui para realizar cadastro!
           </button>
