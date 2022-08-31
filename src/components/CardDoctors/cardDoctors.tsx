@@ -1,12 +1,14 @@
 import { ContainerDoctors } from "./cardDoctorsStyle";
 import { BsCalendar3 } from "react-icons/bs";
 import { MdOutlinePlace } from "react-icons/md";
-import { useContext, useState } from "react";
-import AuthContext from "../../context/AuthContext";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
-const {doctorsList} = useContext(AuthContext)
 
 const CardDoctors = () => {
+
+  const { doctorsList } = useContext(AuthContext)
+
   return (
     <ContainerDoctors>
       {doctorsList.map((doctor) => (

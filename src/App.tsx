@@ -1,15 +1,14 @@
 import { AppDiv } from "./styles/appCSS/AppCSS";
-import Header from "./components/Header/header";
-import Footer from "./components/Footer/footer";
-import CardAppointment from "./components/CardAppointment/cardAppointment";
+import AllRoutes from "./routes/Routes";
+import AuthProvider from "./context/AuthContext";
 
 function App() {
   return (
+    <AuthProvider>
       <AppDiv>
-        <Header />
-        
-        <Footer />
+        <AllRoutes />
       </AppDiv>
+    </AuthProvider>
   );
 }
 
