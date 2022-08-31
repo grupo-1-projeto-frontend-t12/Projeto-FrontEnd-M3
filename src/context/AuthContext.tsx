@@ -13,9 +13,10 @@ export interface IUser {
     sex: string,
     address: string;
     type: string,
+    especiality?: string;
   }
 
-  export interface IProviderProps {
+  export interface IAuthContext {
       user: IUser;
       /* SignIn: (data: IUser) => void; */                     //ENTRARÁ A FUNÇÃO DE LOGIN VINDA DA API
       /* CreateNewConsult: (data: ITechs) => void; */          //ENTRARÁ A FUNÇÃO DE CADASTRAR NOVA CONSULTA
@@ -26,30 +27,34 @@ export interface IUser {
       loading: boolean;
   }
 
-export interface IContextProvider { 
+export interface IAuthProvider { 
     children: ReactNode; 
 }
 
 
-export const UserContext = createContext<IProviderProps>({} as IProviderProps);
+export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
-const AuthContext = ({ children }: IContextProvider) => {
+const AuthProvider = ({ children }: IAuthProvider) => {
 
     const [user, setUser] = useState<IUser>({} as IUser);
+
+    const [ doctorsList , setDoctorsList ] = useState([]);
 
     const [loading, setLoading] = useState(true);
 
     const [ login, setLogin ] = useState(false);
+
+    const [ isOpenModal, setIsOpenModal ] = useState(false);
 
    /*  const location = useLocation(); */
 
    /*  const navigate = useNavigate(); */
 
     return (
-        <UserContext.Provider value={{user, login, setLogin, loading}}>
+        <AuthContext.Provider value={{user, login, setLogin, loading}}>
             {children}
-        </UserContext.Provider>
+        </AuthContext.Provider>
     )
 }
 
-export default AuthContext;
+export default AuthProvider;

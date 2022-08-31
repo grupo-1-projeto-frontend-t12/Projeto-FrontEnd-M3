@@ -1,4 +1,4 @@
-import { ContainerMenu } from "./menuStyle";
+import { ContainerMenu } from "./menuStyle"
 
 const Menu = () => {
   return (
