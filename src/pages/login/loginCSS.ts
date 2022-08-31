@@ -66,6 +66,10 @@ export const CotainerForm = styled.form`
 
     border: none;
     border-radius: 4px;
+
+    :focus {
+      border: 1px solid var(--color-green2);
+    }
   }
 
   span {
@@ -132,5 +136,10 @@ export const CotainerForm = styled.form`
     color: var(--color-green);
 
     border: none;
+
+    :hover {
+      text-decoration: underline;
+      font-weight: 600;
+    }
   }
 `;

@@ -1,11 +1,18 @@
-import { ContainerMenu } from "./menuStyle"
+import { useNavigate } from "react-router-dom";
+import { ContainerMenu } from "./menuStyle";
 
 const Menu = () => {
+  const navigate = useNavigate();
+
+  const toDoctorsPage = () => {
+    navigate("/corpoClinico", { replace: true });
+  };
+
   return (
     <ContainerMenu>
-      <button><a>Corpo Clínico</a></button>
-      <button><a>Exames</a></button>
-      <button><a>Unidades</a></button>
+      <button onClick={toDoctorsPage}>Corpo Clínico</button>
+      <button>Exames</button>
+      <button>Unidades</button>
     </ContainerMenu>
   );
 };

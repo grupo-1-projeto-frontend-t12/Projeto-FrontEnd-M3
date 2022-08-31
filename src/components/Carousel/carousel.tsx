@@ -1,8 +1,8 @@
-import React from "react";
 import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-import "./carouselCSS.css";
 import { useEffect, useState } from "react";
+import "./carouselCSS.ts";
+import "react-slideshow-image/dist/styles.css";
+import { AppCarouselWrapper } from "./carouselCSS";
 
 const Carousel = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -28,7 +28,7 @@ const Carousel = () => {
   ];
 
   return (
-    <div className="app__carousel--wrapper">
+    <AppCarouselWrapper>
       {width > 1200 ? (
         <Slide slidesToScroll={3} slidesToShow={3}>
           <div className="app__carousel--slide-div mini_slide">
@@ -49,6 +49,27 @@ const Carousel = () => {
             <img
               className="app__carousel--image"
               src={carouselPictures[2]}
+              alt="just another img"
+            />
+          </div>
+          <div className="app__carousel--slide-div mini_slide">
+            <img
+              className="app__carousel--image"
+              src={carouselPictures[3]}
+              alt="just another img"
+            />
+          </div>
+          <div className="app__carousel--slide-div mini_slide">
+            <img
+              className="app__carousel--image"
+              src={carouselPictures[4]}
+              alt="just another img"
+            />
+          </div>
+          <div className="app__carousel--slide-div mini_slide">
+            <img
+              className="app__carousel--image"
+              src={carouselPictures[5]}
               alt="just another img"
             />
           </div>
@@ -76,9 +97,30 @@ const Carousel = () => {
               alt="just another img"
             />
           </div>
+          <div className="app__carousel--slide-div">
+            <img
+              className="app__carousel--image"
+              src={carouselPictures[3]}
+              alt="just another img"
+            />
+          </div>
+          <div className="app__carousel--slide-div">
+            <img
+              className="app__carousel--image"
+              src={carouselPictures[4]}
+              alt="just another img"
+            />
+          </div>
+          <div className="app__carousel--slide-div">
+            <img
+              className="app__carousel--image"
+              src={carouselPictures[5]}
+              alt="just another img"
+            />
+          </div>
         </Slide>
       )}
-    </div>
+    </AppCarouselWrapper>
   );
 };
 
