@@ -1,4 +1,5 @@
 export interface IDoctorSchedule {
-    date: string,
-    id: number
+    dia: string;
+    id: number;
+    hora: string;
 }
