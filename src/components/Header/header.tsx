@@ -16,7 +16,7 @@ const Header = () => {
         <img src={Logo} alt="Logo KenzieMED" />
         <div className="container-buttons">
           <Menu />
-          {!login ? <ButtonAppointment /> : null}
+          <ButtonAppointment />
         </div>
       </div>
       {login ? (

@@ -13,9 +13,9 @@ const AllRoutes = () => {
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/corpoclinico" element={<CorpoClinico />} />  
         <Route path="/corpoclinico/doctor:id" element={<Doctor />} />       
-      <Route path="/register" element={<Register />} />
       </Routes>
     </AnimatePresence>
   );

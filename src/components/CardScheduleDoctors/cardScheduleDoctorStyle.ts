@@ -61,7 +61,6 @@ export const ContainerSchedule = styled.div`
 
 export const ContainerRenderDoctorSchedule = styled.div`
   width: 80%;
-  min-height: 60%;
   max-width: 1395px;
   margin-top: 20px;
   display: flex;

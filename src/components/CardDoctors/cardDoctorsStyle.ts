@@ -58,7 +58,7 @@ export const ListDoctors = styled.ul`
 export const ContainerDoctors = styled.div`
   width: 80%;
   max-width: 1395px;
-  min-height: 60%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
