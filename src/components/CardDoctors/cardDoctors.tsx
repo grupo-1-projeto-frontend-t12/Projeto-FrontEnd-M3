@@ -3,13 +3,12 @@ import { BsCalendar3 } from "react-icons/bs";
 import { MdOutlinePlace} from "react-icons/md";
 import { useContext, useEffect } from "react";
 import api from "../../services/api";
-
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 
 const CardDoctors = () => {
-  const { setDoctorsList, doctorsList, setDoctorSchedule, setDoctor} =
+  const { setDoctorsList, doctorsList, setDoctorSchedule, setDoctor } =
     useContext(AuthContext);
 
     const navigate = useNavigate();
