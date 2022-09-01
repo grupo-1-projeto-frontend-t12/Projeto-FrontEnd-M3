@@ -31,7 +31,7 @@ const CardDoctors = () => {
       {doctorsList ? (
         <ListDoctors>
           {doctorsList.map((doctor) => (
-            <li  onClick={() => {     
+            <li key={doctor.id} onClick={() => {     
               setDoctorSchedule(doctor.schedules); 
               setDoctor(doctor)
               navigate(`/corpoclinico/doctor:${doctor.id}`)
