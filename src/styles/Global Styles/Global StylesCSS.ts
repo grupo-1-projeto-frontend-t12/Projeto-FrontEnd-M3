@@ -33,15 +33,6 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
-  #root{   
-    width: 100vw;
-    height: 100vh;
-    display  :flex ;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-  }
-
   button {
     cursor: pointer;
     font-family: "Inter", sans-serif;
