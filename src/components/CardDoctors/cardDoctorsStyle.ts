@@ -7,6 +7,7 @@ export const ListDoctors = styled.ul`
       gap: 15px;
       justify-content: center;
       overflow-y: auto;
+      justify-content: flex-start;
 
     li{
         background-color: var(--color-green);
@@ -14,6 +15,11 @@ export const ListDoctors = styled.ul`
         color: var(--color-white);
         border-radius: 8px;
         padding: 10px;
+        cursor: pointer;
+    }
+
+    li:hover{
+      transform: scale(1.02);
     }
 
       h2 {

@@ -20,6 +20,7 @@ export const ContainerSchedule = styled.div`
     flex-wrap: wrap;
 
     gap: 15px;
+    margin-top: 15px;
 
     width: 100%;
   }
@@ -34,6 +35,10 @@ export const ContainerSchedule = styled.div`
     height: 30px;
     border-radius: 4px;
   }
+
+  li:hover{
+      transform: scale(1.02);
+    }
 
   .containerList {
     display: flex;
