@@ -1,6 +1,6 @@
 import { IUser } from "./IUser";
 
 export interface IPost {
-    user: IUser;
-    token: string;
-}
+  user: IUser;
+  token: string;
+};

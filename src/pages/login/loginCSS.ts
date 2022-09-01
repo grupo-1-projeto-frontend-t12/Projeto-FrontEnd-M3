@@ -9,10 +9,10 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-`
+`;
 
 export const CotainerForm = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,24 +30,38 @@ export const CotainerForm = styled.form`
   z-index: 9999;
 
   h2 {
-
-
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 700;
 
-    
     font-size: 18px;
     line-height: 28px;
 
     color: var(--color-green3);
   }
 
+  .btnClose {
+    position: absolute;
+    right: 24px;
+    top: 12px;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: none;
+    width: 25px;
+    height: 22px;
+    border-radius: 5px;
+    font-weight: bold;
+
+    :hover {
+      background-color: var(--color-green2);
+    }
+  }
+
   label {
     position: relative;
     align-self: baseline;
-    
-    font-family: 'Inter';
+
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 12.182px;
@@ -70,9 +84,13 @@ export const CotainerForm = styled.form`
 
     border: none;
     border-radius: 4px;
+
+    :focus {
+      border: 1px solid var(--color-green2);
+    }
   }
 
-  span{
+  span {
     bottom: 58px;
     left: 365px;
 
@@ -114,7 +132,7 @@ export const CotainerForm = styled.form`
   }
 
   p {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -136,5 +154,10 @@ export const CotainerForm = styled.form`
     color: var(--color-green);
 
     border: none;
+
+    :hover {
+      text-decoration: underline;
+      font-weight: 600;
+    }
   }
 `;
