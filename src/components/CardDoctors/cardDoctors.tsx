@@ -9,13 +9,17 @@ const CardDoctors = () => {
 
   const { setDoctorsList, doctorsList, setDoctorSchedule } = useContext(AuthContext)
 
-  const getDoctor = async () =>{
+ /*  const getDoctor = async () =>{
     const response = await api.get('/doctors')    
     setDoctorsList(response.data)
-  }
+  } */
   useEffect(()=>{
+    const getDoctor = async () =>{
+      const response = await api.get('/doctors')    
+      setDoctorsList(response.data)
+    }
     getDoctor()
-  },[])
+  },[setDoctorsList])
 
   return (
 

@@ -7,7 +7,6 @@ import { AuthContext } from "../../context/AuthContext";
 import { IUser } from "../../interface/IUser";
 import { ContainerRegister } from "./registerCSS";
 import Header from "../../components/Header/header";
-import { TagHeader } from "../../components/Header/headerCSS";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
 

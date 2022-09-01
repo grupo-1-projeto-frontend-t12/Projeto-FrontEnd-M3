@@ -15,18 +15,17 @@ import { IDoctorSchedule } from "../interface/IDoctorSchedule";
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-
-  const [user, setUser] = useState<IUser>({} as IUser); 
+  const [user, setUser] = useState<IUser>({} as IUser);
 
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
-  
+
   const [doctorSchedule, setDoctorSchedule] = useState<IDoctorSchedule[]>([]);
 
   const [loading, setLoading] = useState(true);
 
   const [login, setLogin] = useState(false);
 
-  const [ isOpenModal, setIsOpenModal ] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const location = useLocation();
 
@@ -42,7 +41,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       localStorage.setItem("@context-KenzieMed:token", token);
 
-      setLogin(true)
+      setLogin(true);
 
       const state = location.state as ICustomizedState;
 
@@ -66,22 +65,37 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
-  const onSubmitRegister = (data:IUser) => {
-    console.log(data)
-    api.post<IPost>("users", data)
-    .then((response) => {
-      console.log(`Register`, response);
+  const onSubmitRegister = (data: IUser) => {
+    console.log(data);
+    api
+      .post<IPost>("users", data)
+      .then((response) => {
+        console.log(`Register`, response);
         toast.success("Cadastro efetuado com sucesso");
         navigate("/login");
       })
       .catch((_) => toast.error("Ops, Algo deu errado"));
-      console.log(data)
+    console.log(data);
   };
-
 
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule, isOpenModal, setIsOpenModal }}>
+      value={{
+        user,
+        login,
+        setLogin,
+        loading,
+        setLoading,
+        SignIn,
+        onSubmitRegister,
+        doctorsList,
+        setDoctorsList,
+        doctorSchedule,
+        setDoctorSchedule,
+        isOpenModal,
+        setIsOpenModal,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
