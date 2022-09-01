@@ -10,7 +10,7 @@ const Menu = () => {
 
   return (
     <ContainerMenu>
-      <button onClick={() => toDoctorsPage}>Corpo Clínico</button>
+      <button onClick={toDoctorsPage}>Corpo Clínico</button>
       <button>Exames</button>
       <button>Unidades</button>
     </ContainerMenu>

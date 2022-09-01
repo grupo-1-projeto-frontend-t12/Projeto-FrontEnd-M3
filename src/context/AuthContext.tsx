@@ -69,7 +69,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       const state = location.state as ICustomizedState;
 
-      let toNavigate = "/home";//dashboard;
+      let toNavigate = "/dashboard";
 
       if (state) {
         toNavigate = state.from;

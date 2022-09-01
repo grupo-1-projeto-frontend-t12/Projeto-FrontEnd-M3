@@ -41,7 +41,7 @@ const Login = () => {
           <Modal>
             <CotainerForm onSubmit={handleSubmit(SignIn)}>
               <h2>Login</h2>
-              <button className="btnClose" onClick={() => navigate("/", { replace: true })}>X</button>
+              <button className="btnClose" type="button" onClick={() => navigate("/", { replace: true })}>X</button>
               <label htmlFor="email">Email</label>
               <input
                 type="text"

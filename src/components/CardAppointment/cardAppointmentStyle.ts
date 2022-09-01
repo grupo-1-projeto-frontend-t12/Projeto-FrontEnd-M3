@@ -1,48 +1,45 @@
 import styled from "styled-components";
 
-export const ContainerCardAppointment = styled.div`
+export const ListDoctors = styled.ul`
   background-color: var(--color-green);
   width: 267px;
-  height: 120px;
   color: var(--color-white);
   border-radius: 8px;
   padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
+  h2 {
+    font-size: 18px;
+    font-weight: 800;
+  }
+  span {
+    font-size: 12px;
+    font-weight: 300;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
   .containerHeader {
     display: flex;
     width: 100%;
     justify-content: space-between;
   }
-
   .containerHeader button {
     background-color: transparent;
-    color: var(--color-white);
     border: none;
-    font-size: 8px;
+    color: var(--color-white);
+    font-size: 20px;
   }
-  .containerHeader button:hover {
-    color: var(--color-green2);
-  }
+`;
 
+export const ContainerCardAppointment = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  color: var(--color-green3);
   h2 {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  span {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .containerDataAppointment {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .containerDataAppointment h3 {
-    font-size: 12px;
-    font-weight: 300;
+    margin-bottom: 20px;
   }
 `;

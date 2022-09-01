@@ -9,17 +9,13 @@ const CardDoctors = () => {
 
   const { setDoctorsList, doctorsList, setDoctorSchedule } = useContext(AuthContext)
 
- /*  const getDoctor = async () =>{
+  const getDoctor = async () =>{
     const response = await api.get('/doctors')    
     setDoctorsList(response.data)
-  } */
+  }
   useEffect(()=>{
-    const getDoctor = async () =>{
-      const response = await api.get('/doctors')    
-      setDoctorsList(response.data)
-    }
     getDoctor()
-  },[setDoctorsList])
+  },[])
 
   return (
 
@@ -31,8 +27,7 @@ const CardDoctors = () => {
                 <div className="containerHeader">
                   <h2>{doctor.name}</h2>
                   <button onClick={() => {                    
-                     setDoctorSchedule(doctor.schedules)
-                     console.log(doctor.schedules)
+                     setDoctorSchedule(doctor.schedules!)
                   } }>
                     <BsCalendar3 />
                   </button>

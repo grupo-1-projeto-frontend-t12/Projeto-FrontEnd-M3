@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
-export const TagFormUser = styled.form`
+export const TagDivUser = styled.div`
 display: flex;
 flex-direction: row;
+align-items: flex-start;
 
-position: relative;
-bottom: 85px;
+position: absolute;
+top: 253px;
 
+gap: 6px;
+padding: 8px;
 
-width: 100%;
+width: 95%;
+max-width: 1257px;
 height: 100px;
+
 
 button{
     display: flex;
@@ -36,6 +41,7 @@ button{
 }
 
 div{
+    
     display: flex;
     flex-direction: column;
 

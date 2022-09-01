@@ -1,42 +1,41 @@
 import { RiAccountCircleLine } from "react-icons/ri";
-import { ContainerHeader } from "./dashboardStyles";
 import { ContainerCards } from "./containerCardsStyles";
+import { DivModalPerfil } from "./divModalPerfil";
 import { AuthContext } from "../../context/AuthContext";
-import { TagFormUser } from "./tagFormUserStyles";
+import { TagDivUser } from "./tagDivUserStyles";
 import { useContext } from "react";
+import CardAppointment from "../../components/CardAppointment/cardAppointment";
+import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
 import Footer from "../../components/Footer/footer";
-import Menu from "../../components/Menu/menu";
-import CardDoctors from "../../components/CardDoctors/cardDoctors";
+import Header from "../../components/Header/header";
 
 const Dashboard = () => {
-  const Logo: string = require("../../assets/img/logo/KenzieMED.png");
 
-  const { setIsOpenModal, user } = useContext(AuthContext);
+  const { isOpenModal, setIsOpenModal, user } = useContext(AuthContext);
 
   return (
     <>
-      <ContainerHeader>
-        <div className="container">
-          <img src={Logo} alt="Logo KenzieMED" />
-          <div className="container-buttons">
-            <Menu />
-          </div>
-        </div>
-      </ContainerHeader>
+      <Header />
 
-      <TagFormUser onSubmit={() => setIsOpenModal(true)}>
-        <button type="submit">
+      <TagDivUser>
+        <button type="button" onClick={() => setIsOpenModal(true)}>
           <RiAccountCircleLine className="Icon" />
-          Editar
+          Perfil
         </button>
         <div>
           <p>Olá,</p>
-          <span>{user.name}BatataFrita de Albuquerque</span>
+          <span>{user.name}</span>
         </div>
-      </TagFormUser>
+      </TagDivUser>
+
+      {isOpenModal && (
+        <DivModalPerfil>
+          <InfoUserDoc />
+        </DivModalPerfil>
+      )}
 
       <ContainerCards>
-        <CardDoctors />
+        <CardAppointment />
       </ContainerCards>
 
       <Footer />
