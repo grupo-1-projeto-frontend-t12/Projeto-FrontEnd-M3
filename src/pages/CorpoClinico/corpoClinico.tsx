@@ -7,12 +7,14 @@ import Menu from "../../components/Menu/menu";
 import ButtonAppointment from "../../components/ButtonAppointment/buttonAppointment";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import Header from "../../components/Header/header";
 
 const CorpoClinico = () => {
   const { itemFilter, doctorsList } = useContext(AuthContext);
   return (
     <>
-      <ContainerCorpoClinicoHeader>
+    <Header />
+      {/* <ContainerCorpoClinicoHeader>
         <div className="container">
           <img src={Logo} alt="Logo KenzieMED" />
           <div className="menus">
@@ -23,7 +25,7 @@ const CorpoClinico = () => {
           </div>
         </div>
         <SearchBar />
-      </ContainerCorpoClinicoHeader>
+      </ContainerCorpoClinicoHeader> */}
       {itemFilter.length > 0 ? (
         <CardDoctors doctorsList={itemFilter} />
       ) : (

@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 export const ContainerCorpoClinicoHeader = styled.div`   
     width: 100%;   
-    height : 290px;
+    height : 250px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 
     background: var(--bg-color-linear);
@@ -18,7 +18,7 @@ export const ContainerCorpoClinicoHeader = styled.div`
         .container{
         width: 95%;
         max-width: 1200px;        
-        margin-top: 40px;
+      
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -51,7 +51,7 @@ export const ContainerCorpoClinicoHeader = styled.div`
     gap: 15px;
 
     @media (min-width: 100px) and  (max-width: 768px) {
-      display: none;
+      height: 50px;
     }
   }
 `
