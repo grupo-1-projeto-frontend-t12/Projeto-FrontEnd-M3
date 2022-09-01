@@ -5,8 +5,11 @@ import Logo from "../../assets/img/logo/KenzieMED (1).svg";
 import { ContainerCorpoClinicoHeader } from "./corpoClinicoStyle";
 import Menu from "../../components/Menu/menu";
 import ButtonAppointment from "../../components/ButtonAppointment/buttonAppointment";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const CorpoClinico = () => {
+  const { itemFilter, doctorsList } = useContext(AuthContext);
   return (
     <>
       <ContainerCorpoClinicoHeader>
@@ -21,8 +24,11 @@ const CorpoClinico = () => {
         </div>
         <SearchBar />
       </ContainerCorpoClinicoHeader>
-
-      <CardDoctors />
+      {itemFilter.length > 0 ? (
+        <CardDoctors doctorsList={itemFilter} />
+      ) : (
+        <CardDoctors doctorsList={doctorsList} />
+      )}
       <Footer />
     </>
   );
