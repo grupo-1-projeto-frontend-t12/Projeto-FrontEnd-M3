@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import { AppCarouselWrapper } from "./carouselCSS";
+import "./carouselCSS.css";
 
 const Carousel = () => {
   const responsiveSettings = [
