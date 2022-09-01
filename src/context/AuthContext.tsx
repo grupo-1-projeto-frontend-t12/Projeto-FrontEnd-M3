@@ -79,7 +79,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
+      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
       {children}
     </AuthContext.Provider>
   );
