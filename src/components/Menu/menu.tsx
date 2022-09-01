@@ -4,15 +4,11 @@ import { ContainerMenu } from "./menuStyle";
 const Menu = () => {
   const navigate = useNavigate();
 
-  const toDoctorsPage = () => {
-    navigate("/corpoClinico", { replace: true });
-  };
-
   return (
     <ContainerMenu>
-      <button onClick={toDoctorsPage}>Corpo Clínico</button>
+      <button onClick={() => navigate("/", { replace: true })}>Home</button>
+      <button onClick={() => navigate("/corpoclinico", { replace: true })}>Corpo Clínico</button>
       <button>Exames</button>
-      <button>Unidades</button>
     </ContainerMenu>
   );
 };

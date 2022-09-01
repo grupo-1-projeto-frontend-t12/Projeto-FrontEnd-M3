@@ -30,7 +30,7 @@ export const ContainerRegister = styled.div`
     border-radius: 4px;
   }
   .spanRegister {
-    color: var(--color-green3);
+    color: var(--color-green);
     font-size: 1.7rem;
     font-weight: bold;
     margin-bottom: 15px;

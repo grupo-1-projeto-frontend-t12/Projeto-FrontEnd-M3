@@ -15,10 +15,12 @@ export const ContainerSchedule = styled.div`
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0;
+    flex-wrap: wrap;
 
-    gap: 5px;
+    gap: 15px;
+    margin-top: 15px;
 
     width: 100%;
   }
@@ -34,6 +36,10 @@ export const ContainerSchedule = styled.div`
     border-radius: 4px;
   }
 
+  li:hover{
+      transform: scale(1.02);
+    }
+
   .containerList {
     display: flex;
     gap: 5px;
@@ -43,8 +49,10 @@ export const ContainerSchedule = styled.div`
     background-color: transparent;
     border: none;
     color: var(--color-green3);
-
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   button:hover {
     color: var(--color-green2);
@@ -53,13 +61,27 @@ export const ContainerSchedule = styled.div`
 
 export const ContainerRenderDoctorSchedule = styled.div`
   width: 80%;
+  max-width: 1395px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
+
   height: 350px;
   color: var(--color-green3);
 
   .doctorData {
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .doctorData button{
+    background-color: transparent;
+    color: var(--color-green3);
+    border: none;
+  }
+
+  .doctorData button:hover{
+    color: var(--color-green2);
   }
 `;

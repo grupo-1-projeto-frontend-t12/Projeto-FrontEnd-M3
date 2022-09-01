@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { ICustomizedState } from "../interface/ICustomizedState";
+import { IDoctorSchedule } from "../interface/IDoctorSchedule";
 import { IAuthProvider } from "../interface/IAuthProvider";
 import { IAuthContext } from "../interface/IAuthContext";
 import { AxiosError } from "axios";
@@ -10,41 +11,73 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
-import { IDoctorSchedule } from "../interface/IDoctorSchedule";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-
-  const [user, setUser] = useState<IUser>({} as IUser); 
-
+  const [user, setUser] = useState<IUser>({} as IUser);
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
-  
+  const [doctor, setDoctor] = useState<IDoctors>({} as IDoctors);
   const [doctorSchedule, setDoctorSchedule] = useState<IDoctorSchedule[]>([]);
-
   const [loading, setLoading] = useState(true);
-
   const [login, setLogin] = useState(false);
-
+  const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
+  const [inputFilter, setInputFilter] = useState("");
   const location = useLocation();
-
   const navigate = useNavigate();
+
+  /*   useEffect(() => {
+    async function loadUser() {
+      const token = localStorage.getItem("@context-KenzieMed:token");
+      
+      
+      if (token) {
+        try {
+          const user: IUser = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!)
+          api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+          const { data } = await api.get<IUser>(`/users/${user.id}`)//userid; //CONFERIR SE A ROTA É USER MESMO
+          setUser(data);
+        
+        } catch (error) {
+          console.log("LOG DO CATCH TRY TOKEN loadUser", error);
+        }
+      } else {
+        navigate("/");
+      }
+      setLoading(false);
+    }
+    loadUser();
+  }, []); */
+  
+  const getDoctor = async () => {
+    const response = await api.get("/doctors");
+    setDoctorsList(response.data);
+  };
+
+  useEffect(() => {
+    getDoctor();
+  }, []);
+
 
   const SignIn = async (data: IUserLogin) => {
     try {
       const res = await api.post<IPost>("/login", data);
-
-      const { user: userResponse, token } = res.data;
+      const { user: userResponse } = res.data;
+      const token = JSON.stringify(res.data.accessToken);
 
       setUser(userResponse);
 
+      localStorage.setItem(
+        "@context-KenzieMed:userId",
+        JSON.stringify(userResponse)
+      );
       localStorage.setItem("@context-KenzieMed:token", token);
 
-      setLogin(true)
+      setLogin(true);
 
       const state = location.state as ICustomizedState;
 
-      let toNavigate = "/home";
+      let toNavigate = "/home"; //dashboard;
 
       if (state) {
         toNavigate = state.from;
@@ -64,22 +97,55 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
-  const onSubmitRegister = (data:IUser) => {
-    console.log(data)
-    api.post<IPost>("users", data)
-    .then((response) => {
-      console.log(`Register`, response);
+  const onSubmitRegister = (data: IUser) => {
+    console.log(data);
+    api
+      .post<IPost>("/users", data)
+      .then((response) => {
+        console.log(`Register`, response);
         toast.success("Cadastro efetuado com sucesso");
         navigate("/login");
       })
-      .catch((_) => toast.error("Ops, Algo deu errado"));
-      console.log(data)
+      .catch((error) => {
+        toast.error("Ops, Algo deu errado");
+        console.log(error);
+      });
   };
 
+  const filterDoctors = (inputFilter: string) => {
+    const ArrayfilterDoctors = doctorsList.filter((elem) =>
+      elem.speciality.toLowerCase().includes(inputFilter.toLowerCase())
+    );
 
+    if (itemFilter.length < 0) {
+      setItemFilter(doctorsList);
+    } else {
+      setItemFilter(ArrayfilterDoctors);
+    }
+  };
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
+      value={{
+        user,
+        login,
+        setLogin,
+        loading,
+        setLoading,
+        SignIn,
+        onSubmitRegister,
+        doctorsList,
+        setDoctorsList,
+        doctorSchedule,
+        setDoctorSchedule,
+        itemFilter,
+        filterDoctors,
+        setItemFilter,
+        inputFilter,
+        setInputFilter,
+        doctor,
+        setDoctor,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
