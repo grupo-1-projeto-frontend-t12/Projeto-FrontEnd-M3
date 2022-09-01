@@ -1,21 +1,20 @@
-.app__carousel--wrapper {
-  width: 95%;
-  align-self: center;
-  background: none;
-}
-
-.app__carousel--slide-div {
-  overflow: hidden;
+#app__carousel {
   display: flex;
+  width: 100vw;
   justify-content: center;
   align-items: center;
 }
 
-.app__carousel--image {
-  height: 20rem;
+.app__carousel--wrapper {
+  max-width: 95vw;
+  align-self: center;
+  justify-self: center;
+  background: none;
 }
 
-.mini_slide {
-  max-width: 33%;
-  height: 100%;
+.app__carousel--img-box > div {
+  background-size: cover;
+  margin: 0 auto;
+  aspect-ratio: 424/238;
+  width: 90%;
 }
