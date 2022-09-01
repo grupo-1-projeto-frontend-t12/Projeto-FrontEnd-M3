@@ -15,7 +15,7 @@ const InfoUserDoc = () => {
     return(
         <TagDiv>
             <button className="btnEdit"><RiUserSettingsLine/>Editar perfil</button>
-            <button className="btnExit"onClick={Logout} ><MdLogout/>Sair</button>
+            <button className="btnExit"onClick={() => Logout} ><MdLogout/>Sair</button>
         </TagDiv>
     )
 }

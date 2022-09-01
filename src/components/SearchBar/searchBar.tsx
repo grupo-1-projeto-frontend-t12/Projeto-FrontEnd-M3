@@ -10,7 +10,7 @@ const SearchBar = () => {
         </div>
         <div className="containerINput">
           <input type="text" placeholder="Procurar médico por especialidade" />
-          <button>
+          <button type="button">
             <AiOutlineSearch />
           </button>
         </div>
