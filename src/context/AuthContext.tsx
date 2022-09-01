@@ -19,6 +19,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [user, setUser] = useState<IUser>({} as IUser); 
 
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
+
+  const [doctor, setDoctor] = useState<IDoctors>({} as IDoctors);
   
   const [doctorSchedule, setDoctorSchedule] = useState<IDoctorSchedule[]>([]);
 
@@ -105,7 +107,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
+      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule, doctor, setDoctor }}>
       {children}
     </AuthContext.Provider>
   );
