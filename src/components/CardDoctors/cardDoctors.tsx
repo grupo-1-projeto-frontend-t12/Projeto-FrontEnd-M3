@@ -1,28 +1,23 @@
 import { ContainerDoctors, ListDoctors } from "./cardDoctorsStyle";
 import { BsCalendar3 } from "react-icons/bs";
-import { MdOutlinePlace} from "react-icons/md";
+import { MdOutlinePlace } from "react-icons/md";
 import { useContext, useEffect } from "react";
 import api from "../../services/api";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-
 const CardDoctors = () => {
-  const { setDoctorsList, doctorsList, setDoctorSchedule, setDoctor } =
-    useContext(AuthContext);
+  const { setDoctorsList, doctorsList, setDoctorSchedule, setDoctor } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const getDoctor = async () => {
-      const response = await api.get("/doctors");
-      setDoctorsList(response.data);        
+    const response = await api.get("/doctors");
+    setDoctorsList(response.data);
   };
   useEffect(() => {
     getDoctor();
   });
-
-
-
 
   return (
     <ContainerDoctors>
@@ -30,22 +25,21 @@ const CardDoctors = () => {
       {doctorsList ? (
         <ListDoctors>
           {doctorsList.map((doctor) => (
-            <li key={doctor.id} onClick={() => {     
-              setDoctorSchedule(doctor.schedules); 
-              setDoctor(doctor)
-              navigate(`/corpoclinico/doctor:${doctor.id}`)
-            }}>
+            <li
+              key={doctor.id}
+              onClick={() => {
+                setDoctorSchedule(doctor.schedules);
+                setDoctor(doctor);
+                navigate(`/corpoclinico/doctor:${doctor.id}`);
+              }}
+            >
               <div className="containerHeader">
-                <h2>{doctor.name}</h2>           
-                <button
-                 
-                >
+                <h2>{doctor.name}</h2>
+                <button>
                   <BsCalendar3 />
                 </button>
-               
-              
               </div>
-              <span>{doctor.CRM}</span>
+              <span>CRM - {doctor.CRM}</span>
               <h3>{doctor.speciality}</h3>
               <h3>
                 <MdOutlinePlace />

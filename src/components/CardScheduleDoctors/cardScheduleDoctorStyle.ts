@@ -49,8 +49,10 @@ export const ContainerSchedule = styled.div`
     background-color: transparent;
     border: none;
     color: var(--color-green3);
-
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   button:hover {
     color: var(--color-green2);
@@ -59,6 +61,8 @@ export const ContainerSchedule = styled.div`
 
 export const ContainerRenderDoctorSchedule = styled.div`
   width: 80%;
+  max-width: 1395px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 
