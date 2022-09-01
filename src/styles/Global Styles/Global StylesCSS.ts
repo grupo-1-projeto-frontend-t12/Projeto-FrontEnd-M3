@@ -16,29 +16,21 @@ const GlobalStyle = createGlobalStyle`
 
     font-family: "Inter", sans-serif;
   }
+
   * {
     margin: 0;
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-   
   }
+
   body{   
     width: 100vw;
     height: 100vh;      
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
-    justify-content: space-between;
-  }
-
-  #root{   
-    width: 100vw;
-    height: 100vh;
-    display  :flex ;
-    justify-content: center;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
   }
 
   button {
