@@ -30,7 +30,7 @@ const navigate = useNavigate();
           <ul>
             {
               doctorSchedule.map((doctor) =>              
-              <li>
+              <li key={doctor.id}>
                 <div className="containerList">
                   <BsCalendar3 />
                   <h3>{doctor.dia}</h3>

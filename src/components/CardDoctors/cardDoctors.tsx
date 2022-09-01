@@ -30,15 +30,15 @@ const CardDoctors = () => {
       {doctorsList ? (
         <ListDoctors>
           {doctorsList.map((doctor) => (
-            <li>
+            <li key={doctor.id} onClick={() => {     
+              setDoctorSchedule(doctor.schedules); 
+              setDoctor(doctor)
+              navigate(`/corpoclinico/doctor:${doctor.id}`)
+            }}>
               <div className="containerHeader">
                 <h2>{doctor.name}</h2>           
                 <button
-                  onClick={() => {     
-                    setDoctorSchedule(doctor.schedules); 
-                    setDoctor(doctor)
-                    navigate(`/corpoclinico/doctor:${doctor.id}`)
-                  }}
+                 
                 >
                   <BsCalendar3 />
                 </button>
