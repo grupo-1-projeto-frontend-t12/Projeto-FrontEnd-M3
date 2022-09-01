@@ -1,14 +1,14 @@
 import { RiAccountCircleLine } from "react-icons/ri";
-import { ContainerHeader } from "./homeCSS";
-import { ContainerCards } from "./containerCardsCSS";
+import { ContainerHeader } from "./dashboardStyles";
+import { ContainerCards } from "./containerCardsStyles";
 import { AuthContext } from "../../context/AuthContext";
-import { TagFormUser } from "./tagFormUserCSS";
+import { TagFormUser } from "./tagFormUserStyles";
 import { useContext } from "react";
 import Footer from "../../components/Footer/footer";
 import Menu from "../../components/Menu/menu";
 import CardDoctors from "../../components/CardDoctors/cardDoctors";
 
-const Home = () => {
+const Dashboard = () => {
   const Logo: string = require("../../assets/img/logo/KenzieMED.png");
 
   const { setIsOpenModal, user } = useContext(AuthContext);
@@ -44,4 +44,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Dashboard;
