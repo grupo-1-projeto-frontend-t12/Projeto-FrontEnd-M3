@@ -11,8 +11,10 @@ export interface IAuthContext {
   login: boolean;
   setLogin: (state: boolean) => void;
   loading: boolean;
+  setLoading: (state: boolean) => void;
   doctorsList: IDoctors[];
   setDoctorsList: (state: IDoctors[]) => void;
   doctorSchedule: IDoctorSchedule[];
   setDoctorSchedule: (state: IDoctorSchedule[]) => void;
+  onSubmitRegister: (data: IUser) => void;
 };

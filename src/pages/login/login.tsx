@@ -41,6 +41,7 @@ const Login = () => {
           <Modal>
             <CotainerForm onSubmit={handleSubmit(SignIn)}>
               <h2>Login</h2>
+              <button className="btnClose" onClick={() => navigate("/", { replace: true })}>X</button>
               <label htmlFor="email">Email</label>
               <input
                 type="text"
@@ -64,12 +65,7 @@ const Login = () => {
               </button>
 
               <p>Ainda não possui uma conta ?</p>
-              <button
-                className="btnCadastrar"
-                onClick={() => {
-                  navigate("/register");
-                }}
-              >
+              <button className="btnCadastrar" onClick={() => navigate("/register", { replace: true })}>
                 Clique aqui para realizar cadastro!
               </button>
             </CotainerForm>

@@ -26,8 +26,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   const [login, setLogin] = useState(false);
 
-  const [isOpenModal, setIsOpenModal] = useState(false);
-
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -66,10 +64,22 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
+  const onSubmitRegister = (data:IUser) => {
+    console.log(data)
+    api.post<IPost>("users", data)
+    .then((response) => {
+      console.log(`Register`, response);
+        toast.success("Cadastro efetuado com sucesso");
+        navigate("/login");
+      })
+      .catch((_) => toast.error("Ops, Algo deu errado"));
+      console.log(data)
+  };
+
 
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, SignIn, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
+      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
       {children}
     </AuthContext.Provider>
   );
