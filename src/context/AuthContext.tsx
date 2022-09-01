@@ -30,21 +30,45 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   const navigate = useNavigate();
 
+/*   useEffect(() => {
+    async function loadUser() {
+      const token = localStorage.getItem("@context-KenzieMed:token");
+      
+      
+      if (token) {
+        try {
+          const user: IUser = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!)
+          api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+          const { data } = await api.get<IUser>(`/users/${user.id}`)//userid; //CONFERIR SE A ROTA É USER MESMO
+          setUser(data);
+        
+        } catch (error) {
+          console.log("LOG DO CATCH TRY TOKEN loadUser", error);
+        }
+      } else {
+        navigate("/");
+      }
+      setLoading(false);
+    }
+    loadUser();
+  }, []); */
+
   const SignIn = async (data: IUserLogin) => {
     try {
       const res = await api.post<IPost>("/login", data);
-
-      const { user: userResponse, token } = res.data;
-
+      const { user: userResponse } = res.data;
+      const token = JSON.stringify(res.data.accessToken)
+      
       setUser(userResponse);
 
+      localStorage.setItem("@context-KenzieMed:userId", JSON.stringify(userResponse))
       localStorage.setItem("@context-KenzieMed:token", token);
 
       setLogin(true)
 
       const state = location.state as ICustomizedState;
 
-      let toNavigate = "/home";
+      let toNavigate = "/home";//dashboard;
 
       if (state) {
         toNavigate = state.from;
@@ -66,14 +90,16 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   const onSubmitRegister = (data:IUser) => {
     console.log(data)
-    api.post<IPost>("users", data)
-    .then((response) => {
+    api.post<IPost>("/users", data)
+      .then((response) => {
       console.log(`Register`, response);
         toast.success("Cadastro efetuado com sucesso");
         navigate("/login");
       })
-      .catch((_) => toast.error("Ops, Algo deu errado"));
-      console.log(data)
+      .catch((error) => {
+        toast.error("Ops, Algo deu errado");
+        console.log(error)
+      })
   };
 
 
