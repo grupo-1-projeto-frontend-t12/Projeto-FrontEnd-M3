@@ -15,4 +15,5 @@ export interface IAuthContext {
   setDoctorsList: (state: IDoctors[]) => void;
   doctorSchedule: IDoctorSchedule[];
   setDoctorSchedule: (state: IDoctorSchedule[]) => void;
+  onSubmitRegister: (data: IUser) => void;
 };

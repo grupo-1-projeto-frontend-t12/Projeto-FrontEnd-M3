@@ -12,6 +12,7 @@ export const Modal = styled.div`
 `;
 
 export const CotainerForm = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +38,23 @@ export const CotainerForm = styled.form`
     line-height: 28px;
 
     color: var(--color-green3);
+  }
+
+  .btnClose {
+    position: absolute;
+    right: 24px;
+    top: 12px;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: none;
+    width: 25px;
+    height: 22px;
+    border-radius: 5px;
+    font-weight: bold;
+
+    :hover {
+      background-color: var(--color-green2);
+    }
   }
 
   label {
