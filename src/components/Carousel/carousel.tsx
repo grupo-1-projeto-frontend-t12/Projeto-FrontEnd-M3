@@ -1,23 +1,32 @@
-import { Slide } from "react-slideshow-image";
 import { useEffect, useState } from "react";
-import "./carouselCSS.ts";
+import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { AppCarouselWrapper } from "./carouselCSS";
 
 const Carousel = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  function widthSetter() {
-    setWidth(window.innerWidth);
-  }
-
-  useEffect(() => {
-    widthSetter();
-
-    window.addEventListener("resize", () => {
-      console.log(width);
-      widthSetter();
-    });
-  });
+  const responsiveSettings = [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ];
   const carouselPictures: string[] = [
     "https://i.ibb.co/LYN1zNX/carousel-1.png",
     "https://i.ibb.co/zQk5N5V/carousel-2.png",
@@ -28,99 +37,32 @@ const Carousel = () => {
   ];
 
   return (
-    <AppCarouselWrapper>
-      {width > 1200 ? (
-        <Slide slidesToScroll={3} slidesToShow={3}>
-          <div className="app__carousel--slide-div mini_slide">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[0]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div  mini_slide">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[1]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div mini_slide">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[2]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div mini_slide">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[3]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div mini_slide">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[4]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div mini_slide">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[5]}
-              alt="just another img"
-            />
-          </div>
-        </Slide>
-      ) : (
-        <Slide>
-          <div className="app__carousel--slide-div">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[0]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[1]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[2]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[3]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[4]}
-              alt="just another img"
-            />
-          </div>
-          <div className="app__carousel--slide-div">
-            <img
-              className="app__carousel--image"
-              src={carouselPictures[5]}
-              alt="just another img"
-            />
-          </div>
-        </Slide>
-      )}
-    </AppCarouselWrapper>
+    <div id="app__carousel">
+      <Slide
+        responsive={responsiveSettings}
+        cssClass="app__carousel--wrapper"
+        indicators={true}
+      >
+        <div className="app__carousel--img-box">
+          <div style={{ backgroundImage: `url(${carouselPictures[0]})` }}></div>
+        </div>
+        <div className="app__carousel--img-box">
+          <div style={{ backgroundImage: `url(${carouselPictures[1]})` }}></div>
+        </div>
+        <div className="app__carousel--img-box">
+          <div style={{ backgroundImage: `url(${carouselPictures[2]})` }}></div>
+        </div>
+        <div className="app__carousel--img-box">
+          <div style={{ backgroundImage: `url(${carouselPictures[3]})` }}></div>
+        </div>
+        <div className="app__carousel--img-box">
+          <div style={{ backgroundImage: `url(${carouselPictures[4]})` }}></div>
+        </div>
+        <div className="app__carousel--img-box">
+          <div style={{ backgroundImage: `url(${carouselPictures[5]})` }}></div>
+        </div>
+      </Slide>
+    </div>
   );
 };
 

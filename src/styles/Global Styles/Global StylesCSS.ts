@@ -29,18 +29,18 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;      
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
   }
 
   #root{   
     width: 100vw;
     height: 100vh;
     display  :flex ;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
   }
 
   button {
