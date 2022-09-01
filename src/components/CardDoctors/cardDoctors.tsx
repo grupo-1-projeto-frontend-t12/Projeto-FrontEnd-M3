@@ -1,27 +1,24 @@
 import { ContainerDoctors, ListDoctors } from "./cardDoctorsStyle";
-import { BsCalendar3 } from "react-icons/bs";
+import { BsArrowLeftShort, BsCalendar3 } from "react-icons/bs";
 import { MdOutlinePlace } from "react-icons/md";
-import { useContext, useEffect } from "react";
-import api from "../../services/api";
+import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { ICardDoctorProps } from "../../interface/ICardDoctorProps";
 
-const CardDoctors = () => {
-  const { setDoctorsList, doctorsList, setDoctorSchedule, setDoctor } = useContext(AuthContext);
+const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
+  const { setDoctorSchedule, setDoctor, itemFilter, setItemFilter } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  const getDoctor = async () => {
-    const response = await api.get("/doctors");
-    setDoctorsList(response.data);
-  };
-  useEffect(() => {
-    getDoctor();
-  });
-
   return (
     <ContainerDoctors>
-      <h2>Corpo Clinico</h2>
+      <div className="card-doctors-header">
+        <h2>Corpo Clinico</h2>
+        {itemFilter.length > 0 && <button onClick={() => {setItemFilter([])}}>
+          <BsArrowLeftShort /> Voltar
+        </button>}
+      </div>
       {doctorsList ? (
         <ListDoctors>
           {doctorsList.map((doctor) => (
@@ -43,7 +40,7 @@ const CardDoctors = () => {
               <h3>{doctor.speciality}</h3>
               <h3>
                 <MdOutlinePlace />
-                Endereço
+                {doctor.address}
               </h3>
             </li>
           ))}
