@@ -22,7 +22,7 @@ const Register = () => {
       .required("Senha obrigatória")
       .matches(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
-        "Senha fora dos quesitos de validação"
+        "Ao menos 1 minúscula, 1 maiúscula, 1 número e 1 especial($*&@#)"
       ),
     confirmPassword: yup
       .string()
@@ -32,7 +32,7 @@ const Register = () => {
     sex: yup.string().required("Campo obrigatório"),
     address: yup.string().required("Campo obrigatório"),
     contact: yup.string().required("Campo obrigatório"),
-    type: yup.string().required("Campo obrigatório"),
+    //type: yup.string().required("Campo obrigatório"),
     // speciality: yup
     // .string()
     // .required("Campo obrigatório"),
