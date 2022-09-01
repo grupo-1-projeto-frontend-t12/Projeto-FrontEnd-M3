@@ -17,4 +17,6 @@ export interface IAuthContext {
   doctorSchedule: IDoctorSchedule[];
   setDoctorSchedule: (state: IDoctorSchedule[]) => void;
   onSubmitRegister: (data: IUser) => void;
+  isOpenModal: boolean;
+  setIsOpenModal: (state: boolean) => void;
 };

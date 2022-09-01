@@ -26,6 +26,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   const [login, setLogin] = useState(false);
 
+  const [ isOpenModal, setIsOpenModal ] = useState(false)
+
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -79,7 +81,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
+      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule, isOpenModal, setIsOpenModal }}>
       {children}
     </AuthContext.Provider>
   );
