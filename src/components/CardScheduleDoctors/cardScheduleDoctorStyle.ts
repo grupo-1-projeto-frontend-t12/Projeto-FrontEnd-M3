@@ -15,10 +15,10 @@ export const ContainerSchedule = styled.div`
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0;
 
-    gap: 5px;
+    gap: 15px;
 
     width: 100%;
   }
@@ -55,6 +55,7 @@ export const ContainerRenderDoctorSchedule = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
+
   height: 350px;
   color: var(--color-green3);
 
