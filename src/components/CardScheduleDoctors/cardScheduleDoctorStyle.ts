@@ -17,6 +17,7 @@ export const ContainerSchedule = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 0;
+    flex-wrap: wrap;
 
     gap: 15px;
 
@@ -60,7 +61,18 @@ export const ContainerRenderDoctorSchedule = styled.div`
   color: var(--color-green3);
 
   .doctorData {
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .doctorData button{
+    background-color: transparent;
+    color: var(--color-green3);
+    border: none;
+  }
+
+  .doctorData button:hover{
+    color: var(--color-green2);
   }
 `;

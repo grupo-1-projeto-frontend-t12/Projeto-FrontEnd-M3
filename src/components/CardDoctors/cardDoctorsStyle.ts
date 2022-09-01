@@ -40,6 +40,9 @@ export const ListDoctors = styled.ul`
         color: var(--color-white);
         font-size: 20px;
       }
+      .containerHeader button:hover{
+        color: var(--color-green2);
+      }
 `;
 
 export const ContainerDoctors = styled.div`
