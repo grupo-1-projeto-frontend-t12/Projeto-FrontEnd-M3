@@ -1,11 +1,25 @@
 import styled from "styled-components";
 
 export const ListDoctors = styled.ul`
-  background-color: var(--color-green);
-  width: 267px;
-  color: var(--color-white);
-  border-radius: 8px;
-  padding: 10px;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  justify-content: flex-start;
+
+  li {
+    background-color: var(--color-green);
+    width: 267px;
+    color: var(--color-white);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  li:hover {
+    transform: scale(1.02);
+  }
 
   h2 {
     font-size: 18px;
@@ -31,13 +45,18 @@ export const ListDoctors = styled.ul`
     color: var(--color-white);
     font-size: 20px;
   }
+  .containerHeader button:hover {
+    color: var(--color-green2);
+  }
 `;
 
 export const ContainerDoctors = styled.div`
   width: 80%;
+  max-width: 1395px;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  margin-top: 20px;
+
   color: var(--color-green3);
   h2 {
     margin-bottom: 20px;
