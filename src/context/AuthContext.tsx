@@ -17,18 +17,15 @@ export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 const AuthProvider = ({ children }: IAuthProvider) => {
 
   const [user, setUser] = useState<IUser>({} as IUser); 
-
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
-  
   const [doctorSchedule, setDoctorSchedule] = useState<IDoctorSchedule[]>([]);
-
   const [loading, setLoading] = useState(true);
-
   const [login, setLogin] = useState(false);
-
+  const [itenFilter, setItenFilter] = useState<IDoctors[]>([]);
+  const [inputFilter, setInputFilter] = useState("");
   const location = useLocation();
-
   const navigate = useNavigate();
+
 
   const SignIn = async (data: IUserLogin) => {
     try {
@@ -76,10 +73,20 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       console.log(data)
   };
 
-
+  const filterDoctors = (inputFilter: string)=>{
+    const ArrayfilterDoctors = doctorsList.filter((elem) =>
+      elem.speciality.toLowerCase().includes(inputFilter.toLowerCase())
+    );
+      
+    if(itenFilter.length < 0){
+      setItenFilter(doctorsList)} 
+      else{setItenFilter(ArrayfilterDoctors) }
+      
+    console.log(ArrayfilterDoctors)
+  }
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule }}>
+      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule, itenFilter, filterDoctors, setItenFilter, inputFilter, setInputFilter }}>
       {children}
     </AuthContext.Provider>
   );

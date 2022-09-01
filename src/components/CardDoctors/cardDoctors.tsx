@@ -4,10 +4,15 @@ import { MdOutlinePlace } from "react-icons/md";
 import {  useContext, useEffect } from "react";
 import api from "../../services/api";
 import { AuthContext } from "../../context/AuthContext";
+import { IDoctors } from "../../interface/IDoctors";
 
-const CardDoctors = () => {
+interface ICardProps{
+  doctorsList: IDoctors[];
+}
 
-  const { setDoctorsList, doctorsList, setDoctorSchedule } = useContext(AuthContext)
+const CardDoctors = ({doctorsList}:ICardProps) => {
+
+  const { setDoctorsList,  setDoctorSchedule} = useContext(AuthContext)
 
   const getDoctor = async () =>{
     const response = await api.get('/doctors')    
@@ -21,8 +26,10 @@ const CardDoctors = () => {
 
     <ContainerDoctors>
       <h2>Corpo Clinico</h2>
-        <ListDoctors>
-          {doctorsList.map((doctor) => (           
+        
+        <ListDoctors >
+          
+          {doctorsList?.map((doctor) => (           
           <li key={doctor.id}>
                 <div className="containerHeader">
                   <h2>{doctor.name}</h2>
