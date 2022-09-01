@@ -8,7 +8,7 @@ const ButtonAppointment = () => {
   const navigate = useNavigate()
 
   const appointment = () => {
-    {login ? navigate("/corpoClinico", { replace: true }) : navigate("/login", { replace: true })}
+    {login ? navigate("/corpoClinico", { replace: true }) : navigate("/login", { replace: true })} //"/dashboard"
   }
   return <Button onClick={appointment}>Agendar Consulta / Exames</Button>;
 };
