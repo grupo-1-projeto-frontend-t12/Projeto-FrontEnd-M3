@@ -89,19 +89,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
-<<<<<<< HEAD
-  const onSubmitRegister = (data: IUser) => {
-    console.log(data);
-    api
-      .post<IPost>("users", data)
-      .then((response) => {
-        console.log(`Register`, response);
-        toast.success("Cadastro efetuado com sucesso");
-        navigate("/login");
-      })
-      .catch((_) => toast.error("Ops, Algo deu errado"));
-    console.log(data);
-=======
   const onSubmitRegister = (data:IUser) => {
     console.log(data)
     api.post<IPost>("/users", data)
@@ -114,7 +101,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         toast.error("Ops, Algo deu errado");
         console.log(error)
       })
->>>>>>> e92c943449e073be4301bb23fa22c1ec5134a444
   };
 
   return (
