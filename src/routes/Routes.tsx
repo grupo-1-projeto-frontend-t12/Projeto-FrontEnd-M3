@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import { AnimatePresence } from "framer-motion";
 import Login from "../pages/Login/login";
 import Home from "../pages/Home/home";
+import Exames from "../pages/Exames/exames";
 
 const AllRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AllRoutes = () => {
       <Routes>
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/" element={<Home />} />
+        <Route path="/exames" element={<Exames />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
