@@ -7,9 +7,7 @@ import { useContext, useEffect } from "react";
 import api from "../../services/api";
 
 const CardAppointment = () => {
-  const { setDoctorsList, doctorsList } =
-    useContext(AuthContext);
-  console.log(doctorsList);
+  const { setDoctorsList, doctorsList, } =  useContext(AuthContext);
 
   const getDoctor = async () => {
     const response = await api.get("/doctors");

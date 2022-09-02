@@ -1,11 +1,23 @@
 import styled from "styled-components";
 
 export const ListDoctors = styled.ul`
-  background-color: var(--color-green);
-  width: 267px;
+  list-style: none;
+  width: 80%;
+  max-width: 1395px;
   color: var(--color-white);
-  border-radius: 8px;
-  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+
+  li {
+    background-color: var(--color-green);
+    width: 267px;
+    height: 160px;
+    color: var(--color-white);
+    border-radius: 8px;
+    padding: 10px;
+  }
 
   h2 {
     font-size: 18px;
@@ -34,12 +46,14 @@ export const ListDoctors = styled.ul`
 `;
 
 export const ContainerCardAppointment = styled.div`
-  width: 80%;
+  width: 95%;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  align-items: center;
   color: var(--color-green3);
+  
   h2 {
     margin-bottom: 20px;
+    align-self: center;
   }
 `;

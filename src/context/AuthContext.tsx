@@ -28,6 +28,15 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const token = localStorage.getItem("@context-KenzieMed:token")
+
+  useEffect(() => {
+
+    if (token) {
+      setLogin(true)
+    }
+  }, [])
+
   /*   useEffect(() => {
     async function loadUser() {
       const token = localStorage.getItem("@context-KenzieMed:token");
@@ -69,10 +78,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       setUser(userResponse);
 
-      localStorage.setItem(
-        "@context-KenzieMed:userId",
-        JSON.stringify(userResponse)
-      );
+      localStorage.setItem("@context-KenzieMed:user", JSON.stringify(userResponse));
       localStorage.setItem("@context-KenzieMed:token", token);
 
       setLogin(true);
@@ -146,6 +152,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         setInputFilter,
         doctor,
         setDoctor,
+        isOpenModal,
+        setIsOpenModal
       }}
     >
       {children}

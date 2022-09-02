@@ -54,7 +54,7 @@ const Register = () => {
       <ContainerRegister>
         <div className="register">
           <div className="divHeader">
-            <button onClick={() => navigate("/login")} className="btnReturn">
+            <button type="button" onClick={() => navigate("/login")} className="btnReturn">
               X
             </button>
           </div>

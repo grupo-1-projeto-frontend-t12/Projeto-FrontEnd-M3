@@ -9,7 +9,6 @@ import Logo from "../../assets/img/logo/KenzieMED (1).svg";
 
 const Header = () => {
   const { login } = useContext(AuthContext);
-  console.log("loginHeader", login)
 
   return (
     <TagHeader login={login}>

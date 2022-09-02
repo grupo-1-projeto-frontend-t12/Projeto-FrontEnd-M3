@@ -16,10 +16,10 @@ const AllRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/corpoclinico" element={<CorpoClinico />} />  
           <Route path="/corpoclinico/doctor:id" element={<Doctor />} />       
+        <Route element={<ProtectedRoutes />}>
         </Route>
       </Routes>
     </AnimatePresence>

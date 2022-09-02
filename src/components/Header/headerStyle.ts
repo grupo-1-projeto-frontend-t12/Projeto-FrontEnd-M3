@@ -21,7 +21,7 @@ export const TagHeader = styled.header<IHeaderProps>`
   }
 
   > .container {
-    width: 95%;
+    width: 90%;
     max-width: 1200px;
     height: ${(props) => (props.login ? "125px" : "400px")};
     margin-top: ${(props) => (!props.login ? "40px" : null)};

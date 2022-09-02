@@ -10,13 +10,11 @@ import Footer from "../../components/Footer/footer";
 import Header from "../../components/Header/header";
 
 const Dashboard = () => {
-
   const { isOpenModal, setIsOpenModal, user } = useContext(AuthContext);
 
   return (
     <>
       <Header />
-
       <TagDivUser>
         <button type="button" onClick={() => setIsOpenModal(true)}>
           <RiAccountCircleLine className="Icon" />
@@ -27,17 +25,12 @@ const Dashboard = () => {
           <span>{user.name}</span>
         </div>
       </TagDivUser>
-
       {isOpenModal && (
         <DivModalPerfil>
           <InfoUserDoc />
         </DivModalPerfil>
       )}
-
-      <ContainerCards>
-        <CardAppointment />
-      </ContainerCards>
-
+      <CardAppointment />
       <Footer />
     </>
   );

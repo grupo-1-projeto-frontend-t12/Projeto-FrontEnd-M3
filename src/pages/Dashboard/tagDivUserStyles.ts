@@ -1,22 +1,20 @@
 import styled from "styled-components";
 
 export const TagDivUser = styled.div`
-display: flex;
-flex-direction: row;
-align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 
-position: absolute;
-top: 253px;
+  
 
-gap: 6px;
-padding: 8px;
+  gap: 6px;
+  padding: 8px;
 
-width: 95%;
-max-width: 1257px;
-height: 100px;
+  width: 95%;
+  max-width: 1257px;
+  height: 100px;
 
-
-button{
+  button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,42 +25,41 @@ button{
 
     color: var(--color-green);
 
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
     line-height: 20px;
 
-    .Icon{
-        color: var(--color-green);
-        width: 45px;
-        height: 50px;
+    .Icon {
+      color: var(--color-green);
+      width: 45px;
+      height: 50px;
     }
-}
+  }
 
-div{
-    
+  div {
     display: flex;
     flex-direction: column;
 
-    p{
-    color: var(--color-green3);
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
+    p {
+      color: var(--color-green3);
+
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
     }
-    
-    span{
-    color: var(--color-green3);
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 20px;
+
+    span {
+      color: var(--color-green3);
+
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 20px;
     }
-}
+  }
 `;

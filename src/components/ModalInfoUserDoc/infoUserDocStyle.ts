@@ -6,7 +6,6 @@ flex-direction: column;
 justify-content: space-evenly;
 
 position: relative;
-top: 10px;
 
 width: 150px;
 height: 68px;
@@ -16,6 +15,10 @@ box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
 
 z-index: 9999;
+
+button:hover {
+    text-decoration: underline;
+}
 
 .btnEdit{
     display: flex;
