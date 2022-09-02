@@ -33,7 +33,7 @@ const Login = () => {
 
   async function goToHome() {
     setIsModal(false);
-    await setTimeout(() => {
+    setTimeout(() => {
       navigate("/", { replace: true });
     }, 200);
   }

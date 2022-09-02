@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const ContainerConteudo = styled.div`
       width: 80%;
+      margin: 30px 0;
       display: flex;
       flex-direction: column;      
-      height: 400px;
       align-items: center;
       overflow-y: auto;
      

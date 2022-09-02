@@ -39,6 +39,11 @@ export const TagHeader = styled.header<IHeaderProps>`
     > img {
       width: 188px;
       height: 32px;
+      margin-bottom: 10px;
+      
+      @media screen and (min-width: 768px) {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -48,7 +53,7 @@ export const TagHeader = styled.header<IHeaderProps>`
     justify-content: ${(props) => (props.login ? "center" : "space-between")};
     align-items: center;
     height: 290px;
-    gap: 15px;
+    gap: 10px;
 
     @media screen and (min-width: 768px) {
       flex-direction: row;
@@ -70,7 +75,7 @@ export const TagHeader = styled.header<IHeaderProps>`
 
     > img {
       scale: 0.7;
-      top: 10px;
+      top: -7px;
       position: absolute;
 
       @media screen and (min-width: 768px) {

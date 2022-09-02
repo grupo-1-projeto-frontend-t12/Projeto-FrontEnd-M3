@@ -111,11 +111,15 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       .post<IPost>("/users", data)
       .then((response) => {
         console.log(`Register`, response);
-        toast.success("Cadastro efetuado com sucesso");
+        toast.success("Cadastro efetuado com sucesso", {
+          theme: "colored",
+        });
         navigate("/login");
       })
       .catch((error) => {
-        toast.error("Ops, Algo deu errado");
+        toast.error("Ops, Algo deu errado", {
+          theme: "colored",
+        });
         console.log(error);
       });
   };

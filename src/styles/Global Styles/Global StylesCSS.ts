@@ -40,10 +40,33 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: space-between;
   }
+
+  #app__motion--content {
+    max-height: 40rem;
+    overflow-y: auto;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    scrollbar-gutter: stable;
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+      
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(153, 168, 165, 0.3);
+      border-radius: 0.3rem;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: var( --color-fontescura);
+      border-radius: 0.3rem;
+    }
+  }
+
   #app__motion--modal{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 10000;
     height: 100vh;
     width: 100vw;
     display: flex;
