@@ -11,6 +11,7 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
+import { IUserAppointment } from "../interface/IUserAppointment";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
@@ -24,6 +25,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
   const [inputFilter, setInputFilter] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [ appointment, setAppointment ] = useState<IUserAppointment[]>([] as IUserAppointment[]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -153,7 +155,9 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         doctor,
         setDoctor,
         isOpenModal,
-        setIsOpenModal
+        setIsOpenModal,
+        appointment,
+        setAppointment,
       }}
     >
       {children}
