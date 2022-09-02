@@ -1,7 +1,6 @@
 import ButtonAppointment from "../../components/ButtonAppointment/buttonAppointment"
 import Menu from "../../components/Menu/menu"
 import SearchBar from "../../components/SearchBar/searchBar"
-import { ContainerCorpoClinicoHeader } from "../CorpoClinico/corpoClinicoStyle"
 import Logo from "../../assets/img/logo/KenzieMED (1).svg";
 import Analise from "../../assets/img/bancodeimagens/analise.jpg"
 import Coleta from "../../assets/img/bancodeimagens/coleta.jpg"
@@ -11,24 +10,13 @@ import Footer from "../../components/Footer/footer";
 import { ContainerConteudo, ContainerInfo } from "./examesStyle";
 
 import {AiOutlineSetting} from "react-icons/ai"
+import Header from "../../components/Header/header";
 
 const Exames = () => {
 
     return (
         <>
-        <ContainerCorpoClinicoHeader>
-          <div className="container">
-            <img src={Logo} alt="Logo KenzieMED" />
-            <div className="menus">
-              <Menu />
-              <div className="container-buttons">
-                <ButtonAppointment />
-              </div>
-            </div>
-          </div>
-          <SearchBar />
-        </ContainerCorpoClinicoHeader>
-        
+        <Header/>        
 
         <ContainerConteudo>
         <h3>Tecnologia e Inovação</h3>
