@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import api from "../../services/api";
 import { AxiosError } from "axios";
+import { IAgendamento } from "../../interface/IAgendamento";
 
 const CardScheduleDoctor = () => {
   const {
@@ -25,37 +26,39 @@ const CardScheduleDoctor = () => {
   } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  async function postAppointment(data: IUserAppointment, schedule: IDoctorSchedule ) {
-    try{
-    const response = await api
-      .post(`/appointment`, schedule)
-        setDoctorSchedule(doctorSchedule.filter((horario) => horario.id !== schedule.id));
-        setAppointment(response.data);
-
-        const resposta = await api.patch(`/doctors/${doctor.id}`, doctorSchedule);
-       /* setDoctorSchedule(resposta.data) */
-        
-      } catch (error) {
-        const err = error as AxiosError;
-        console.warn(err);
+  async function postAppointment(
+    data: IAgendamento,
+    schedule: IDoctorSchedule
+  ) {
+    try {
+      const response = await api.post(`/appointment`, data);
+      setDoctorSchedule(
+        doctorSchedule.filter((horario) => horario.id !== schedule.id)
+      );
+      const obj = {
+        schedules: doctorSchedule,
       };
+      const token = localStorage.getItem("@context-KenzieMed:token");
+      console.log(token);
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      await api.patch(`/doctors/${doctor.id}`, obj);
+      /* setDoctorSchedule(resposta.data) */
+    } catch (error) {
+      const err = error as AxiosError;
+      console.warn(err);
     }
-
+  }
 
   function agendamento(schedule: IDoctorSchedule): void {
-    const pacote: IUserAppointment = {
-      id: schedule.id,
+    const pacote: IAgendamento = {
       userId: user.id,
       doctor: doctor.id,
       dia: schedule.dia,
       horario: schedule.hora,
     };
+    console.log(pacote);
     postAppointment(pacote, schedule);
   }
-
-  useEffect(() => {
-    postAppointment(  doctorSchedule );
-  }, []);
 
   return (
     <ContainerRenderDoctorSchedule>
