@@ -391,10 +391,11 @@ DELETE schedules/${userId}
 
 
 
-<div style='display:flex;  flex-direction: column;; gap: 5px;'><br>
 <h2 style='color: #00A48B; font-size: 25px'>Equipe</h2>
-<div style='display:flex;  flex-direction:column;  gap: 10px;'>
+<div style='display:flex;  flex-direction: row; gap: 5px; flex-wrap: wrap;'><br>
 
+
+<div style='display:flex;  flex-direction:column;  gap: 10px;'>
 
 
 <h3 ><a href="https://github.com/annekarolle" style='color:white'>Anne K R Oliveira</a></h3> 
