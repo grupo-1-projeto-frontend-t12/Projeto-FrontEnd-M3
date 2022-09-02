@@ -5,16 +5,26 @@ import { BsCalendar3 } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext, useEffect } from "react";
 import api from "../../services/api";
+import { IAppointment } from "../../interface/IAppointment";
+import { IUserAppointment } from "../../interface/IUserAppointment";
 
 const CardAppointment = () => {
-  const { setAppointment, appointment, user } =
-    useContext(AuthContext);
+  const { setAppointment, appointment, user } = useContext(AuthContext);
 
   const getAppointment = async () => {
     const response = await api.get(`/appointment/?userId=${user.id}`);
+
     setAppointment(response.data);
   };
-  
+
+  async function cancelarConsulta(appoint: IUserAppointment) {
+    await api.delete(`/appointment/${appoint.id}`);
+    const agendamentos = await api
+      .get(`/appointment/?userId=${user.id}`)
+      .then((res) => res.data);
+    setAppointment(agendamentos);
+  }
+
   useEffect(() => {
     getAppointment();
   }, []);
@@ -27,7 +37,9 @@ const CardAppointment = () => {
           <li key={appoint.id}>
             <div className="containerHeader">
               <h2>{appoint.doctor}</h2>
-              <button>Cancelar Consulta</button>
+              <button onClick={() => cancelarConsulta(appoint)}>
+                Cancelar Consulta
+              </button>
             </div>
             <span>{appoint.doctor}</span>
             <div className="containerDataAppointment">
