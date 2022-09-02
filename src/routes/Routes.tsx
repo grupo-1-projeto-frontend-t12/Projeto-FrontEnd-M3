@@ -6,7 +6,7 @@ import Dashboard from "../pages/Dashboard/dashboard";
 import Register from "../pages/Register/Register";
 import { AnimatePresence } from "framer-motion";
 import Login from "../pages/Login/login";
-import Home from "../pages/Home/home";
+import Home from "../pages/home/home";
 
 const AllRoutes = () => {
   return (
