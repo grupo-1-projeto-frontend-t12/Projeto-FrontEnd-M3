@@ -35,7 +35,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     if (token) {
       setLogin(true)
     }
-  }, [])
+  }, [token])
 
   /*   useEffect(() => {
     async function loadUser() {
