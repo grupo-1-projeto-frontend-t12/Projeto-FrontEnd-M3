@@ -23,6 +23,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [login, setLogin] = useState(false);
   const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
   const [inputFilter, setInputFilter] = useState("");
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -77,7 +79,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       const state = location.state as ICustomizedState;
 
-      let toNavigate = "/home"; //dashboard;
+      let toNavigate = "/dashboard";
 
       if (state) {
         toNavigate = state.from;

@@ -1,14 +1,15 @@
-import Menu from "../Menu/menu";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
+import { TagHeader } from "./headerStyle";
 import ButtonAppointment from "../ButtonAppointment/buttonAppointment";
 import SearchBar from "../SearchBar/searchBar";
-import Logo from "../../assets/img/logo/KenzieMED (1).svg";
 import Medica from "../../assets/img/logo/medica.svg";
-import { TagHeader } from "./headerCSS";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import Menu from "../Menu/menu";
+import Logo from "../../assets/img/logo/KenzieMED (1).svg";
 
 const Header = () => {
   const { login } = useContext(AuthContext);
+  console.log("loginHeader", login)
 
   return (
     <TagHeader login={login}>
