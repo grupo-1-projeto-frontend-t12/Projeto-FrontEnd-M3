@@ -50,7 +50,7 @@ const Register = () => {
   async function goToLogin() {
     setIsModal(false);
     setTimeout(() => {
-      navigate("/login", { replace: true });
+      navigate("/", { replace: true });
     }, 200);
   }
 
