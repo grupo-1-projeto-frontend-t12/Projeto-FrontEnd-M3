@@ -6,9 +6,9 @@ const Menu = () => {
 
   return (
     <ContainerMenu>
-      <button onClick={() => navigate("/", { replace: true })}>Home</button>
+      <button onClick={() => navigate("/", { replace: true })}>Início</button>
       <button onClick={() => navigate("/corpoclinico", { replace: true })}>Corpo Clínico</button>
-      <button>Exames</button>
+      <button onClick={() => navigate("/exames", { replace: true })}>Exames</button>
     </ContainerMenu>
   );
 };

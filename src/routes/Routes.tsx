@@ -1,10 +1,13 @@
 import { Route, Routes, Navigate } from "react-router";
+import ProtectedRoutes from "./ProtectedRoutes/protectedRoutes";
 import CorpoClinico from "../pages/CorpoClinico/corpoClinico";
 import Doctor from "../pages/Doctor/doctor";
-import Home from "../pages/Home/home";
-import Login from "../pages/Login/login";
+import Dashboard from "../pages/Dashboard/dashboard";
 import Register from "../pages/Register/Register";
 import { AnimatePresence } from "framer-motion";
+import Login from "../pages/Login/login";
+import Home from "../pages/Home/home";
+import Exames from "../pages/Exames/exames";
 
 const AllRoutes = () => {
   return (
@@ -12,10 +15,14 @@ const AllRoutes = () => {
       <Routes>
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/" element={<Home />} />
+        <Route path="/exames" element={<Exames />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/corpoclinico" element={<CorpoClinico />} />  
-        <Route path="/corpoclinico/doctor:id" element={<Doctor />} />       
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/corpoclinico" element={<CorpoClinico />} />  
+          <Route path="/corpoclinico/doctor:id" element={<Doctor />} />       
+        <Route element={<ProtectedRoutes />}>
+        </Route>
       </Routes>
     </AnimatePresence>
   );

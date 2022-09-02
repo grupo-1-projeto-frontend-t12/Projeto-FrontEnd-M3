@@ -65,7 +65,6 @@ export const ContainerRenderDoctorSchedule = styled.div`
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-
   height: 350px;
   color: var(--color-green3);
 

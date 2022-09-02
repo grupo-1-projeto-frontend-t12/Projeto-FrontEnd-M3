@@ -42,7 +42,7 @@ const CardScheduleDoctor = () => {
                   <AiOutlineClockCircle />
                   <h3>{doctor.hora}</h3>
                 </div>
-                <button>
+                <button type="button">
                   <AiOutlinePlusCircle />
                 </button>
               </li>

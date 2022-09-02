@@ -23,8 +23,19 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [login, setLogin] = useState(false);
   const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
   const [inputFilter, setInputFilter] = useState("");
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
+
+  const token = localStorage.getItem("@context-KenzieMed:token")
+
+  useEffect(() => {
+
+    if (token) {
+      setLogin(true)
+    }
+  }, [token])
 
   /*   useEffect(() => {
     async function loadUser() {
@@ -67,17 +78,14 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       setUser(userResponse);
 
-      localStorage.setItem(
-        "@context-KenzieMed:userId",
-        JSON.stringify(userResponse)
-      );
+      localStorage.setItem("@context-KenzieMed:user", JSON.stringify(userResponse));
       localStorage.setItem("@context-KenzieMed:token", token);
 
       setLogin(true);
 
       const state = location.state as ICustomizedState;
 
-      let toNavigate = "/home"; //dashboard;
+      let toNavigate = "/dashboard";
 
       if (state) {
         toNavigate = state.from;
@@ -103,11 +111,15 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       .post<IPost>("/users", data)
       .then((response) => {
         console.log(`Register`, response);
-        toast.success("Cadastro efetuado com sucesso");
+        toast.success("Cadastro efetuado com sucesso", {
+          theme: "colored",
+        });
         navigate("/login");
       })
       .catch((error) => {
-        toast.error("Ops, Algo deu errado");
+        toast.error("Ops, Algo deu errado", {
+          theme: "colored",
+        });
         console.log(error);
       });
   };
@@ -144,6 +156,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         setInputFilter,
         doctor,
         setDoctor,
+        isOpenModal,
+        setIsOpenModal
       }}
     >
       {children}
