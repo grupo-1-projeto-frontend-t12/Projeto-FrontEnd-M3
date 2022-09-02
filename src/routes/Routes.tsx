@@ -22,7 +22,6 @@ const AllRoutes = () => {
           <Route path="/corpoclinico" element={<CorpoClinico />} />  
           <Route path="/corpoclinico/doctor:id" element={<Doctor />} />       
         <Route element={<ProtectedRoutes />}>
-
         </Route>
       </Routes>
     </AnimatePresence>
