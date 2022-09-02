@@ -392,56 +392,8 @@ DELETE schedules/${userId}
 
 
 <h2 style='color: #00A48B; font-size: 25px'>Equipe</h2>
-<div style='display:flex;  flex-direction: row; gap: 5px; flex-wrap: wrap;'><br>
-
-
-<div style='display:flex;  flex-direction:column;  gap: 10px;'>
-
-
-<h3 ><a href="https://github.com/annekarolle" style='color:white'>Anne K R Oliveira</a></h3> 
-
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/annekarolle/) 
-[![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](annekarolle@gmail.com)
-</div>
-
-<div style='display:flex;  flex-direction:column;  gap: 10px;'>
-
-<h3><a href="https://github.com/DnlGalvan" style='color:white'>Daniel Galvan</a></h3> 
-
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-galvan-035ba795/) 
-[![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](dgalvan@gmail.com)
-</div>
-
-<div style='display:flex;  flex-direction:column;  gap: 10px;'>
-
-<h3 ><a href="https://github.com/fredericosafebox" style='color:white'>Frederico Costa</a></h3> 
-<h2>
-
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/frederico-b-costa/) 
-[![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](costafredericob@gmail.com)
-</div>
-
-
-<div style='display:flex;  flex-direction:column;  gap: 10px;'>
-
-<h3><a href="https://github.com/fredrook" style='color:white'>Frederico Rook Chaves</a></h3> 
-<h2>
-
-
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fredericorook/) 
-[![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](fredericorook@hotmail.com)
-</div>
-
-<div style='display:flex;  flex-direction:column;  gap: 10px;'>
-
-<h3><a href="https://github.com/marcuspvh" style='color:white'>Marcus Roberto Ribeiro</a></h3> 
-<h2>
-
-
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcuspvh/) 
-[![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](marcuspvh@gmail.com)
-</div>
-
-
-   
-</div></br>
+<h3 ><a href="https://github.com/annekarolle" style='color:white'>Anne K R Oliveira</a></h3> 4
+  <h3><a href="https://github.com/DnlGalvan" style='color:white'>Daniel Galvan</a></h3> 
+  <h3 ><a href="https://github.com/fredericosafebox" style='color:white'>Frederico Costa</a></h3> 
+  <h3><a href="https://github.com/fredrook" style='color:white'>Frederico Rook Chaves</a></h3> 
+  <h3><a href="https://github.com/marcuspvh" style='color:white'>Marcus Roberto Ribeiro</a></h3> 
