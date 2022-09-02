@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
 import { ICustomizedState } from "../interface/ICustomizedState";
+import { IUserAppointment } from "../interface/IUserAppointment";
 import { IDoctorSchedule } from "../interface/IDoctorSchedule";
 import { IAuthProvider } from "../interface/IAuthProvider";
 import { IAuthContext } from "../interface/IAuthContext";
@@ -11,7 +12,8 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
-import { IUserAppointment } from "../interface/IUserAppointment";
+import iconerror from "../assets/img/logo/errorico.svg"
+import sucessicon from "../assets/img/logo/sucessicon.svg"
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
@@ -75,11 +77,13 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       toast.success("Login efetuado com sucesso!", {
         theme: "colored",
+        icon: <img src={sucessicon} alt="icon sucess"/>
       });
     } catch (error) {
       const err = error as AxiosError;
       toast.error("Erro ao efetuar Login!", {
         theme: "colored",
+        icon: <img src={iconerror} alt="icon error"/>
       });
       console.log("CON-LOG CATCH ERROR SignIn", err.message);
     }
@@ -91,12 +95,14 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       .then((response) => {
         toast.success("Cadastro efetuado com sucesso", {
           theme: "colored",
+          icon: <img src={sucessicon} alt="icon sucess"/>
         });
         navigate("/login");
       })
       .catch((error) => {
         toast.error("Ops, Algo deu errado", {
           theme: "colored",
+          icon: <img src={iconerror} alt="icon error"/>
         });
         console.log(error);
       });

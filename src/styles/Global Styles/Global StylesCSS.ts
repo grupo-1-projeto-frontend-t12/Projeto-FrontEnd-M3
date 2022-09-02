@@ -12,8 +12,12 @@ const GlobalStyle = createGlobalStyle`
     --color-blue: #169EDB;
     --bg-color: rgb(18,128,110);
     --bg-color-linear: linear-gradient(152deg, rgba(22,158,219,1) 0%, rgba(108,230,202,1) 53%, rgba(108,230,202,1) 100%);
-    --toastify-z-index: 9999999;
 
+    --toastify-z-index: 99999;
+    --toastify-color-success: var(--color-green3);
+    --toastify-color-error: #501111;
+    --toastify-text-color-sucess: #07bc0c;
+    
 
     font-family: "Inter", sans-serif;
   }
