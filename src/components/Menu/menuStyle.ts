@@ -13,11 +13,13 @@ export const ContainerMenu = styled.div`
   font-size: 12px;
   font-weight: 500;
   color: var(--color-green3);
+
   button {
     border-radius: 25px;
     border: none;
-    width: 100px;
+    padding: 0px 14px;
   }
+
   button:focus {
     background-color: var(--color-green);
     color: var(--color-white);

@@ -90,6 +90,7 @@ const Login = () => {
 
                     <p>Ainda não possui uma conta ?</p>
                     <button
+                      type="button"
                       className="btnCadastrar"
                       onClick={() => navigate("/register", { replace: true })}
                     >
