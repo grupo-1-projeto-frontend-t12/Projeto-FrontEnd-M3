@@ -63,11 +63,12 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const getDoctor = async () => {
     const response = await api.get("/doctors");
     setDoctorsList(response.data);
+    
   };
 
   useEffect(() => {
     getDoctor();
-  }, []);
+      }, []);
 
 
   const SignIn = async (data: IUserLogin) => {
