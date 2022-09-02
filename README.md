@@ -392,8 +392,8 @@ DELETE schedules/${userId}
 
 
 <h2 style='color: #00A48B; font-size: 25px'>Equipe</h2>
-<h3 ><a href="https://github.com/annekarolle" style='color:white'>Anne K R Oliveira</a></h3> 4
-  <h3><a href="https://github.com/DnlGalvan" style='color:white'>Daniel Galvan</a></h3> 
-  <h3 ><a href="https://github.com/fredericosafebox" style='color:white'>Frederico Costa</a></h3> 
-  <h3><a href="https://github.com/fredrook" style='color:white'>Frederico Rook Chaves</a></h3> 
-  <h3><a href="https://github.com/marcuspvh" style='color:white'>Marcus Roberto Ribeiro</a></h3> 
+<h3 ><a href="https://github.com/annekarolle">Anne K R Oliveira</a></h3> 
+  <h3><a href="https://github.com/DnlGalvan" >Daniel Galvan</a></h3> 
+  <h3 ><a href="https://github.com/fredericosafebox" >Frederico Costa</a></h3> 
+  <h3><a href="https://github.com/fredrook" >Frederico Rook Chaves</a></h3> 
+  <h3><a href="https://github.com/marcuspvh" >Marcus Roberto Ribeiro</a></h3> 
