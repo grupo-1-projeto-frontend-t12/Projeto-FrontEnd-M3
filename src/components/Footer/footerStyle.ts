@@ -4,6 +4,7 @@ export const ContainerFooter = styled.div`
   background-color: var(--color-grey);
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 
   width: 100%;
   padding: 10px;
@@ -25,18 +26,18 @@ export const ContainerFooter = styled.div`
   }
 
   h5 {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     margin-bottom: 5px;
   }
 
   h6 {
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 300;
     margin: 0;
   }
   p {
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 300;
   }
 

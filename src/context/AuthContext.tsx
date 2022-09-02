@@ -36,32 +36,11 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
   }, [token])
 
-  /*   useEffect(() => {
-    async function loadUser() {
-      const token = localStorage.getItem("@context-KenzieMed:token");
-      
-      
-      if (token) {
-        try {
-          const user: IUser = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!)
-          api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-          const { data } = await api.get<IUser>(`/users/${user.id}`)//userid; //CONFERIR SE A ROTA É USER MESMO
-          setUser(data);
-        
-        } catch (error) {
-          console.log("LOG DO CATCH TRY TOKEN loadUser", error);
-        }
-      } else {
-        navigate("/");
-      }
-      setLoading(false);
-    }
-    loadUser();
-  }, []); */
   
   const getDoctor = async () => {
     const response = await api.get("/doctors");
     setDoctorsList(response.data);
+    
   };
 
   useEffect(() => {
@@ -105,11 +84,9 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   };
 
   const onSubmitRegister = (data: IUser) => {
-    console.log(data);
     api
       .post<IPost>("/users", data)
       .then((response) => {
-        console.log(`Register`, response);
         toast.success("Cadastro efetuado com sucesso", {
           theme: "colored",
         });

@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     --color-blue: #169EDB;
     --bg-color: rgb(18,128,110);
     --bg-color-linear: linear-gradient(152deg, rgba(22,158,219,1) 0%, rgba(108,230,202,1) 53%, rgba(108,230,202,1) 100%);
+    --toastify-z-index: 9999999;
 
 
     font-family: "Inter", sans-serif;
