@@ -1,46 +1,50 @@
-import { useContext } from "react";
 import {
   ContainerRenderDoctorSchedule,
   ContainerSchedule,
 } from "./cardScheduleDoctorStyle";
-import { AiFillPicture, AiOutlineClockCircle } from "react-icons/ai";
-import { BsCalendar3 } from "react-icons/bs";
+import { AiOutlineClockCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { AuthContext } from "../../context/AuthContext";
 import { BsArrowLeftShort } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-import api from "../../services/api";
+import { IUserAppointment } from "../../interface/IUserAppointment";
 import { IDoctorSchedule } from "../../interface/IDoctorSchedule";
+import { BsCalendar3 } from "react-icons/bs";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import api from "../../services/api";
+import { AxiosError } from "axios";
 
 const CardScheduleDoctor = () => {
-  const { doctorSchedule, setDoctorSchedule, doctor, user } =
-    useContext(AuthContext);
+  const {
+    doctorSchedule,
+    doctor,
+    user,
+    setAppointment,
+    appointment,
+    setDoctorSchedule,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  async function postAppointment(
-    data: IUserAppointment,
-    schedule: IDoctorSchedule
-  ) {
+  async function postAppointment(data: IUserAppointment, schedule: IDoctorSchedule ) {
+    try{
     const response = await api
-      .post(`/appointment`, data)
-      .then((res) => {
-        setDoctorSchedule(
-          doctorSchedule.filter((horario) => horario.id !== schedule.id)
-        );
-        const resposta = api
-          .patch(`/doctors/${doctor.id}`, doctorSchedule)
-          .then()
-          .catch((error) => {
-            console.warn(error);
-          });
-      })
-      .catch((error) => {
-        console.warn(error);
-      });
-  }
+      .post(`/appointment`, schedule)
+        setDoctorSchedule(doctorSchedule.filter((horario) => horario.id !== schedule.id));
+        setAppointment(response.data);
+
+        const resposta = await api.patch(`/doctors/${doctor.id}`, doctorSchedule);
+       /* setDoctorSchedule(resposta.data) */
+        
+      } catch (error) {
+        const err = error as AxiosError;
+        console.warn(err);
+      };
+    }
+
 
   function agendamento(schedule: IDoctorSchedule): void {
     const pacote: IUserAppointment = {
+      id: schedule.id,
       userId: user.id,
       doctor: doctor.id,
       dia: schedule.dia,
@@ -48,6 +52,10 @@ const CardScheduleDoctor = () => {
     };
     postAppointment(pacote, schedule);
   }
+
+  useEffect(() => {
+    postAppointment(  doctorSchedule );
+  }, []);
 
   return (
     <ContainerRenderDoctorSchedule>
@@ -80,7 +88,7 @@ const CardScheduleDoctor = () => {
                   <AiOutlineClockCircle />
                   <h3>{schedule.hora}</h3>
                 </div>
-                <button type="button" onClick={agendamento(schedule)}>
+                <button type="button" onClick={() => agendamento(schedule)}>
                   <AiOutlinePlusCircle />
                 </button>
               </li>

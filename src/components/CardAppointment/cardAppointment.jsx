@@ -14,6 +14,7 @@ const CardAppointment = () => {
     const response = await api.get(`/appointment/?userId=${user.id}`);
     setAppointment(response.data);
   };
+  
   useEffect(() => {
     getAppointment();
   }, []);
