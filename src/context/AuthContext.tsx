@@ -31,7 +31,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const token = localStorage.getItem("@context-KenzieMed:token")
 
   useEffect(() => {
-
     if (token) {
       setLogin(true)
     }
