@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const ListDoctors = styled.ul`
   list-style: none;
-  width: 80%;
-  max-width: 1395px;
   color: var(--color-white);
   display: flex;
   flex-wrap: wrap;
@@ -49,11 +47,14 @@ export const ContainerCardAppointment = styled.div`
   width: 95%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  
   color: var(--color-green3);
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1395px;
+  }
   
   h2 {
     margin-bottom: 20px;
-    align-self: center;
   }
 `;

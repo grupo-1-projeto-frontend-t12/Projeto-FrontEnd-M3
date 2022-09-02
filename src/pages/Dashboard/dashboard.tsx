@@ -1,5 +1,4 @@
 import { RiAccountCircleLine } from "react-icons/ri";
-import { ContainerCards } from "./containerCardsStyles";
 import { DivModalPerfil } from "./divModalPerfil";
 import { AuthContext } from "../../context/AuthContext";
 import { TagDivUser } from "./tagDivUserStyles";
