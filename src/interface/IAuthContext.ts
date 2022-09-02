@@ -1,13 +1,13 @@
+import { Dispatch, SetStateAction } from "react";
 import { IDoctors } from "./IDoctors";
 import { IDoctorSchedule } from "./IDoctorSchedule";
 import { IUser } from "./IUser";
+import { IUserAppointment } from "./IUserAppointment";
 import { IUserLogin } from "./IUserLogin";
 
 export interface IAuthContext {
   user: IUser;
-  SignIn: (data: IUserLogin) => void; //ENTRARÁ A FUNÇÃO DE LOGIN VINDA DA API
-  /* CreateNewConsult: (data: ITechs) => void; */ //ENTRARÁ A FUNÇÃO DE CADASTRAR NOVA CONSULTA
-  /* DeleteConsult: (id: string) => void; */ //ENTRARÁ A FUNÇÃO DE DELETAR CONSULTA
+  SignIn: (data: IUserLogin) => void;
   login: boolean;
   setLogin: (state: boolean) => void;
   loading: boolean;
@@ -26,4 +26,6 @@ export interface IAuthContext {
   filterDoctors: (state: string) => void;
   inputFilter: string;
   itemFilter: IDoctors[];
+  appointment: IUserAppointment[];
+  setAppointment: Dispatch<SetStateAction<IUserAppointment[]>>;
 };

@@ -7,45 +7,43 @@ import { useContext, useEffect } from "react";
 import api from "../../services/api";
 
 const CardAppointment = () => {
-  const { setDoctorsList, doctorsList, } =  useContext(AuthContext);
+  const { setAppointment, appointment, user } =
+    useContext(AuthContext);
 
-  const getDoctor = async () => {
-    const response = await api.get("/doctors");
-    setDoctorsList(response.data);
+  const getAppointment = async () => {
+    const response = await api.get(`/appointment/?userId=${user.id}`);
+    setAppointment(response.data);
   };
   useEffect(() => {
-    getDoctor();
+    getAppointment();
   }, []);
+
   return (
     <ContainerCardAppointment>
       <h2>Meus Agendamentos</h2>
       <ListDoctors>
-        {doctorsList.map((doctor) => (
-          <li key={doctor.id}>
+        {appointment.map((appoint) => (
+          <li key={appoint.id}>
             <div className="containerHeader">
-              <h2>{doctor.name}</h2>
+              <h2>{appoint.doctor}</h2>
               <button>Cancelar Consulta</button>
             </div>
-            <span>{doctor.speciality}</span>
+            <span>{appoint.doctor}</span>
             <div className="containerDataAppointment">
-              {doctor.schedules.map((elem) => {
-                return (
-                  <div key={elem.id}>
-                    <h3>
-                      <BsCalendar3 />
-                      {elem.dia}
-                    </h3>
-                    <h3>
-                      <AiOutlineClockCircle />
-                      {elem.hora}
-                    </h3>
-                    <h3>
-                      <MdOutlinePlace />
-                      {doctor.address}
-                    </h3>
-                  </div>
-                );
-              })}
+              <div>
+                <h3>
+                  <BsCalendar3 />
+                  {appoint.dia}
+                </h3>
+                <h3>
+                  <AiOutlineClockCircle />
+                  {appoint.horario}
+                </h3>
+                <h3>
+                  <MdOutlinePlace />
+                  {appoint.isConfirmed}
+                </h3>
+              </div>
             </div>
           </li>
         ))}
