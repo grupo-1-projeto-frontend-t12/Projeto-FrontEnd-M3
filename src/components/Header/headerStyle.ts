@@ -21,9 +21,9 @@ export const TagHeader = styled.header<IHeaderProps>`
   }
 
   > .container {
-    width: 95%;
+    width: 90%;
     max-width: 1200px;
-    height: ${(props) => (props.login ? "105px" : "400px")};
+    height: ${(props) => (props.login ? "125px" : "400px")};
     margin-top: ${(props) => (!props.login ? "40px" : null)};
     display: flex;
     flex-direction: column;
@@ -57,23 +57,25 @@ export const TagHeader = styled.header<IHeaderProps>`
   }
 
   .container-info {
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: end;
     height: 60%;
 
     @media screen and (min-width: 768px) {
-      position: absolute;
       align-items: center;
       height: 100%;
     }
 
     > img {
       scale: 0.7;
+      top: 10px;
+      position: absolute;
 
       @media screen and (min-width: 768px) {
         scale: 1;
+        position: relative;
       }
     }
 

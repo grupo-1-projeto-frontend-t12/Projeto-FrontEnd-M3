@@ -33,6 +33,24 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
+  #app__motion--page{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #app__motion--modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   button {
     cursor: pointer;
     font-family: "Inter", sans-serif;
@@ -40,10 +58,6 @@ const GlobalStyle = createGlobalStyle`
 
   input:focus {
     border: 1px solid var(--color-green2);
-  }
-
-  input:invalid {
-    border: 1px solid red;
   }
 `;
 

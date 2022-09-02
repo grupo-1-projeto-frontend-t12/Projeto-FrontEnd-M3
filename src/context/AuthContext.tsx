@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { ICustomizedState } from "../interface/ICustomizedState";
+import { IDoctorSchedule } from "../interface/IDoctorSchedule";
 import { IAuthProvider } from "../interface/IAuthProvider";
 import { IAuthContext } from "../interface/IAuthContext";
 import { AxiosError } from "axios";
@@ -10,29 +11,33 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
-import { IDoctorSchedule } from "../interface/IDoctorSchedule";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-
-  const [user, setUser] = useState<IUser>({} as IUser); 
-
+  const [user, setUser] = useState<IUser>({} as IUser);
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
-
   const [doctor, setDoctor] = useState<IDoctors>({} as IDoctors);
-  
   const [doctorSchedule, setDoctorSchedule] = useState<IDoctorSchedule[]>([]);
-
   const [loading, setLoading] = useState(true);
-
   const [login, setLogin] = useState(false);
+  const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
+  const [inputFilter, setInputFilter] = useState("");
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const location = useLocation();
-
   const navigate = useNavigate();
 
-/*   useEffect(() => {
+  const token = localStorage.getItem("@context-KenzieMed:token")
+
+  useEffect(() => {
+
+    if (token) {
+      setLogin(true)
+    }
+  }, [token])
+
+  /*   useEffect(() => {
     async function loadUser() {
       const token = localStorage.getItem("@context-KenzieMed:token");
       
@@ -54,23 +59,33 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
     loadUser();
   }, []); */
+  
+  const getDoctor = async () => {
+    const response = await api.get("/doctors");
+    setDoctorsList(response.data);
+  };
+
+  useEffect(() => {
+    getDoctor();
+  }, []);
+
 
   const SignIn = async (data: IUserLogin) => {
     try {
       const res = await api.post<IPost>("/login", data);
       const { user: userResponse } = res.data;
-      const token = JSON.stringify(res.data.accessToken)
-      
+      const token = JSON.stringify(res.data.accessToken);
+
       setUser(userResponse);
 
-      localStorage.setItem("@context-KenzieMed:userId", JSON.stringify(userResponse))
+      localStorage.setItem("@context-KenzieMed:user", JSON.stringify(userResponse));
       localStorage.setItem("@context-KenzieMed:token", token);
 
-      setLogin(true)
+      setLogin(true);
 
       const state = location.state as ICustomizedState;
 
-      let toNavigate = "/home";//dashboard;
+      let toNavigate = "/dashboard";
 
       if (state) {
         toNavigate = state.from;
@@ -90,24 +105,57 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
-  const onSubmitRegister = (data:IUser) => {
-    console.log(data)
-    api.post<IPost>("/users", data)
+  const onSubmitRegister = (data: IUser) => {
+    console.log(data);
+    api
+      .post<IPost>("/users", data)
       .then((response) => {
-      console.log(`Register`, response);
+        console.log(`Register`, response);
         toast.success("Cadastro efetuado com sucesso");
         navigate("/login");
       })
       .catch((error) => {
         toast.error("Ops, Algo deu errado");
-        console.log(error)
-      })
+        console.log(error);
+      });
   };
 
+  const filterDoctors = (inputFilter: string) => {
+    const ArrayfilterDoctors = doctorsList.filter((elem) =>
+      elem.speciality.toLowerCase().includes(inputFilter.toLowerCase())
+    );
 
+    if (itemFilter.length < 0) {
+      setItemFilter(doctorsList);
+    } else {
+      setItemFilter(ArrayfilterDoctors);
+    }
+  };
   return (
     <AuthContext.Provider
-      value={{ user, login, setLogin, loading, setLoading, SignIn, onSubmitRegister, doctorsList, setDoctorsList, doctorSchedule, setDoctorSchedule, doctor, setDoctor }}>
+      value={{
+        user,
+        login,
+        setLogin,
+        loading,
+        setLoading,
+        SignIn,
+        onSubmitRegister,
+        doctorsList,
+        setDoctorsList,
+        doctorSchedule,
+        setDoctorSchedule,
+        itemFilter,
+        filterDoctors,
+        setItemFilter,
+        inputFilter,
+        setInputFilter,
+        doctor,
+        setDoctor,
+        isOpenModal,
+        setIsOpenModal
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
