@@ -1,8 +1,8 @@
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
 import Header from "../../components/Header/header";
-import Loading from "../../components/Loading/loading";
 import { motion, AnimatePresence } from "framer-motion";
+import UnidadeInfoComponent from "../../components/UnidadeInfoComponent/unidadeInfoComponent";
 
 const Home = () => {
   return (
@@ -18,7 +18,7 @@ const Home = () => {
           <Carousel />
         </motion.div>
       </AnimatePresence>
-
+      <UnidadeInfoComponent />
       <Footer />
     </>
   );
