@@ -406,7 +406,7 @@ DELETE schedules/${userId}
 
 <h2><a href="https://github.com/DnlGalvan" style='color:white'>Daniel Galvan</a></h2> 
 
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/annekarolle/) 
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-galvan-035ba795/) 
 [![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](dgalvan@gmail.com)
 </div>
 
@@ -415,7 +415,7 @@ DELETE schedules/${userId}
 <h2 ><a href="https://github.com/fredericosafebox" style='color:white'>Frederico Costa</a></h2> 
 <h2>
 
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/annekarolle/) 
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/frederico-b-costa/) 
 [![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](costafredericob@gmail.com)
 </div>
 
@@ -426,7 +426,7 @@ DELETE schedules/${userId}
 <h2>
 
 
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/annekarolle/) 
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fredericorook/) 
 [![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](fredericorook@hotmail.com)
 </div>
 
@@ -436,7 +436,7 @@ DELETE schedules/${userId}
 <h2>
 
 
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/annekarolle/) 
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcuspvh/) 
 [![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](marcuspvh@gmail.com)
 </div>
 
