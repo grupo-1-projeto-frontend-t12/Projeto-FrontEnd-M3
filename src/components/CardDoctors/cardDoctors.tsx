@@ -1,15 +1,26 @@
 import { ContainerDoctors, ListDoctors } from "./cardDoctorsStyle";
 import { BsArrowLeftShort, BsCalendar3 } from "react-icons/bs";
 import { MdOutlinePlace } from "react-icons/md";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { ICardDoctorProps } from "../../interface/ICardDoctorProps";
+import api from "../../services/api";
 
 const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
-  const { setDoctorSchedule, setDoctor, itemFilter, setItemFilter } = useContext(AuthContext);
+  const { setDoctorSchedule, setDoctor, setDoctorsList, itemFilter, setItemFilter } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const getDoctor = async () => {
+    const response = await api.get("/doctors");
+    setDoctorsList(response.data);
+    
+  };
+
+  useEffect(() => {
+    getDoctor();
+  }, []);
 
   return (
     <ContainerDoctors>
