@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
 import { IUserAppointment } from "../interface/IUserAppointment";
+import { IError } from "../interface/IError";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
@@ -25,7 +26,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
   const [inputFilter, setInputFilter] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [ appointment, setAppointment ] = useState<IUserAppointment[]>([] as IUserAppointment[]);
+  const [appointment, setAppointment] = useState<IUserAppointment[]>([] as IUserAppointment[]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,18 +38,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       setLogin(true)
     }
   }, [token])
-
   
-  const getDoctor = async () => {
-    const response = await api.get("/doctors");
-    setDoctorsList(response.data);
-    
-  };
-
-  useEffect(() => {
-    getDoctor();
-  }, []);
-
 
   const SignIn = async (data: IUserLogin) => {
     try {
@@ -94,11 +84,11 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         });
         navigate("/login");
       })
-      .catch((error) => {
+      .catch((error: AxiosError<IError>) => {
         toast.error("Ops, Algo deu errado", {
           theme: "colored",
         });
-        console.log(error);
+        console.log(error.message);
       });
   };
 

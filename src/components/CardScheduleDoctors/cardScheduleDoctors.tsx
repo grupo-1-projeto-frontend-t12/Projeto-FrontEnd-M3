@@ -1,62 +1,55 @@
-import {
-  ContainerRenderDoctorSchedule,
-  ContainerSchedule,
-} from "./cardScheduleDoctorStyle";
+import { ContainerRenderDoctorSchedule, ContainerSchedule } from "./cardScheduleDoctorStyle";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
-import { IUserAppointment } from "../../interface/IUserAppointment";
 import { IDoctorSchedule } from "../../interface/IDoctorSchedule";
 import { BsCalendar3 } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import api from "../../services/api";
 import { AxiosError } from "axios";
 import { IAgendamento } from "../../interface/IAgendamento";
+import { toast } from "react-toastify";
 
 const CardScheduleDoctor = () => {
+
   const {
     doctorSchedule,
     doctor,
     user,
-    setAppointment,
-    appointment,
     setDoctorSchedule,
   } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
-  async function postAppointment(
-    data: IAgendamento,
-    schedule: IDoctorSchedule
-  ) {
+  const postAppointment = async (data: IAgendamento, schedule: IDoctorSchedule) => {
     try {
-      const response = await api.post(`/appointment`, data);
-      setDoctorSchedule(
-        doctorSchedule.filter((horario) => horario.id !== schedule.id)
-      );
+      await api.post(`/appointment`, data);
+      setDoctorSchedule(doctorSchedule.filter((horario) => horario.id !== schedule.id));
       const obj = {
         schedules: doctorSchedule,
       };
+      navigate("/dashboard", { replace: true })
+      toast.success("Agendamento concluído!", {
+        theme: "colored"
+      })
       const token = localStorage.getItem("@context-KenzieMed:token");
-      console.log(token);
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       await api.patch(`/doctors/${doctor.id}`, obj);
-      /* setDoctorSchedule(resposta.data) */
     } catch (error) {
       const err = error as AxiosError;
       console.warn(err);
     }
   }
 
-  function agendamento(schedule: IDoctorSchedule): void {
+  const setAppointmentToUser = (schedule: IDoctorSchedule)  => {
     const pacote: IAgendamento = {
       userId: user.id,
       doctor: doctor.id,
       dia: schedule.dia,
       horario: schedule.hora,
     };
-    console.log(pacote);
     postAppointment(pacote, schedule);
   }
 
@@ -91,7 +84,7 @@ const CardScheduleDoctor = () => {
                   <AiOutlineClockCircle />
                   <h3>{schedule.hora}</h3>
                 </div>
-                <button type="button" onClick={() => agendamento(schedule)}>
+                <button type="button" onClick={() => setAppointmentToUser(schedule)}>
                   <AiOutlinePlusCircle />
                 </button>
               </li>
