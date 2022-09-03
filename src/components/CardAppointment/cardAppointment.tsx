@@ -7,6 +7,7 @@ import { useContext, useEffect } from "react";
 import api from "../../services/api";
 import { IUserAppointment } from "../../interface/IUserAppointment";
 import { toast } from "react-toastify";
+import sucessicon from "../../assets/img/logo/sucessicon.svg"
 
 const CardAppointment = () => {
   const { setAppointment, appointment, user } = useContext(AuthContext);
@@ -22,7 +23,8 @@ const CardAppointment = () => {
     .then((res) => res.data);
     setAppointment(agendamentos);
     toast.success("Consulta cancelada!", {
-      theme: "colored"
+      theme: "colored",
+      icon: <img src={sucessicon} alt="icon sucess"/>
     })
   }
 

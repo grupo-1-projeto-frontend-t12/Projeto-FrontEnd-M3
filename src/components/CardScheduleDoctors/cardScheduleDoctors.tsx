@@ -11,6 +11,7 @@ import api from "../../services/api";
 import { AxiosError } from "axios";
 import { IAgendamento } from "../../interface/IAgendamento";
 import { toast } from "react-toastify";
+import sucessicon from "../../assets/img/logo/sucessicon.svg"
 
 const CardScheduleDoctor = () => {
 
@@ -32,7 +33,8 @@ const CardScheduleDoctor = () => {
       };
       navigate("/dashboard", { replace: true })
       toast.success("Agendamento concluído!", {
-        theme: "colored"
+        theme: "colored",
+        icon: <img src={sucessicon} alt="icon sucess"/>
       })
       const token = localStorage.getItem("@context-KenzieMed:token");
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
