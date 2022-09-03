@@ -5,7 +5,6 @@ export const ListDoctors = styled.ul`
   color: var(--color-white);
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 15px;
 
   li {
@@ -47,13 +46,14 @@ export const ContainerCardAppointment = styled.div`
   width: 95%;
   display: flex;
   flex-direction: column;
-  
+
   color: var(--color-green3);
 
   @media screen and (min-width: 1440px) {
     max-width: 1395px;
+    height: 100%;
   }
-  
+
   h2 {
     margin-bottom: 20px;
   }

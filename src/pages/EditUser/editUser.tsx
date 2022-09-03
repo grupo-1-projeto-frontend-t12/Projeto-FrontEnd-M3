@@ -3,14 +3,16 @@ import { RiAccountCircleLine } from "react-icons/ri";
 import { AuthContext } from "../../context/AuthContext";
 import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
-import CardAppointment from "../../components/CardAppointment/cardAppointment";
 import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
-import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyles";
+import { TagDivUser, DivModalPerfil } from "../Dashboard/dashboardStyles";
+import { Container } from "./editUserSytles";
 import { motion } from "framer-motion";
+import FormEditUser from "../../components/FormEditUSer/formEditUser";
+import { IUser } from "../../interface/IUser";
 
-const Dashboard = () => {
+const EditUser = () => {
   const { isOpenModal, setIsOpenModal } = useContext(AuthContext);
-  const loggedUser = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!);
+  const loggedUser: IUser = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!);
 
   return (
     <>
@@ -38,7 +40,7 @@ const Dashboard = () => {
               <InfoUserDoc />
             </DivModalPerfil>
           )}
-          <CardAppointment />
+          <FormEditUser />
         </Container>
       </motion.div>
       <Footer />
@@ -46,4 +48,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default EditUser;

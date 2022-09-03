@@ -10,6 +10,6 @@ export interface IUser {
   sex: string;
   address: string;
   contact: string;
-  type: string;
+  type?: string;
   especiality?: string;
 };

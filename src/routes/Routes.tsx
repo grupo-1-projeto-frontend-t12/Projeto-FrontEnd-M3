@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import Login from "../pages/Login/login";
 import Home from "../pages/Home/home";
 import Exames from "../pages/Exames/exames";
+import EditUser from "../pages/EditUser/editUser";
 
 const AllRoutes = () => {
   return (
@@ -18,11 +19,11 @@ const AllRoutes = () => {
         <Route path="/exames" element={<Exames />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/corpoclinico/doctor:id" element={<Doctor />} />       
-        <Route path="/corpoclinico" element={<CorpoClinico />} />  
+        <Route path="/corpoclinico/doctor:id" element={<Doctor />} />
+        <Route path="/corpoclinico" element={<CorpoClinico />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route element={<ProtectedRoutes />}>
-        </Route>
+        <Route path="/user/edit" element={<EditUser />} />
+        <Route element={<ProtectedRoutes />}></Route>
       </Routes>
     </AnimatePresence>
   );
