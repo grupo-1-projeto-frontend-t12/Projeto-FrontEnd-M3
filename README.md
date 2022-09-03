@@ -1,5 +1,7 @@
 ![KenzieMED (1)](https://user-images.githubusercontent.com/102538748/187525599-a2f97112-e643-408a-ac72-e54516151816.png)
 
+
+
 <div style='background-color:white'>
 
 </div>
@@ -383,6 +385,8 @@ DELETE schedules/${userId}
 <h2 style='color: #00A48B'> Ferramentas utilizadas</h2>
  <img align="center" alt="Heroku" src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white">
 <img align="center" alt="Trello" src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white">
+<img align="center" alt="figma" src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=whitee">
+
  
    
 </div></br>
