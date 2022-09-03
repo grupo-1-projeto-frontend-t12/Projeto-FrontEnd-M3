@@ -4,5 +4,5 @@ export interface IUserAppointment {
   doctor: number;
   dia: string;
   horario: string;
-  isConfirmed: true;
+  isConfirmed?: true;
 }
