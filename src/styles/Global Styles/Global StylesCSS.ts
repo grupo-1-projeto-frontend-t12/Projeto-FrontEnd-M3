@@ -30,28 +30,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{   
+    overflow-x: hidden;
     width: 100vw;
     height: 100vh;      
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-  }
-
-  #app__motion--page{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  #app__motion--content {
-    max-height: 40rem;
-    overflow-y: auto;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
     scrollbar-gutter: stable;
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -65,6 +50,21 @@ const GlobalStyle = createGlobalStyle`
       background: var( --color-fontescura);
       border-radius: 0.3rem;
     }
+  }
+
+  #app__motion--page{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #app__motion--content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
   }
 
   #app__motion--modal{

@@ -3,4 +3,7 @@ export interface IAgendamento {
   doctor: number;
   dia: string;
   horario: string;
+  address: string;
+  speciality: string;
+  name: string;
 }
