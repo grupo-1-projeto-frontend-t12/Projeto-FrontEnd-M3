@@ -6,6 +6,8 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { ICardDoctorProps } from "../../interface/ICardDoctorProps";
 import api from "../../services/api";
+import { AxiosError } from "axios";
+import { IError } from "../../interface/IError";
 
 const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
   const { setDoctorSchedule, setDoctor, setDoctorsList, itemFilter, setItemFilter } = useContext(AuthContext);
@@ -13,9 +15,13 @@ const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
   const navigate = useNavigate();
 
   const getDoctor = async () => {
-    const response = await api.get("/doctors");
-    setDoctorsList(response.data);
-    
+    try {
+      const response = await api.get("/doctors");
+      setDoctorsList(response.data);
+    } catch (error) {
+      const err = error as AxiosError<IError>
+      console.log(err.message)
+    }
   };
 
   useEffect(() => {

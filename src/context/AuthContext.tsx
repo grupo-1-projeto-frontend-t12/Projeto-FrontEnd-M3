@@ -51,6 +51,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       setUser(userResponse);
 
       localStorage.setItem("@context-KenzieMed:user", JSON.stringify(userResponse));
+      localStorage.setItem("@context-KenzieMed:userId", JSON.stringify(res.data.user.id))
       localStorage.setItem("@context-KenzieMed:token", token);
 
       setLogin(true);
