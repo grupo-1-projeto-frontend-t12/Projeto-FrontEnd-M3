@@ -1,7 +1,4 @@
-import {
-  ContainerRenderDoctorSchedule,
-  ContainerSchedule,
-} from "./cardScheduleDoctorStyle";
+import { ContainerRenderDoctorSchedule, ContainerSchedule } from "./cardScheduleDoctorStyle";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
@@ -12,19 +9,18 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import api from "../../services/api";
 import { AxiosError } from "axios";
-import { IAgendamento } from "../../interface/IAgendamento";
+import { IAppointmentInfo } from "../../interface/IAppointmentInfo";
 import { toast } from "react-toastify";
 import sucessicon from "../../assets/img/logo/sucessicon.svg";
 import { IError } from "../../interface/IError";
 
 const CardScheduleDoctor = () => {
-  const { doctorSchedule, doctor, user, setDoctorSchedule } =
-    useContext(AuthContext);
+  const { doctorSchedule, doctor, user, setDoctorSchedule } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const postAppointment = async (
-    data: IAgendamento,
+    data: IAppointmentInfo,
     schedule: IDoctorSchedule
   ) => {
     try {
@@ -50,13 +46,16 @@ const CardScheduleDoctor = () => {
   };
 
   const setAppointmentToUser = (schedule: IDoctorSchedule) => {
-    const pacote: IAgendamento = {
+    const appointInfo: IAppointmentInfo = {
       userId: user.id,
       doctor: doctor.id,
       dia: schedule.dia,
       horario: schedule.hora,
+      address: doctor.address,
+      speciality: doctor.speciality,
+      name: doctor.name,
     };
-    postAppointment(pacote, schedule);
+    postAppointment(appointInfo, schedule);
   };
 
   return (
