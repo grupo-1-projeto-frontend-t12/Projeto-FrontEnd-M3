@@ -81,14 +81,14 @@ const Register = () => {
                   onSubmit={handleSubmit(onSubmitRegister)}
                 >
                   {/* <label htmlFor="type">Tipo de Cadastro</label>
-          <select className="inputRegister" 
-          id="type"
-          {...register("type")}>
-            <option value=""> Médico ou Paciente </option>
-            <option value={"patient"}>Paciente</option>
-            <option value={"doctor"}>Médico</option>
-          </select>
-          {errors.type?.message} */}
+                  <select className="inputRegister" 
+                  id="type"
+                  {...register("type")}>
+                    <option value=""> Médico ou Paciente </option>
+                    <option value={"patient"}>Paciente</option>
+                    <option value={"doctor"}>Médico</option>
+                  </select>
+                  {errors.type?.message} */}
                   <label htmlFor="name">Nome</label>
                   <input
                     type="text"
@@ -145,15 +145,18 @@ const Register = () => {
                     {...register("age")}
                   />
                   <p className="errorRegister">{errors.age?.message}</p>
-                  <label htmlFor="sex">Sexo</label>
+                  <label htmlFor="sex">Gênero</label>
                   <select
                     className="inputRegister"
                     id="sex"
+                    defaultValue={"M"}
                     {...register("sex")}
                   >
-                    <option value=""> Sexo </option>
-                    <option value={"M"}>Masculino</option>
-                    <option value={"F"}>Femenino</option>
+                    <option value="" disabled>
+                      Gênero
+                    </option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
                   </select>
                   <p className="errorRegister">{errors.sex?.message}</p>
                   <label htmlFor="address">Endereço</label>
@@ -175,14 +178,14 @@ const Register = () => {
                   />
                   <p className="errorRegister">{errors.contact?.message}</p>
                   {/* <label htmlFor="speciality">Especialidade Médica</label>
-          <input
-            type="text"
-            id="speciality"
-            className="inputRegister"
-            placeholder="Especialidade Médica"
-            {...register("speciality")}
-          />
-          {errors.speciality?.message} */}
+                  <input
+                    type="text"
+                    id="speciality"
+                    className="inputRegister"
+                    placeholder="Especialidade Médica"
+                    {...register("speciality")}
+                  />
+                  {errors.speciality?.message} */}
                   <button className="btnRegister" type="submit">
                     Cadastrar
                   </button>

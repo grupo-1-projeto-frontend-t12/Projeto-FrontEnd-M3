@@ -1,82 +1,84 @@
 import styled from "styled-components";
 
-export const ContainerHeader = styled.div`
- width: 100%;
+export const Container = styled.div`
+  width: 80%;
+  max-width: 1395px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background: var(--bg-color-linear);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  position: relative;
+  margin-top: 20px;
 
-  
+  @media screen and (min-height: 800px) {
+    height: 800px;
+  }
+`;
 
-  > .container {
-    width: 95%;
-    max-width: 1200px;
-    height: 124px;
+export const TagDivUser = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  gap: 6px;
+  padding: 8px;
+
+  width: 95%;
+  max-width: 1257px;
+  height: 100px;
+
+  button {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    z-index: 1;
 
-    @media screen and (min-width: 768px) {
-      flex-direction: row;
-      height: 48px;
-    }
+    background: transparent;
 
-    > img {
-      margin-top: 15px;
-      width: 188px;
-      height: 32px;
-    }
-  }
+    border: none;
 
-  .container-buttons {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-bottom: 11px;
-    height: 290px;
-    gap: 15px;
+    color: var(--color-green);
 
-    @media screen and (min-width: 768px) {
-      flex-direction: row;
-      height: 48px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+
+    .Icon {
+      color: var(--color-green);
+      width: 45px;
+      height: 50px;
     }
   }
 
-  .container-info {
-    position: fixed;
+  div {
     display: flex;
-    justify-content: center;
-    align-items: end;
-    height: 60%;
+    flex-direction: column;
 
-    @media screen and (min-width: 768px) {
-      position: absolute;
-      align-items: center;
-      height: 100%;
-    }
-
-    > img {
-      scale: 0.7;
-
-      @media screen and (min-width: 768px) {
-        scale: 1;
-      }
-    }
-
-    > h2 {
-      display: none;
-      font-size: 36px;
+    p {
       color: var(--color-green3);
-      width: 226px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
+    }
 
-      @media screen and (min-width: 768px) {
-        display: block;
-      }
+    span {
+      color: var(--color-green3);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 20px;
     }
   }
-`
+`;
+
+export const DivModalPerfil = styled.div`
+  display: flex;
+
+  width: 95%;
+  max-width: 1257px;
+  height: 100px;
+
+  background: var(--color-white);
+
+  border-radius: 8px;
+`;

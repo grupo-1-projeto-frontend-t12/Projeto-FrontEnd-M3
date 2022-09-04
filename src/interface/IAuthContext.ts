@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { IDoctors } from "./IDoctors";
 import { IDoctorSchedule } from "./IDoctorSchedule";
+import { IEditProfile } from "./IEditProfile";
 import { IUser } from "./IUser";
 import { IUserAppointment } from "./IUserAppointment";
 import { IUserLogin } from "./IUserLogin";
@@ -19,7 +20,7 @@ export interface IAuthContext {
   onSubmitRegister: (data: IUser) => void;
   isOpenModal: boolean;
   setIsOpenModal: (state: boolean) => void;
-  doctor:  IDoctors;
+  doctor: IDoctors;
   setDoctor: (state: IDoctors) => void;
   setItemFilter: (state: IDoctors[]) => void;
   setInputFilter: (state: string) => void;
@@ -28,4 +29,5 @@ export interface IAuthContext {
   itemFilter: IDoctors[];
   appointment: IUserAppointment[];
   setAppointment: Dispatch<SetStateAction<IUserAppointment[]>>;
+  EditUserProfile: (data: IEditProfile) => void;
 };

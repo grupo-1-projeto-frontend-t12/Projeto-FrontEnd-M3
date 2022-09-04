@@ -12,9 +12,10 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
-import iconerror from "../assets/img/logo/errorico.svg"
-import sucessicon from "../assets/img/logo/sucessicon.svg"
+import iconerror from "../assets/img/logo/errorico.svg";
+import sucessicon from "../assets/img/logo/sucessicon.svg";
 import { IError } from "../interface/IError";
+import { IEditProfile } from "../interface/IEditProfile";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
@@ -28,19 +29,23 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
   const [inputFilter, setInputFilter] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [appointment, setAppointment] = useState<IUserAppointment[]>([] as IUserAppointment[]);
+  const [appointment, setAppointment] = useState<IUserAppointment[]>(
+    [] as IUserAppointment[]
+  );
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("@context-KenzieMed:token")
+  const token = localStorage.getItem("@context-KenzieMed:token");
+  const loggedUser: IUser = JSON.parse(
+    localStorage.getItem("@context-KenzieMed:user")!
+  );
 
   useEffect(() => {
     if (token) {
-      setLogin(true)
+      setLogin(true);
     }
-  }, [token])
-  
+  }, [token]);
 
   const SignIn = async (data: IUserLogin) => {
     try {
@@ -50,8 +55,14 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       setUser(userResponse);
 
-      localStorage.setItem("@context-KenzieMed:user", JSON.stringify(userResponse));
-      localStorage.setItem("@context-KenzieMed:userId", JSON.stringify(res.data.user.id))
+      localStorage.setItem(
+        "@context-KenzieMed:user",
+        JSON.stringify(userResponse)
+      );
+      localStorage.setItem(
+        "@context-KenzieMed:userId",
+        JSON.stringify(res.data.user.id)
+      );
       localStorage.setItem("@context-KenzieMed:token", token);
 
       setLogin(true);
@@ -68,32 +79,32 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
       toast.success("Login efetuado com sucesso!", {
         theme: "colored",
-        icon: <img src={sucessicon} alt="icon sucess"/>
+        icon: <img src={sucessicon} alt="icon sucess" />,
       });
     } catch (error) {
       const err = error as AxiosError;
       toast.error("Erro ao efetuar Login!", {
         theme: "colored",
-        icon: <img src={iconerror} alt="icon error"/>
+        icon: <img src={iconerror} alt="icon error" />,
       });
       console.log("CON-LOG CATCH ERROR SignIn", err.message);
     }
   };
 
-  const onSubmitRegister = (data: IUser) => {
-    api
+  const onSubmitRegister = async (data: IUser) => {
+    await api
       .post<IPost>("/users", data)
       .then((response) => {
         toast.success("Cadastro efetuado com sucesso", {
           theme: "colored",
-          icon: <img src={sucessicon} alt="icon sucess"/>
+          icon: <img src={sucessicon} alt="icon sucess" />,
         });
         navigate("/login");
       })
       .catch((error: AxiosError<IError>) => {
         toast.error("Ops, Algo deu errado", {
           theme: "colored",
-          icon: <img src={iconerror} alt="icon error"/>
+          icon: <img src={iconerror} alt="icon error" />,
         });
         console.log(error.message);
       });
@@ -110,6 +121,26 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       setItemFilter(ArrayfilterDoctors);
     }
   };
+
+  const EditUserProfile = async (data: IEditProfile) => {
+    try {
+      await api.put<IEditProfile>(`/users/${loggedUser.id}`);
+      toast.success("Dados alterados com sucesso!", {
+        theme: "colored",
+        icon: <img src={sucessicon} alt="icon sucess" />,
+      });
+      localStorage.clear();
+      navigate("/", { replace: true });
+    } catch (error) {
+      const err = error as AxiosError<IError>;
+      console.log(err.response?.data);
+      toast.error("Algo deu errado!", {
+        theme: "colored",
+        icon: <img src={iconerror} alt="icon error" />,
+      });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -135,6 +166,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         setIsOpenModal,
         appointment,
         setAppointment,
+        EditUserProfile,
       }}
     >
       {children}
