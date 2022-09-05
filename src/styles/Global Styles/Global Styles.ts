@@ -18,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
     --toastify-color-error: #501111;
     --toastify-text-color-sucess: #07bc0c;
     
-
     font-family: "Inter", sans-serif;
   }
 
