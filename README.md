@@ -368,10 +368,22 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 
 ## PATCH /users/userId - FORMATO DA REQUISIÇÃO
+
+```
 {
-
+  "id": "5",
+  "email": "Rook@mail.com",
+  "name": " Frederico Rook ",
+  "password": "$2a$10$Is87SNQHT/fYA5xM6Ka4h.p8dXH17lNw2C3y.RkEHTQkYh2oobWKW",
+  "confirmPassword": "$2a$10$Is87SNQHT/fYA5xM6Ka4h.p8dXH17lNw2C3y.RkEHTQkYh2oobWKW",
+  "CPF": "12345678901",
+  "age": 33,
+  "sex": "Masculino",
+  "address": "Pão de Queijo",
+  "id": 5,
+  "img": "URL da imagem que quer utilizar!"
 }
-
+```
 
 
 <h3 style='font-weight: 600; font-size:20px;'>Caso dê tudo certo, a resposta será assim:
@@ -379,20 +391,19 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 ## PATCH /users/userId- FORMATO DA RESPOSTA - STATUS 201
 
-
 ```
 {
-name:"Daniel Galvan", 
-CPF:"99999999999",
-contact:"qualquer",
-address:"Rua 224, nº 255 - Apto.501"
-age:"39",
-password: "$2a$10$i6vsYy8/B6nz6Mpo4Sktz.4JxjXEI3VmlwxMPT6FM8QKqAcjJGLE.",
-confirmPassword:"830501Dg*",
-email:"daniel@mail.com"
-id:
-img:"https://cdn.icon-icons.com/icons2/2859/PNG/512/avatar_face_man_boy_male_profile_smiley_happy_people_icon_181657.png", 
-sex:"M"
+  "id": "5",
+  "email": "Rook@mail.com",
+  "name": " Frederico Rook ",
+  "password": "$2a$10$Is87SNQHT/fYA5xM6Ka4h.p8dXH17lNw2C3y.RkEHTQkYh2oobWKW",
+  "confirmPassword": "$2a$10$Is87SNQHT/fYA5xM6Ka4h.p8dXH17lNw2C3y.RkEHTQkYh2oobWKW",
+  "CPF": "12345678901",
+  "age": 33,
+  "sex": "Masculino",
+  "address": "Pão de Queijo",
+  "id": 5,
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtEtS7yr3J-zGMzI-b0muQQHOswy0Nh0M3C0OBfdjpAuXf3PcE7tNXz4PGg6-St0RaI&usqp=CAU"
 }
 ```
 
