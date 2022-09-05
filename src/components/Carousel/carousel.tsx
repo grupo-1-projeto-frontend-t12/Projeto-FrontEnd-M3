@@ -1,6 +1,6 @@
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import "./carouselCSS.css";
+import "./carouselStyle.css";
 
 const Carousel = () => {
   const responsiveSettings = [

@@ -44,9 +44,9 @@ export const ListDoctors = styled.ul`
 
 export const ContainerCardAppointment = styled.div`
   width: 95%;
+  padding: 35px 0;
   display: flex;
   flex-direction: column;
-
   color: var(--color-green3);
 
   @media screen and (min-width: 1440px) {

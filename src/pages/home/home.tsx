@@ -17,8 +17,8 @@ const Home = () => {
         >
           <Carousel />
         </motion.div>
+        <UnidadeInfoComponent />
       </AnimatePresence>
-      <UnidadeInfoComponent />
       <Footer />
     </>
   );

@@ -1,12 +1,11 @@
-import { Navigate, Outlet, useLocation } from "react-router";
+import { Navigate, Outlet } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import Loading from "../../components/Loading/loading";
 
 const ProtectedRoutes = () => {
   const { loading } = useContext(AuthContext);
-  const location = useLocation();
-  const token = localStorage.getItem("@context-KenzieMed:token")
+  const token = window.localStorage.getItem("@context-KenzieMed:token")
 
   if (loading) {
     return <Loading />
@@ -14,7 +13,7 @@ const ProtectedRoutes = () => {
 
   return token ? ( <Outlet/> 
   ) : (
-  <Navigate to="/login" replace state={{from: location}}/>);
+  <Navigate to={"/login"} replace />);
 }; 
 
 export default ProtectedRoutes;

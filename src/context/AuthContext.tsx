@@ -37,15 +37,16 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("@context-KenzieMed:token");
-  const loggedUser: IUser = JSON.parse(
-    localStorage.getItem("@context-KenzieMed:user")!
-  );
 
   useEffect(() => {
     if (token) {
+      setUser(JSON.parse(localStorage.getItem("@context-KenzieMed:user")!));
       setLogin(true);
+      setLoading(false);
+    } else {
+      setLoading(false)
     }
-  }, [token]);
+  }, []);
 
   const SignIn = async (data: IUserLogin) => {
     try {
@@ -123,8 +124,10 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   };
 
   const EditUserProfile = async (data: IEditProfile) => {
+    console.log(data);
     try {
-      await api.put<IEditProfile>(`/users/${loggedUser.id}`);
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      await api.patch<IEditProfile>(`/users/${user.id}`);
       toast.success("Dados alterados com sucesso!", {
         theme: "colored",
         icon: <img src={sucessicon} alt="icon sucess" />,

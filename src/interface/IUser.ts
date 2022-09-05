@@ -12,4 +12,5 @@ export interface IUser {
   contact: string;
   type?: string;
   especiality?: string;
+  img?: string;
 };

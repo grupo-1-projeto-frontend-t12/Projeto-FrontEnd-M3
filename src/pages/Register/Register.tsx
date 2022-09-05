@@ -5,38 +5,51 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { AuthContext } from "../../context/AuthContext";
 import { IUser } from "../../interface/IUser";
-import { ContainerRegister } from "./registerCSS";
+import { ContainerRegister } from "./registerStyle";
 import Header from "../../components/Header/header";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiAlertCircle } from "react-icons/fi";
 
 const Register = () => {
   const navigate = useNavigate();
   const { onSubmitRegister } = useContext(AuthContext);
   const [isModal, setIsModal] = useState(true);
   const formSchema = yup.object().shape({
-    name: yup.string().required("Nome obrigatório").min(10, "Nome Invalido"),
-    email: yup.string().required("Email obrigatório").email("Email inválido"),
+    name: yup
+      .string()
+      .trim()
+      .required("Nome obrigatório")
+      .min(10, "Nome Invalido"),
+    email: yup
+      .string()
+      .trim()
+      .required("Email obrigatório")
+      .email("Email inválido"),
     password: yup
       .string()
+      .trim()
       .required("Senha obrigatória")
       .matches(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
         "Ao menos 1 minúscula, 1 maiúscula, 1 número e 1 especial($*&@#)"
-      ),
+      )
+      .min(8, "Min 8 caracteres!"),
     confirmPassword: yup
       .string()
+      .trim()
+      .required("Consfirme sua senha!")
       .oneOf([yup.ref("password")], "Senha não confere"),
-    CPF: yup.string().required("Campo obrigatório").min(11, "CPF Invalido"),
-    age: yup.string().required("Campo obrigatório"),
-    sex: yup.string().required("Campo obrigatório"),
-    address: yup.string().required("Campo obrigatório"),
-    contact: yup.string().required("Campo obrigatório"),
-    //type: yup.string().required("Campo obrigatório"),
-    // speciality: yup
-    // .string()
-    // .required("Campo obrigatório"),
+    CPF: yup
+      .string()
+      .trim()
+      .required("CPF é obrigatório")
+      .min(11, "CPF Invalido"),
+    age: yup.string().trim().required("Idade é obrigatório"),
+    sex: yup.string().trim().required("Gênero é obrigatório"),
+    address: yup.string().trim().required("Endereço é obrigatório"),
+    contact: yup.string().trim().required("Contato é obrigatório"),
   });
 
   const {
@@ -80,15 +93,6 @@ const Register = () => {
                   className="form"
                   onSubmit={handleSubmit(onSubmitRegister)}
                 >
-                  {/* <label htmlFor="type">Tipo de Cadastro</label>
-                  <select className="inputRegister" 
-                  id="type"
-                  {...register("type")}>
-                    <option value=""> Médico ou Paciente </option>
-                    <option value={"patient"}>Paciente</option>
-                    <option value={"doctor"}>Médico</option>
-                  </select>
-                  {errors.type?.message} */}
                   <label htmlFor="name">Nome</label>
                   <input
                     type="text"
@@ -97,7 +101,12 @@ const Register = () => {
                     placeholder="Digite aqui seu nome"
                     {...register("name")}
                   />
-                  <p className="errorRegister">{errors.name?.message}</p>
+                  {errors?.name && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.name.message}
+                    </p>
+                  )}
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
@@ -106,7 +115,12 @@ const Register = () => {
                     placeholder="Digite aqui seu email"
                     {...register("email")}
                   />
-                  <p className="errorRegister">{errors.email?.message}</p>
+                  {errors?.email && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.email.message}
+                    </p>
+                  )}
                   <label htmlFor="password">Senha</label>
                   <input
                     type="password"
@@ -115,7 +129,12 @@ const Register = () => {
                     placeholder="Digite aqui sua senha"
                     {...register("password")}
                   />
-                  <p className="errorRegister">{errors.password?.message}</p>
+                  {errors?.password && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.password.message}
+                    </p>
+                  )}
                   <label htmlFor="confirmPassword">Confirmar Senha</label>
                   <input
                     type="password"
@@ -124,9 +143,12 @@ const Register = () => {
                     placeholder="Digite novamente sua senha"
                     {...register("confirmPassword")}
                   />
-                  <p className="errorRegister">
-                    {errors.confirmPassword?.message}
-                  </p>
+                  {errors?.confirmPassword && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.confirmPassword.message}
+                    </p>
+                  )}
                   <label htmlFor="CPF">CPF</label>
                   <input
                     type="text"
@@ -135,7 +157,12 @@ const Register = () => {
                     placeholder="Digite seu CPF"
                     {...register("CPF")}
                   />
-                  <p className="errorRegister">{errors.CPF?.message}</p>
+                  {errors?.CPF && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.CPF.message}
+                    </p>
+                  )}
                   <label htmlFor="age">Idade</label>
                   <input
                     type="text"
@@ -144,7 +171,12 @@ const Register = () => {
                     placeholder="Qual sua Idade?"
                     {...register("age")}
                   />
-                  <p className="errorRegister">{errors.age?.message}</p>
+                  {errors?.age && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.age.message}
+                    </p>
+                  )}
                   <label htmlFor="sex">Gênero</label>
                   <select
                     className="inputRegister"
@@ -158,7 +190,12 @@ const Register = () => {
                     <option value="M">Masculino</option>
                     <option value="F">Femenino</option>
                   </select>
-                  <p className="errorRegister">{errors.sex?.message}</p>
+                  {errors?.sex && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.sex.message}
+                    </p>
+                  )}
                   <label htmlFor="address">Endereço</label>
                   <input
                     type="text"
@@ -167,7 +204,12 @@ const Register = () => {
                     placeholder="Digite seu endereço"
                     {...register("address")}
                   />
-                  <p className="errorRegister">{errors.address?.message}</p>
+                  {errors?.address && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.address.message}
+                    </p>
+                  )}
                   <label htmlFor="contact">Contato</label>
                   <input
                     type="text"
@@ -176,16 +218,12 @@ const Register = () => {
                     placeholder="Opção de contato"
                     {...register("contact")}
                   />
-                  <p className="errorRegister">{errors.contact?.message}</p>
-                  {/* <label htmlFor="speciality">Especialidade Médica</label>
-                  <input
-                    type="text"
-                    id="speciality"
-                    className="inputRegister"
-                    placeholder="Especialidade Médica"
-                    {...register("speciality")}
-                  />
-                  {errors.speciality?.message} */}
+                  {errors?.contact && (
+                    <p className="errorRegister">
+                      <FiAlertCircle />
+                      {errors.contact.message}
+                    </p>
+                  )}
                   <button className="btnRegister" type="submit">
                     Cadastrar
                   </button>
