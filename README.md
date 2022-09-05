@@ -399,7 +399,6 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 ```
 {
-  "id": "5",
   "email": "Rook@mail.com",
   "name": " Frederico Rook ",
   "password": "$2a$10$Is87SNQHT/fYA5xM6Ka4h.p8dXH17lNw2C3y.RkEHTQkYh2oobWKW",
