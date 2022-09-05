@@ -1,4 +1,4 @@
-![kenzimedCAPA](https://user-images.githubusercontent.com/102538748/188499591-2f6ab262-375d-4eb5-a822-4abf576266d3.png)
+![12](https://user-images.githubusercontent.com/102538748/188499690-0b172f46-f6a0-4d9e-813e-40f67a409d65.png)
 
 
 <div style='background-color:white'>
