@@ -5,7 +5,7 @@ export interface IEditProfile {
   confirmPassword?: string;
   CPF?: string;
   age?: string;
-  sex: string;
+  sex?: string;
   address?: string;
   contact?: string;
   img?: string;

@@ -36,10 +36,16 @@ export const TagHeader = styled.header<IHeaderProps>`
       height: 48px;
     }
 
-    > img {
-      width: 188px;
-      height: 32px;
-      margin-bottom: 10px;
+     a {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      > img {
+       width: 188px;
+       height: 32px;
+       margin-bottom: 10px;
+     }
       
       @media screen and (min-width: 768px) {
         margin-bottom: 0;

@@ -44,7 +44,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       setLogin(true);
       setLoading(false);
     } else {
-      setLoading(false)
+      setLoading(false);
     }
   }, []);
 
@@ -52,7 +52,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     try {
       const res = await api.post<IPost>("/login", data);
       const { user: userResponse } = res.data;
-      const token = JSON.stringify(res.data.accessToken);
+      const token = JSON.stringify(res.data.accessToken)?.replace(/"/gi, "");
 
       setUser(userResponse);
 
@@ -93,8 +93,12 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   };
 
   const onSubmitRegister = async (data: IUser) => {
+    const newData = {
+      ...data,
+      img: "",
+    };
     await api
-      .post<IPost>("/users", data)
+      .post<IPost>("/users", newData)
       .then((response) => {
         toast.success("Cadastro efetuado com sucesso", {
           theme: "colored",
@@ -124,16 +128,27 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   };
 
   const EditUserProfile = async (data: IEditProfile) => {
-    console.log(data);
+    const newData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      CPF: data.CPF,
+      age: data.age,
+      sex: data.sex,
+      address: data.address,
+      contact: data.contact,
+      img: data.img,
+    };
     try {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      await api.patch<IEditProfile>(`/users/${user.id}`);
+      const res = await api.patch<IUser>(`/users/${user.id}`, newData);
+      localStorage.setItem("@context-KenzieMed:user", JSON.stringify(res.data));
+      setUser(res.data);
       toast.success("Dados alterados com sucesso!", {
         theme: "colored",
         icon: <img src={sucessicon} alt="icon sucess" />,
       });
-      localStorage.clear();
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch (error) {
       const err = error as AxiosError<IError>;
       console.log(err.response?.data);

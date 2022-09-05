@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/searchBar";
 import Medica from "../../assets/img/logo/medica.svg";
 import Menu from "../Menu/menu";
 import Logo from "../../assets/img/logo/KenzieMED (1).svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { login } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const Header = () => {
   return (
     <TagHeader login={login}>
       <div className="container">
-        <img src={Logo} alt="Logo KenzieMED" />
+        <Link to="/" ><img src={Logo} alt="Logo KenzieMED" /></Link>
         <div className="container-buttons">
           <Menu />
           <ButtonAppointment />

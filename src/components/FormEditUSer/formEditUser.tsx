@@ -15,12 +15,11 @@ const FormEditUser = () => {
     email: yup
       .string()
       .trim()
-      .required("Email é obrigatório!")
       .email("Email inválido!"),
     password: yup
       .string()
       .trim()
-      .required("Senha é obrigatória!")
+      .required("Senha é obrigatório")
       .matches(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
         "Ao menos 1 minúscula, 1 maiúscula, 1 número e 1 especial($*&@#)"
@@ -28,7 +27,6 @@ const FormEditUser = () => {
     confirmPassword: yup
       .string()
       .trim()
-      .required("Confirme sua senha!")
       .oneOf([yup.ref("password")], "Senha não confere"),
     CPF: yup.string().trim(),
     age: yup.string().trim(),
@@ -41,7 +39,7 @@ const FormEditUser = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm<IEditProfile>({
     resolver: yupResolver(formSchema),
   });
