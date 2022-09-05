@@ -496,7 +496,7 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 }
 ```
 
-<h2 style='font-weight: 800; font-size:20px;'>Editar o Perfil de um Médico/h2>
+<h2 style='font-weight: 800; font-size:20px;'>Editar o Perfil de um Médico</h2>
 
 ## PATCH /doctors/doctorsId - FORMATO DA REQUISIÇÃO
 
