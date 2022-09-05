@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { StyledLoader } from "./loadingCSS";
-import React from "react";
+import { StyledLoader } from "./loadingStyle";
 
 const Loading = () => {
   return (
@@ -13,7 +12,7 @@ const Loading = () => {
             transition: { duration: 8, yoyo: Infinity },
           }}
         >
-          <StyledLoader></StyledLoader>
+          <StyledLoader>Carregando....</StyledLoader>
         </motion.div>
       </AnimatePresence>
     </>

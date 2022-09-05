@@ -5,12 +5,11 @@ import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
 import CardAppointment from "../../components/CardAppointment/cardAppointment";
 import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
-import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyles";
+import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyle";
 import { motion } from "framer-motion";
 
 const Dashboard = () => {
-  const { isOpenModal, setIsOpenModal } = useContext(AuthContext);
-  const loggedUser = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!);
+  const { isOpenModal, setIsOpenModal, user } = useContext(AuthContext);
 
   return (
     <>
@@ -23,14 +22,18 @@ const Dashboard = () => {
         transition={{ duration: 0.5 }}
       >
         <Container>
-          <TagDivUser>
+          <TagDivUser className="aqui">
             <button type="button" onClick={() => setIsOpenModal(!isOpenModal)}>
-              <RiAccountCircleLine className="Icon" />
+              {user.img ? (
+                <img src={user.img} alt="Avatar Usuário" />
+              ) : (
+                <RiAccountCircleLine className="Icon" />
+              )}
               Perfil
             </button>
             <div>
               <p>Olá,</p>
-              <span>{loggedUser.name}</span>
+              <span>{user.name}</span>
             </div>
           </TagDivUser>
           {isOpenModal && (

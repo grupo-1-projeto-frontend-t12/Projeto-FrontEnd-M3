@@ -21,9 +21,10 @@ const AllRoutes = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/corpoclinico/doctor:id" element={<Doctor />} />
         <Route path="/corpoclinico" element={<CorpoClinico />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/user/edit" element={<EditUser />} />
-        <Route element={<ProtectedRoutes />}></Route>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/user/edit" element={<EditUser />} />
+        </Route>
       </Routes>
     </AnimatePresence>
   );

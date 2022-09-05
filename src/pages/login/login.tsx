@@ -1,4 +1,4 @@
-import { CotainerForm, Modal } from "./loginCSS";
+import { CotainerForm, Modal } from "./loginStyle";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -10,10 +10,22 @@ import Header from "../../components/Header/header";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiAlertCircle } from "react-icons/fi";
 
 const schema = yup.object().shape({
-  email: yup.string().email("Email Invalido!").required("Email Obrigatório!"),
-  password: yup.string().min(8, "Min 8 Caracteres!").required(),
+  email: yup
+    .string()
+    .trim()
+    .required("Email Obrigatório!")
+    .email("Email Invalido!"),
+  password: yup
+    .string()
+    .trim()
+    .required("Senha é obrigatória!")
+    .matches(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+      "Ao menos 1 minúscula, 1 maiúscula, 1 número e 1 especial($*&@#)"
+    ),
 });
 
 const Login = () => {
@@ -73,8 +85,12 @@ const Login = () => {
                       placeholder="Digite aqui seu E-Mail"
                       {...register("email")}
                     />
-                    <span>{errors.email?.message}</span>
-
+                    {errors?.email && (
+                      <span>
+                        <FiAlertCircle />
+                        {errors.email.message}
+                      </span>
+                    )}
                     <label htmlFor="password">Senha</label>
                     <input
                       type="password"
@@ -82,12 +98,15 @@ const Login = () => {
                       placeholder="Digite aqui sua Senha"
                       {...register("password")}
                     />
-                    <span>{errors.password?.message}</span>
-
+                    {errors?.password && (
+                      <span>
+                        <FiAlertCircle />
+                        {errors.password.message}
+                      </span>
+                    )}
                     <button className="btnEntrar" type="submit">
                       Entrar
                     </button>
-
                     <p>Ainda não possui uma conta ?</p>
                     <button
                       type="button"

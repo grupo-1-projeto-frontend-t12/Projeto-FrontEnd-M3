@@ -10,7 +10,7 @@ export const TagHeader = styled.header<IHeaderProps>`
   justify-content: center;
   align-items: center;
   flex-direction: ${(props) => (props.login ? "column" : null)};
-  height: ${(props) => (props.login ? "250px" : "415px")};
+  min-height: ${(props) => (props.login ? "250px" : "415px")};
   gap: ${(props) => (props.login ? "20px" : null)};
   background: var(--bg-color-linear);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

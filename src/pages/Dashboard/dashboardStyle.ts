@@ -17,30 +17,28 @@ export const TagDivUser = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-
-  gap: 6px;
-  padding: 8px;
-
   width: 95%;
   max-width: 1257px;
-  height: 100px;
+  gap: 6px;
 
   button {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     background: transparent;
-
     border: none;
-
     color: var(--color-green);
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
     line-height: 20px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
 
     .Icon {
       color: var(--color-green);
@@ -73,12 +71,8 @@ export const TagDivUser = styled.div`
 
 export const DivModalPerfil = styled.div`
   display: flex;
-
   width: 95%;
   max-width: 1257px;
-  height: 100px;
-
   background: var(--color-white);
-
   border-radius: 8px;
 `;

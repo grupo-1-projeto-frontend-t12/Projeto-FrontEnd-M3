@@ -4,15 +4,13 @@ import { AuthContext } from "../../context/AuthContext";
 import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
 import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
-import { TagDivUser, DivModalPerfil } from "../Dashboard/dashboardStyles";
-import { Container } from "./editUserSytles";
+import { TagDivUser, DivModalPerfil } from "../Dashboard/dashboardStyle";
+import { Container } from "./editUserSytle";
 import { motion } from "framer-motion";
 import FormEditUser from "../../components/FormEditUSer/formEditUser";
-import { IUser } from "../../interface/IUser";
 
 const EditUser = () => {
-  const { isOpenModal, setIsOpenModal } = useContext(AuthContext);
-  const loggedUser: IUser = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!);
+  const { isOpenModal, setIsOpenModal, user } = useContext(AuthContext);
 
   return (
     <>
@@ -27,12 +25,16 @@ const EditUser = () => {
         <Container>
           <TagDivUser>
             <button type="button" onClick={() => setIsOpenModal(!isOpenModal)}>
-              <RiAccountCircleLine className="Icon" />
+              {user.img ? (
+                <img src={user.img} alt="Avatar Usuário" />
+              ) : (
+                <RiAccountCircleLine className="Icon" />
+              )}
               Perfil
             </button>
             <div>
               <p>Olá,</p>
-              <span>{loggedUser.name}</span>
+              <span>{user.name}</span>
             </div>
           </TagDivUser>
           {isOpenModal && (

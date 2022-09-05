@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body{   
+  body {
     overflow-x: hidden;
     width: 100vw;
     height: 100vh;      

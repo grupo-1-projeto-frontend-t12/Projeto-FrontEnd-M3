@@ -8,4 +8,5 @@ export interface IEditProfile {
   sex: string;
   address?: string;
   contact?: string;
+  img?: string;
 };
