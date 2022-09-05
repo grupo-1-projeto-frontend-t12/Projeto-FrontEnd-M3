@@ -494,9 +494,12 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 ## Equipe
 
-<h3 ><a href="https://github.com/annekarolle">Anne K R Oliveira</a></h3> 
-  <h3><a href="https://github.com/DnlGalvan" >Daniel Galvan</a></h3> 
-  <h3 ><a href="https://github.com/fredericosafebox" >Frederico Costa</a></h3> 
-  <h3><a href="https://github.com/fredrook" >Frederico Rook Chaves</a></h3> 
-  <h3><a href="https://github.com/marcuspvh" >Marcus Roberto Ribeiro</a></h3> 
+<ul>
+<li><a href="https://github.com/annekarolle">Anne K R Oliveira - Scrum Master</a></li>
+<li><a href="https://github.com/DnlGalvan">Daniel Galvan - Tech Lead</a></li>
+<li><a href="https://github.com/fredericosafebox" >Frederico Costa - Product Owner</a></li>
+<li><a href="https://github.com/fredrook">Frederico Rook Chaves - Quality Assurance </a></li>
+<li><a href="https://github.com/marcuspvh">Marcus Roberto Ribeiro - Quality Assurance</a></li>
+</ul>
+
 
