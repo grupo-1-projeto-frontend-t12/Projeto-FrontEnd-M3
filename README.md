@@ -194,19 +194,47 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 <h2 style='font-weight: 600; font-size:20px;'>Criação de Médico</h2>
 
 
-## POST /users - FORMATO DA REQUISIÇÃO
+## POST /doctors - FORMATO DA REQUISIÇÃO
 
-
+```
+{
+      "name": " Arnold Schwarzenegger ",
+      "email": "reimaromba@kenziemed.com",
+      "password": "123456",
+      "CPF": "12345678901",
+      "age":75,
+      "sex": "Masculino",
+      "address": "Espirito Santo",
+      "speciality": "Endocrinologista",
+      "type": "medico"
+}
+```
+	
+	
 <h3 style='font-weight: 600; font-size:20px;'>Caso dê tudo certo, a resposta será assim:</h3>
 
 
-## POST /users - FORMATO DA RESPOSTA - STATUS 201
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 201
+	
+	
+```
+{
+	"userId": 2,
+	"name": " Arnold Schwarzenegger ",
+	"email": "reimaromba@kenziemed.com",
+	"password": "123456",
+	"CPF": "12345678901",
+	"age": 75,
+	"sex": "Masculino",
+	"address": "Espirito Santo",
+	"speciality": "Endocrinologista",
+	"type": "medico",
+	"id": 21
+}
+```
 
 
-
-
-
-## POST /users - FORMATO DA RESPOSTA - STATUS 400
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 400
 
 
 ```
