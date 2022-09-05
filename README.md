@@ -436,7 +436,7 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 <h2 style='font-weight: 600; font-size:20px;'>Deletar um usuario</h2>
 
-## DELETE /users/userId
+## DELETE /users/userId - FORMATO DA REQUISIÇÃO
 
 <br><p>OBSERVAÇÃO: Não é necessário um corpo da requisição.</p></br>
 
@@ -452,7 +452,7 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 <h2 style='font-weight: 600; font-size:20px;'>Deletar uma consulta, utilizando este endpoint</h2>
 
 
-## DELETE appointment/id
+## DELETE appointment/id - FORMATO DA REQUISIÇÃO
 
 <br><p>OBSERVAÇÃO: Não é necessário um corpo da requisição.</p></br>
 
