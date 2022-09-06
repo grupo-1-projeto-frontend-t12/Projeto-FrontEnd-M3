@@ -8,10 +8,10 @@ const UnidadeInfoComponent = () => {
   return (
     <UnidadeContainer>
       <div className="container">
-        <ContainerImgUnid>
+        <ContainerImgUnid key="1-Container">
           <img src={Medico} alt="Imagem aparelho de ressonancia magnetica" />
         </ContainerImgUnid>
-        <ContainerInfoUnid>
+        <ContainerInfoUnid key="2-Container">
           <h1>Conheça nossas unidades</h1>
           <h2>
             <MdOutlinePlace /> Unidade Campo Largo
@@ -35,25 +35,25 @@ const UnidadeInfoComponent = () => {
 
           <h1>Disponivel em todas unidades:</h1>
           <ul>
-            <li>
+            <li key="List-1">
               <h3>
                 <TbReportMedical />
               </h3>
               Exames Laboratoriais;
             </li>
-            <li>
+            <li key="List-2">
               <h3>
                 <TbReportMedical />
               </h3>
               Exames de Imagem ;
             </li>
-            <li>
+            <li key="List-3">
               <h3>
                 <TbReportMedical />
               </h3>
               Exames de Toxicológicos;
             </li>
-            <li>
+            <li key="List-4">
               <h3>
                 <TbReportMedical />
               </h3>

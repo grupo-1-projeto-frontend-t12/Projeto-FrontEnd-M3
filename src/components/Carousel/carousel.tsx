@@ -42,23 +42,23 @@ const Carousel = () => {
         cssClass="app__carousel--wrapper"
         indicators={true}
       >
-        <div className="app__carousel--img-box">
-          <div style={{ backgroundImage: `url(${carouselPictures[0]})` }}></div>
+        <div className="app__carousel--img-box" key="imagem_1">
+          <div key="Imagem_Carousel_1" style={{ backgroundImage: `url(${carouselPictures[0]})` }}></div>
         </div>
-        <div className="app__carousel--img-box">
-          <div style={{ backgroundImage: `url(${carouselPictures[1]})` }}></div>
+        <div className="app__carousel--img-box" key="imagem_2">
+          <div key="Imagem_Carousel_2" style={{ backgroundImage: `url(${carouselPictures[1]})` }}></div>
         </div>
-        <div className="app__carousel--img-box">
-          <div style={{ backgroundImage: `url(${carouselPictures[2]})` }}></div>
+        <div className="app__carousel--img-box" key="imagem_3">
+          <div key="Imagem_Carousel_3" style={{ backgroundImage: `url(${carouselPictures[2]})` }}></div>
         </div>
-        <div className="app__carousel--img-box">
-          <div style={{ backgroundImage: `url(${carouselPictures[3]})` }}></div>
+        <div className="app__carousel--img-box" key="imagem_4">
+          <div key="Imagem_Carousel_4" style={{ backgroundImage: `url(${carouselPictures[3]})` }}></div>
         </div>
-        <div className="app__carousel--img-box">
-          <div style={{ backgroundImage: `url(${carouselPictures[4]})` }}></div>
+        <div className="app__carousel--img-box" key="imagem_5">
+          <div  key="Imagem_Carousel_5" style={{ backgroundImage: `url(${carouselPictures[4]})` }}></div>
         </div>
-        <div className="app__carousel--img-box">
-          <div style={{ backgroundImage: `url(${carouselPictures[5]})` }}></div>
+        <div className="app__carousel--img-box" key="imagem_6">
+          <div  key="Imagem_Carousel_6" style={{ backgroundImage: `url(${carouselPictures[5]})` }}></div>
         </div>
       </Slide>
     </div>
