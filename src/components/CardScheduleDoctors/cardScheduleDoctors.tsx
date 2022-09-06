@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 import sucessicon from "../../assets/img/logo/sucessicon.svg";
 
 const CardScheduleDoctor = () => {
-  const { doctorSchedule, doctor, user, setDoctorSchedule } =
+  const { doctorSchedule, doctor, user, setDoctorSchedule, setIsLoading } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -28,17 +28,22 @@ const CardScheduleDoctor = () => {
   ) => {
     try {
       await api.post(`/appointment`, data);
+      navigate("/dashboard", { replace: true });
+      setTimeout(() => {
+        setIsLoading(false);
+        toast.success("Agendamento concluído!", {
+          theme: "colored",
+          icon: <img src={sucessicon} alt="icon sucess" />,
+        });
+      }, 2000);
+
       setDoctorSchedule(
         doctorSchedule.filter((horario) => horario.id !== schedule.id)
       );
       const obj = {
         schedules: doctorSchedule,
       };
-      navigate("/dashboard", { replace: true });
-      toast.success("Agendamento concluído!", {
-        theme: "colored",
-        icon: <img src={sucessicon} alt="icon sucess" />,
-      });
+
       const token = localStorage.getItem("@context-KenzieMed:token");
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       await api.patch(`/doctors/${doctor.id}`, obj);
@@ -60,6 +65,7 @@ const CardScheduleDoctor = () => {
     };
     console.log(pacote);
     postAppointment(pacote, schedule);
+    setIsLoading(true);
   };
 
   return (

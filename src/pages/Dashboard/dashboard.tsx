@@ -7,9 +7,11 @@ import CardAppointment from "../../components/CardAppointment/cardAppointment";
 import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
 import Footer from "../../components/Footer/footer";
 import Header from "../../components/Header/header";
+import Loading from "../../components/Loading/loading";
 
 const Dashboard = () => {
-  const { isOpenModal, setIsOpenModal, user } = useContext(AuthContext);
+  const { isOpenModal, setIsOpenModal, user, isLoading } =
+    useContext(AuthContext);
 
   return (
     <>
@@ -31,6 +33,7 @@ const Dashboard = () => {
       )}
       <CardAppointment />
       <Footer />
+      {isLoading && <Loading />}
     </>
   );
 };

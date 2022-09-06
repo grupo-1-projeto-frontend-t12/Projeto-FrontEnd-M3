@@ -10,6 +10,7 @@ import Header from "../../components/Header/header";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
 import { motion, AnimatePresence } from "framer-motion";
+import Loading from "../../components/Loading/loading";
 
 const schema = yup.object().shape({
   email: yup.string().email("Email Invalido!").required("Email Obrigatório!"),
@@ -17,7 +18,7 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, isLoading } = useContext(AuthContext);
 
   const { SignIn } = useContext(AuthContext);
   const [isModal, setIsModal] = useState(true);
@@ -103,6 +104,7 @@ const Login = () => {
           </AnimatePresence>
         </motion.div>
       )}
+      {isLoading && <Loading />}
     </>
   );
 };

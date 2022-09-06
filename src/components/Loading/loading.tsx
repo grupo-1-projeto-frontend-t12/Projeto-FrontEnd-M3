@@ -1,10 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { StyledLoader } from "./loadingCSS";
-import React from "react";
+import React, { useEffect } from "react";
+import { Modal } from "../Modal/modal";
 
 const Loading = () => {
+  useEffect(() => {
+    console.warn("hi");
+    return () => {
+      console.warn("bye");
+    };
+  }, []);
   return (
-    <>
+    <Modal>
       <AnimatePresence>
         <motion.div
           animate={{
@@ -16,7 +23,7 @@ const Loading = () => {
           <StyledLoader></StyledLoader>
         </motion.div>
       </AnimatePresence>
-    </>
+    </Modal>
   );
 };
 

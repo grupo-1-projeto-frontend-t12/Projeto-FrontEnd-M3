@@ -12,13 +12,14 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
-import iconerror from "../assets/img/logo/errorico.svg"
-import sucessicon from "../assets/img/logo/sucessicon.svg"
+import iconerror from "../assets/img/logo/errorico.svg";
+import sucessicon from "../assets/img/logo/sucessicon.svg";
 import { IError } from "../interface/IError";
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState<IUser>({} as IUser);
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
   const [doctor, setDoctor] = useState<IDoctors>({} as IDoctors);
@@ -28,53 +29,65 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [itemFilter, setItemFilter] = useState<IDoctors[]>([]);
   const [inputFilter, setInputFilter] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [appointment, setAppointment] = useState<IUserAppointment[]>([] as IUserAppointment[]);
+  const [appointment, setAppointment] = useState<IUserAppointment[]>(
+    [] as IUserAppointment[]
+  );
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("@context-KenzieMed:token")
+  const token = localStorage.getItem("@context-KenzieMed:token");
+  const userData = JSON.parse(localStorage.getItem("@context-KenzieMed:user")!);
+  console.warn(userData);
 
   useEffect(() => {
     if (token) {
-      setLogin(true)
+      setLogin(true);
     }
-  }, [token])
-  
+  }, [token]);
 
   const SignIn = async (data: IUserLogin) => {
     try {
-      const res = await api.post<IPost>("/login", data);
-      const { user: userResponse } = res.data;
-      const token = JSON.stringify(res.data.accessToken);
+      setIsLoading(true);
 
-      setUser(userResponse);
+      setTimeout(async () => {
+        const res = await api.post<IPost>("/login", data);
+        const { user: userResponse } = res.data;
+        const token = JSON.stringify(res.data.accessToken);
 
-      localStorage.setItem("@context-KenzieMed:user", JSON.stringify(userResponse));
-      localStorage.setItem("@context-KenzieMed:userId", JSON.stringify(res.data.user.id))
-      localStorage.setItem("@context-KenzieMed:token", token);
+        setUser(userResponse);
 
-      setLogin(true);
+        localStorage.setItem(
+          "@context-KenzieMed:user",
+          JSON.stringify(userResponse)
+        );
+        localStorage.setItem(
+          "@context-KenzieMed:userId",
+          JSON.stringify(res.data.user.id)
+        );
+        localStorage.setItem("@context-KenzieMed:token", token);
 
-      const state = location.state as ICustomizedState;
+        setLogin(true);
 
-      let toNavigate = "/dashboard";
+        const state = location.state as ICustomizedState;
 
-      if (state) {
-        toNavigate = state.from;
-      }
+        let toNavigate = "/dashboard";
 
-      navigate(toNavigate, { replace: true });
-
-      toast.success("Login efetuado com sucesso!", {
-        theme: "colored",
-        icon: <img src={sucessicon} alt="icon sucess"/>
-      });
+        if (state) {
+          toNavigate = state.from;
+        }
+        navigate(toNavigate, { replace: true });
+        setIsLoading(false);
+        toast.success("Login efetuado com sucesso!", {
+          theme: "colored",
+          icon: <img src={sucessicon} alt="icon sucess" />,
+        });
+      }, 2000);
     } catch (error) {
       const err = error as AxiosError;
       toast.error("Erro ao efetuar Login!", {
         theme: "colored",
-        icon: <img src={iconerror} alt="icon error"/>
+        icon: <img src={iconerror} alt="icon error" />,
       });
       console.log("CON-LOG CATCH ERROR SignIn", err.message);
     }
@@ -86,14 +99,14 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       .then((response) => {
         toast.success("Cadastro efetuado com sucesso", {
           theme: "colored",
-          icon: <img src={sucessicon} alt="icon sucess"/>
+          icon: <img src={sucessicon} alt="icon sucess" />,
         });
         navigate("/login");
       })
       .catch((error: AxiosError<IError>) => {
         toast.error("Ops, Algo deu errado", {
           theme: "colored",
-          icon: <img src={iconerror} alt="icon error"/>
+          icon: <img src={iconerror} alt="icon error" />,
         });
         console.log(error.message);
       });
@@ -113,6 +126,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   return (
     <AuthContext.Provider
       value={{
+        isLoading,
+        setIsLoading,
         user,
         login,
         setLogin,
