@@ -9,14 +9,14 @@ const Home = () => {
     <>
       <Header />
       <AnimatePresence>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
           transition={{ duration: 0.5 }}
         >
           <Carousel />
-        </motion.div>
+        </motion.div> */}
         <UnidadeInfoComponent />
       </AnimatePresence>
       <Footer />
