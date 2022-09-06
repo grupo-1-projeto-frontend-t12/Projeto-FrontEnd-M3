@@ -10,17 +10,34 @@ import { AxiosError } from "axios";
 import { IError } from "../../interface/IError";
 
 const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
-  const { setDoctorSchedule, setDoctor, setDoctorsList, itemFilter, setItemFilter } = useContext(AuthContext);
+  const {
+    setDoctorSchedule,
+    setDoctor,
+    setDoctorsList,
+    itemFilter,
+    setItemFilter,
+    setIsLoading,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const getDoctor = async () => {
     try {
-      const response = await api.get("/doctors");
-      setDoctorsList(response.data);
+      if (doctorsList.length === 0) {
+        setIsLoading(true);
+        const response = await api.get("/doctors");
+        setDoctorsList(response.data);
+
+        setTimeout(async () => {
+          setIsLoading(false);
+        }, 2000);
+      } else {
+        const response = await api.get("/doctors");
+        setDoctorsList(response.data);
+      }
     } catch (error) {
-      const err = error as AxiosError<IError>
-      console.log(err.message)
+      const err = error as AxiosError<IError>;
+      console.log(err.message);
     }
   };
 
@@ -32,9 +49,15 @@ const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
     <ContainerDoctors>
       <div className="card-doctors-header">
         <h2>Corpo Clinico</h2>
-        {itemFilter.length > 0 && <button onClick={() => {setItemFilter([])}}>
-          <BsArrowLeftShort /> Voltar
-        </button>}
+        {itemFilter.length > 0 && (
+          <button
+            onClick={() => {
+              setItemFilter([]);
+            }}
+          >
+            <BsArrowLeftShort /> Voltar
+          </button>
+        )}
       </div>
       {doctorsList ? (
         <ListDoctors>

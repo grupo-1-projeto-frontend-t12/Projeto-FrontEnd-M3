@@ -15,7 +15,8 @@ import sucessicon from "../../assets/img/logo/sucessicon.svg";
 import { IError } from "../../interface/IError";
 
 const CardScheduleDoctor = () => {
-  const { doctorSchedule, doctor, user, setDoctorSchedule } = useContext(AuthContext);
+  const { doctorSchedule, doctor, user, setDoctorSchedule, setIsLoading } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -26,6 +27,15 @@ const CardScheduleDoctor = () => {
     try {
       
       await api.post(`/appointment`, data);
+      navigate("/dashboard", { replace: true });
+      setTimeout(() => {
+        setIsLoading(false);
+        toast.success("Agendamento concluído!", {
+          theme: "colored",
+          icon: <img src={sucessicon} alt="icon sucess" />,
+        });
+      }, 2000);
+
       setDoctorSchedule(
         doctorSchedule.filter((horario) => horario.id !== schedule.id)
       );
@@ -67,6 +77,7 @@ const CardScheduleDoctor = () => {
     };
     postAppointment(appointInfo, schedule);
     editScheduleDoctor(schedule)
+    setIsLoading(true);
   };
 
   return (

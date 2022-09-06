@@ -7,9 +7,11 @@ import CardAppointment from "../../components/CardAppointment/cardAppointment";
 import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
 import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyle";
 import { motion } from "framer-motion";
+import Loading from "../../components/Loading/loading";
 
 const Dashboard = () => {
-  const { isOpenModal, setIsOpenModal, user } = useContext(AuthContext);
+  const { isOpenModal, setIsOpenModal, user, isLoading } =
+    useContext(AuthContext);
 
   return (
     <>
@@ -45,6 +47,7 @@ const Dashboard = () => {
         </Container>
       </motion.div>
       <Footer />
+      {isLoading && <Loading />}
     </>
   );
 };
