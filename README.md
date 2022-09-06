@@ -238,17 +238,41 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 	
 ```
 {
-	"userId": 2,
+	"id": 5,
 	"name": " Arnold Schwarzenegger ",
 	"email": "reimaromba@kenziemed.com",
 	"password": "123456",
 	"CPF": "12345678901",
+	"CRM": "1790-AL",
 	"age": 75,
 	"sex": "Masculino",
 	"address": "Unidade - Campo Largo",
-	"speciality": "Endocrinologista",
 	"type": "medico",
-	"id": 21
+	"speciality": "Endocrinologista",
+	"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/496.png",
+	"schedules": [
+		{
+			"id": 1,
+			"dia": "01/09/2022",
+			"hora": "13:00"
+		},
+		{
+			"id": 2,
+			"dia": "01/09/2022",
+			"hora": "14:00"
+		},
+		{
+			"id": 3,
+			"dia": "01/09/2022",
+			"hora": "15:00"
+		},
+		{
+			"id": 4,
+			"dia": "01/09/2022",
+			"hora": "16:00"
+		}
+	],
+	"userId": 2
 }
 ```
 
@@ -266,7 +290,7 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 <h3 style='font-weight: 600; font-size:20px;'>A senha necessita de 6 caracteres:</h3>
 
 
-## POST /users - FORMATO DA RESPOSTA - STATUS 400
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 400
 
 ```
 {
@@ -278,7 +302,7 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 <h3 style='font-weight: 600; font-size:20px;'>Email já cadastrado:</h3>
 
 
-## POST /users - FORMATO DA RESPOSTA - STATUS 400
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 400
 
 ```
 {
@@ -359,6 +383,43 @@ usuário logado no localStorage para fazer a gestão do usuário no seu frontend
 <br><p>Na requisição apenas é necessário o TOKEN, a aplicação ficará responsável em buscar o id do usuário no token e retorna ele.</p>
 </br>
 
+<h2 style='font-weight: 600'>Buscar Perfil de um Médico</h2>
+
+## GET /doctors/doctorId - FORMATO DA REQUISIÇÃO
+
+<br><p>OBSERVAÇÃO: Não é necessário um corpo da requisição.</p></br>
+
+## GET /doctors/doctorId - FORMATO DA RESPOSTA - STATUS 200
+
+```
+{
+	"id": 4,
+	"name": "Dra. Flavia Costa",
+	"email": "medflav@kenziemed.com",
+	"password": "fred123",
+	"CPF": "12312312312",
+	"CRM": "1994-SE",
+	"age": 25,
+	"sex": "F",
+	"type": "doctor",
+	"speciality": "Cardiologista",
+	"exames": [
+		{
+			"id": 1,
+			"exame": "Ecocardiograma",
+			"dia": "Segunda-feira",
+			"hora": "9:00"
+		},
+		{
+			"id": 2,
+			"exame": "Teste de Ergométrico ",
+			"dia": "Segunda-feira",
+			"hora": "10:00"
+		}
+	]
+}
+```
+
 
 <h2 style='font-weight: 600; font-size:20px;'>Marcar consulta:</h2>
 
@@ -437,6 +498,82 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
   "address": "Pão de Queijo",
   "id": 5,
   "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtEtS7yr3J-zGMzI-b0muQQHOswy0Nh0M3C0OBfdjpAuXf3PcE7tNXz4PGg6-St0RaI&usqp=CAU"
+}
+```
+
+<h2 style='font-weight: 800; font-size:20px;'>Editar o Perfil de um Médico</h2>
+
+## PATCH /doctors/doctorsId - FORMATO DA REQUISIÇÃO
+
+```
+{
+	"name": " Arnold Schwarzenegger ",
+	"email": "reimaromba@kenziemed.com",
+	"password": "123456",
+	"CPF": "12345678901",
+	"CRM": "1790-AL",
+	"age": 75,
+	"sex": "Masculino",
+	"type": "medico",
+	"speciality": "Psicólogo",
+	"address": "Minas Gerais",
+	"img": "https://img.freepik.com/vetores-premium/mulher-profissional-medico-avatar-vector-illustration-design_24877-18178.jpg?w=740"
+}
+```
+
+<h3 style='font-weight: 600; font-size:20px;'>Caso dê tudo certo, a resposta será assim:</h3>
+
+
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 201
+
+```
+{
+	"id": 5,
+	"name": " Arnold Schwarzenegger ",
+	"email": "reimaromba@kenziemed.com",
+	"password": "123456",
+	"CPF": "12345678901",
+	"CRM": "1790-AL",
+	"age": 75,
+	"sex": "Masculino",
+	"type": "medico",
+	"speciality": "Psicólogo",
+	"address": "Minas Gerais",
+	"img": "https://img.freepik.com/vetores-premium/mulher-profissional-medico-avatar-vector-illustration-design_24877-18178.jpg?w=740",
+	"schedules": [
+		{
+			"id": 1,
+			"dia": "01/09/2022",
+			"hora": "13:00"
+		},
+		{
+			"id": 2,
+			"dia": "01/09/2022",
+			"hora": "14:00"
+		},
+		{
+			"id": 3,
+			"dia": "01/09/2022",
+			"hora": "15:00"
+		},
+		{
+			"id": 4,
+			"dia": "01/09/2022",
+			"hora": "16:00"
+		}
+	],
+	"userId": 2
+}
+```
+
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 400
+
+
+```
+{
+
+"status": "bad request"
+
 }
 ```
 

@@ -8,12 +8,12 @@ export const StyledLoader = styled.div`
   justify-content: center;
   background: none;
   color: var(--color-fontescura);
-  box-shadow: 0 0 1px 0 var(--color-green2);
-  border-bottom: 6px solid var(--color-fontescura);
-  border-top: 6px solid var(--color-green);
+  box-shadow: 0 0 8px 1px var(--color-green2);
+  border-bottom: 8px solid var(--color-fontescura);
+  border-top: 8px solid var(--color-green);
   border-radius: 50%;
-  border-left: 2px solid var(--color-grey);
-  border-right: 2px solid var(--color-grey);
+  border-left: 1px solid none; //var(--color-grey);
+  border-right: 1px solid none; //var(--color-grey);
   position: absolute;
   top: 50%;
   margin-top: -5rem;

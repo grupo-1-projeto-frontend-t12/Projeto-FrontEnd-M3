@@ -25,6 +25,8 @@ export interface IAuthContext {
   setItemFilter: (state: IDoctors[]) => void;
   setInputFilter: (state: string) => void;
   filterDoctors: (state: string) => void;
+  isLoading: boolean;
+  setIsLoading: (state: boolean) => void;
   inputFilter: string;
   itemFilter: IDoctors[];
   appointment: IUserAppointment[];

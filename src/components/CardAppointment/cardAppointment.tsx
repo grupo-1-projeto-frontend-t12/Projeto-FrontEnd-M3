@@ -3,7 +3,7 @@ import { MdOutlinePlace } from "react-icons/md";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BsCalendar3 } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import api from "../../services/api";
 import { IUserAppointment } from "../../interface/IUserAppointment";
 import { toast } from "react-toastify";
@@ -11,9 +11,12 @@ import sucessicon from "../../assets/img/logo/sucessicon.svg";
 import { IError } from "../../interface/IError";
 import { AxiosError } from "axios";
 import iconerror from "../../assets/img/logo/errorico.svg";
+import { IDoctors } from "../../interface/IDoctors";
 
 const CardAppointment = () => {
-  const { setAppointment, appointment, user } = useContext(AuthContext);
+  const { setAppointment, appointment, user, doctor, setDoctor, setIsLoading } =
+    useContext(AuthContext);
+  const [medic, setMedic] = useState([] as IDoctors[]);
 
   const getAppointment = async () => {
     try {
@@ -34,15 +37,20 @@ const CardAppointment = () => {
   }, []);
 
   const cancelAppointment = async (appoint: IUserAppointment) => {
-    await api.delete(`/appointment/${appoint.id}`);
-    const currentAppointments = await api
-      .get(`/appointment/?userId=${user.id}`)
-      .then((res) => res.data);
-    setAppointment(currentAppointments);
-    toast.success("Consulta cancelada!", {
-      theme: "colored",
-      icon: <img src={sucessicon} alt="icon sucess" />,
-    });
+    setIsLoading(true);
+
+    setTimeout(async () => {
+      await api.delete(`/appointment/${appoint.id}`);
+      const currentAppointments = await api
+        .get(`/appointment/?userId=${user.id}`)
+        .then((res) => res.data);
+      setAppointment(currentAppointments);
+      toast.success("Consulta cancelada!", {
+        theme: "colored",
+        icon: <img src={sucessicon} alt="icon sucess" />,
+      });
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
