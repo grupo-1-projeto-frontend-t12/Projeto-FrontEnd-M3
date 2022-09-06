@@ -47,14 +47,13 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }, [token]);
 
   const SignIn = async (data: IUserLogin) => {
-    try {
-      setIsLoading(true);
+    setIsLoading(true);
 
-      setTimeout(async () => {
+    setTimeout(async () => {
+      try {
         const res = await api.post<IPost>("/login", data);
         const { user: userResponse } = res.data;
         const token = JSON.stringify(res.data.accessToken);
-
         setUser(userResponse);
 
         localStorage.setItem(
@@ -82,15 +81,17 @@ const AuthProvider = ({ children }: IAuthProvider) => {
           theme: "colored",
           icon: <img src={sucessicon} alt="icon sucess" />,
         });
-      }, 2000);
-    } catch (error) {
-      const err = error as AxiosError;
-      toast.error("Erro ao efetuar Login!", {
-        theme: "colored",
-        icon: <img src={iconerror} alt="icon error" />,
-      });
-      console.log("CON-LOG CATCH ERROR SignIn", err.message);
-    }
+      } catch (error) {
+        const err = error as AxiosError;
+        toast.error("Erro ao efetuar Login!", {
+          theme: "colored",
+          icon: <img src={iconerror} alt="icon error" />,
+        });
+        console.log("CON-LOG CATCH ERROR SignIn", err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }, 2000);
   };
 
   const onSubmitRegister = (data: IUser) => {
