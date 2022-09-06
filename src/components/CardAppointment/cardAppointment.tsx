@@ -41,7 +41,7 @@ const CardAppointment = () => {
       await api.delete(`/appointment/${appoint.id}`);
       const currentAppointments = await api
         .get(`/appointment/?userId=${user.id}`)
-        .then((res) => res.data)
+        .then((res) => res.data);
       setAppointment(currentAppointments);
       toast.success("Consulta cancelada!", {
         theme: "colored",
@@ -68,21 +68,26 @@ const CardAppointment = () => {
                 <h4>{appoint.speciality}</h4>
                 <div className="containerDataAppointment">
                   <div className="containerIcon">
-                      <span><BsCalendar3 /></span>
-                      <h3>{appoint.dia}</h3>
-                   </div>
-                   
-                   <div className="containerIcon">
-                    <span><AiOutlineClockCircle /> </span>
-                      <h3> {appoint.horario}</h3>
-                   </div>
-                    
-                    <div className="containerIcon">
-                        <span> <MdOutlinePlace /></span>
-                        <h3>{appoint.address}</h3> 
-                    </div>
-                  
-                  
+                    <span>
+                      <BsCalendar3 />
+                    </span>
+                    <h3>{appoint.dia}</h3>
+                  </div>
+
+                  <div className="containerIcon">
+                    <span>
+                      <AiOutlineClockCircle />{" "}
+                    </span>
+                    <h3> {appoint.horario}</h3>
+                  </div>
+
+                  <div className="containerIcon">
+                    <span>
+                      {" "}
+                      <MdOutlinePlace />
+                    </span>
+                    <h3>{appoint.address}</h3>
+                  </div>
                 </div>
               </li>
             );

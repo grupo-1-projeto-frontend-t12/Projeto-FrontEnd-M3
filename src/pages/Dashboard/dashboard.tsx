@@ -14,7 +14,7 @@ const Dashboard = () => {
     useContext(AuthContext);
 
   return (
-    <div onClick={() => setIsOpenModal(false)}>
+    <div onClick={() => setIsOpenModal(false)} style={{ width: "100%" }}>
       <Header />
       <motion.div
         id="app__motion--content"
@@ -25,7 +25,6 @@ const Dashboard = () => {
       >
         <Container>
           <TagDivUser
-            className="aqui"
             onClick={(event) => event.stopPropagation()}
           >
             <button type="button" onClick={() => setIsOpenModal(!isOpenModal)}>

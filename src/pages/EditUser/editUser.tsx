@@ -17,7 +17,7 @@ const EditUser = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div onClick={() => setIsOpenModal(false)} style={{ width: "100%" }}>
       <Header />
       <motion.div
         id="app__motion--content"
@@ -27,7 +27,10 @@ const EditUser = () => {
         transition={{ duration: 0.5 }}
       >
         <Container>
-          <TagDivUser>
+          <TagDivUser
+           className="aqui"
+           onClick={(event) => event.stopPropagation()}
+          >
             <button type="button" onClick={() => setIsOpenModal(!isOpenModal)}>
               {user.img ? (
                 <img src={user.img} alt="Avatar Usuário" />
@@ -58,7 +61,7 @@ const EditUser = () => {
         </Container>
       </motion.div>
       <Footer />
-    </>
+    </div>
   );
 };
 

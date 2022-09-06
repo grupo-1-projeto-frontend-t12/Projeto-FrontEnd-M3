@@ -5,7 +5,7 @@ export const Container = styled.div`
   max-width: 1395px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 20px;
 
   .divBtnReturn{
