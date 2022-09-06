@@ -124,8 +124,11 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     const ArrayfilterDoctors = doctorsList.filter((elem) =>
       elem.speciality.toLowerCase().includes(inputFilter.toLowerCase())
     );
-
-    if (itemFilter.length < 0) {
+    if (ArrayfilterDoctors.length === 0) {
+      toast.error("Não conseguimos encontrar essa especialidade..", {
+        theme: "colored",
+        icon: <img src={iconerror} alt="icon error" />,
+      });
       setItemFilter(doctorsList);
     } else {
       setItemFilter(ArrayfilterDoctors);
