@@ -62,27 +62,29 @@ const CardAppointment = () => {
             return (
               <li key={appoint.id}>
                 <div className="containerHeader">
-                  <h2>{appoint.name}</h2>
+                  <h2 className="doctorName">{appoint.name}</h2>
                   <button onClick={() => cancelAppointment(appoint)}>
                     Cancelar Consulta
                   </button>
                 </div>
-                <span>{appoint.speciality}</span>
+                <h4>{appoint.speciality}</h4>
                 <div className="containerDataAppointment">
-                  <div>
-                    <h3>
-                      <BsCalendar3 />
-                      {appoint.dia}
-                    </h3>
-                    <h3>
-                      <AiOutlineClockCircle />
-                      {appoint.horario}
-                    </h3>
-                    <h3>
-                      <MdOutlinePlace />
-                      {appoint.address}
-                    </h3>
-                  </div>
+                  <div className="containerIcon">
+                      <span><BsCalendar3 /></span>
+                      <h3>{appoint.dia}</h3>
+                   </div>
+                   
+                   <div className="containerIcon">
+                    <span><AiOutlineClockCircle /> </span>
+                      <h3> {appoint.horario}</h3>
+                   </div>
+                    
+                    <div className="containerIcon">
+                        <span> <MdOutlinePlace /></span>
+                        <h3>{appoint.address}</h3> 
+                    </div>
+                  
+                  
                 </div>
               </li>
             );
