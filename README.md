@@ -34,31 +34,32 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 ```
 [
 {
-		"id": 2,
-		"name": "Dra. Aline Rabech",
-		"email": "medaline@kenziemed.com",
-		"password": "fred123",
-		"CPF": "12312312312",
-		"CRM": "1991-SE",
-		"age": 24,
-		"sex": "F",
-		"type": "doctor",
-		"speciality": "Pneumologista",
-		"exames": [
-			{
-				"id": 1,
-				"exame": "Raio X do Tórax",
-				"dia": "Segunda-feira",
-				"hora": "9:00"
-			},
-			{
-				"id": 2,
-				"exame": "Volumes Pulmonares/Pletismografia",
-				"dia": "Segunda-feira",
-				"hora": "10:00"
-			}
-}
-...
+	"id": 2,
+	"name": "Dra. Aline Rabech",
+	"email": "medaline@kenziemed.com",
+	"password": "fred123",
+	"CPF": "12312312312",
+	"CRM": "1991-SE",
+	"age": 24,
+	"sex": "F",
+	"type": "doctor",
+	"speciality": "Pneumologista",
+	"exames": [
+	       {
+		"id": 1,
+		"exame": "Raio X do Tórax",
+		"dia": "Segunda-feira",
+		"hora": "9:00"
+		}
+	]
+	"schedules": [
+		{
+		"id": 1,
+		"dia": "28/08/2022",
+		"hora": "17:00"
+		}
+	]
+	...
 ]
 
 ```
@@ -207,7 +208,24 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
       "sex": "Masculino",
       "address": "Espirito Santo",
       "speciality": "Endocrinologista",
-      "type": "medico"
+      "type": "medico",
+      "exames":[
+	{
+	"id": 1,
+	"exame": "Ecocardiograma",
+	"dia": "Segunda-feira",
+	"hora": "9:00"
+	}
+	],
+	"schedules": [
+	{
+	"id": 1,
+	"dia": "28/08/2022",
+	"hora": "17:00"
+	}		
+	],
+	"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/492.png",
+	
 }
 ```
 	
@@ -220,17 +238,41 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 	
 ```
 {
-	"userId": 2,
+	"id": 5,
 	"name": " Arnold Schwarzenegger ",
 	"email": "reimaromba@kenziemed.com",
 	"password": "123456",
 	"CPF": "12345678901",
+	"CRM": "1790-AL",
 	"age": 75,
 	"sex": "Masculino",
-	"address": "Espirito Santo",
-	"speciality": "Endocrinologista",
+	"address": "Unidade - Campo Largo",
 	"type": "medico",
-	"id": 21
+	"speciality": "Endocrinologista",
+	"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/496.png",
+	"schedules": [
+		{
+			"id": 1,
+			"dia": "01/09/2022",
+			"hora": "13:00"
+		},
+		{
+			"id": 2,
+			"dia": "01/09/2022",
+			"hora": "14:00"
+		},
+		{
+			"id": 3,
+			"dia": "01/09/2022",
+			"hora": "15:00"
+		},
+		{
+			"id": 4,
+			"dia": "01/09/2022",
+			"hora": "16:00"
+		}
+	],
+	"userId": 2
 }
 ```
 
@@ -240,41 +282,32 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 
 ```
 {
-
 "status": "error",
-
 "message": ["password is required", "email is required"]
-
 }
 ```
 
 <h3 style='font-weight: 600; font-size:20px;'>A senha necessita de 6 caracteres:</h3>
 
 
-## POST /users - FORMATO DA RESPOSTA - STATUS 400
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 400
 
 ```
 {
-
-  "status": "error",
-  
-  "message": ["password: minimum is 6 characters"]
-  
+  "status": "error",  
+  "message": ["password: minimum is 6 characters"]  
 }
 ```
 
 <h3 style='font-weight: 600; font-size:20px;'>Email já cadastrado:</h3>
 
 
-## POST /users - FORMATO DA RESPOSTA - STATUS 400
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 400
 
 ```
 {
-
-  "status": "error",
-  
-  "message": "Email already exists"
-  
+  "status": "error",  
+  "message": "Email already exists"  
 }
 ```
 
@@ -295,19 +328,18 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 ## POST /login - FORMATO DA RESPOSTA - STATUS 201
 
 ```
-
 {
 	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlbnppZUBrZW56aWVtZWQuY29tIiwiaWF0IjoxNjYyMzg0NDYzLCJleHAiOjE2NjIzODgwNjMsInN1YiI6IjMifQ.VsuNhaDkdq26TjQqUSUjDEqEv63CvtCIZjTN7JwcNZY",
 	"user": {
-		"email": "kenzie@kenziemed.com",
-		"name": "Kenzie Med",
-		"CPF": "12312312312",
-		"age": 20,
-		"sex": "M",
-		"type": "patient",
-		"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png",
-		"address": "kenzie academy",
-		"id": 3
+	"email": "kenzie@kenziemed.com",
+	"name": "Kenzie Med",
+	"CPF": "12312312312",
+	"age": 20,
+	"sex": "M",
+	"type": "patient",
+	"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png",
+	"address": "kenzie academy",
+	"id": 3
 	}
 }
 ```
@@ -351,6 +383,43 @@ usuário logado no localStorage para fazer a gestão do usuário no seu frontend
 <br><p>Na requisição apenas é necessário o TOKEN, a aplicação ficará responsável em buscar o id do usuário no token e retorna ele.</p>
 </br>
 
+<h2 style='font-weight: 600'>Buscar Perfil de um Médico</h2>
+
+## GET /doctors/doctorId - FORMATO DA REQUISIÇÃO
+
+<br><p>OBSERVAÇÃO: Não é necessário um corpo da requisição.</p></br>
+
+## GET /doctors/doctorId - FORMATO DA RESPOSTA - STATUS 200
+
+```
+{
+	"id": 4,
+	"name": "Dra. Flavia Costa",
+	"email": "medflav@kenziemed.com",
+	"password": "fred123",
+	"CPF": "12312312312",
+	"CRM": "1994-SE",
+	"age": 25,
+	"sex": "F",
+	"type": "doctor",
+	"speciality": "Cardiologista",
+	"exames": [
+		{
+			"id": 1,
+			"exame": "Ecocardiograma",
+			"dia": "Segunda-feira",
+			"hora": "9:00"
+		},
+		{
+			"id": 2,
+			"exame": "Teste de Ergométrico ",
+			"dia": "Segunda-feira",
+			"hora": "10:00"
+		}
+	]
+}
+```
+
 
 <h2 style='font-weight: 600; font-size:20px;'>Marcar consulta:</h2>
 
@@ -358,13 +427,13 @@ usuário logado no localStorage para fazer a gestão do usuário no seu frontend
 
 ```
 {
-      userId: 1,
-      doctor: 6
-      dia: "19-08-2022",
-      horario: "9:00",
-      address: "Unidade - Campo Largo",
-      speciality: "Cardiologista",
-      name: "Dr. Roberto Marcelo",
+      "userId": 1,
+      "doctor": 6
+     "dia": "19-08-2022",
+      "horario": "9:00",
+      "address": "Unidade - Campo Largo",
+      "speciality": "Cardiologista",
+      "name": "Dr. Roberto Marcelo",
     }
 
 ```
@@ -382,11 +451,8 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 ```
 {
-
-  "status": "error",
-  
-  "message": "Já possui uma consulta agendada com esté médico."
-  
+  "status": "error",  
+  "message": "Já possui uma consulta agendada com esté médico."  
 }
 ```
 
@@ -432,6 +498,82 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
   "address": "Pão de Queijo",
   "id": 5,
   "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtEtS7yr3J-zGMzI-b0muQQHOswy0Nh0M3C0OBfdjpAuXf3PcE7tNXz4PGg6-St0RaI&usqp=CAU"
+}
+```
+
+<h2 style='font-weight: 800; font-size:20px;'>Editar o Perfil de um Médico</h2>
+
+## PATCH /doctors/doctorsId - FORMATO DA REQUISIÇÃO
+
+```
+{
+	"name": " Arnold Schwarzenegger ",
+	"email": "reimaromba@kenziemed.com",
+	"password": "123456",
+	"CPF": "12345678901",
+	"CRM": "1790-AL",
+	"age": 75,
+	"sex": "Masculino",
+	"type": "medico",
+	"speciality": "Psicólogo",
+	"address": "Minas Gerais",
+	"img": "https://img.freepik.com/vetores-premium/mulher-profissional-medico-avatar-vector-illustration-design_24877-18178.jpg?w=740"
+}
+```
+
+<h3 style='font-weight: 600; font-size:20px;'>Caso dê tudo certo, a resposta será assim:</h3>
+
+
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 201
+
+```
+{
+	"id": 5,
+	"name": " Arnold Schwarzenegger ",
+	"email": "reimaromba@kenziemed.com",
+	"password": "123456",
+	"CPF": "12345678901",
+	"CRM": "1790-AL",
+	"age": 75,
+	"sex": "Masculino",
+	"type": "medico",
+	"speciality": "Psicólogo",
+	"address": "Minas Gerais",
+	"img": "https://img.freepik.com/vetores-premium/mulher-profissional-medico-avatar-vector-illustration-design_24877-18178.jpg?w=740",
+	"schedules": [
+		{
+			"id": 1,
+			"dia": "01/09/2022",
+			"hora": "13:00"
+		},
+		{
+			"id": 2,
+			"dia": "01/09/2022",
+			"hora": "14:00"
+		},
+		{
+			"id": 3,
+			"dia": "01/09/2022",
+			"hora": "15:00"
+		},
+		{
+			"id": 4,
+			"dia": "01/09/2022",
+			"hora": "16:00"
+		}
+	],
+	"userId": 2
+}
+```
+
+## POST /doctors - FORMATO DA RESPOSTA - STATUS 400
+
+
+```
+{
+
+"status": "bad request"
+
 }
 ```
 
@@ -494,9 +636,12 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 ## Equipe
 
-<h3 ><a href="https://github.com/annekarolle">Anne K R Oliveira</a></h3> 
-  <h3><a href="https://github.com/DnlGalvan" >Daniel Galvan</a></h3> 
-  <h3 ><a href="https://github.com/fredericosafebox" >Frederico Costa</a></h3> 
-  <h3><a href="https://github.com/fredrook" >Frederico Rook Chaves</a></h3> 
-  <h3><a href="https://github.com/marcuspvh" >Marcus Roberto Ribeiro</a></h3> 
+<ul>
+<li><a href="https://github.com/annekarolle">Anne K R Oliveira - Scrum Master</a></li>
+<li><a href="https://github.com/DnlGalvan">Daniel Galvan - Tech Lead</a></li>
+<li><a href="https://github.com/fredericosafebox" >Frederico Costa - Product Owner</a></li>
+<li><a href="https://github.com/fredrook">Frederico Rook Chaves - Quality Assurance </a></li>
+<li><a href="https://github.com/marcuspvh">Marcus Roberto Ribeiro - Quality Assurance</a></li>
+</ul>
+
 
