@@ -31,7 +31,7 @@ const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
   return (
     <ContainerDoctors>
       <div className="card-doctors-header">
-        <h2>Corpo Clinico</h2>
+        <h2>Corpo Clínico</h2>
         {itemFilter.length > 0 && <button onClick={() => {setItemFilter([])}}>
           <BsArrowLeftShort /> Voltar
         </button>}

@@ -81,7 +81,7 @@ const CardAppointment = () => {
           })}
         </ListDoctors>
       ) : (
-        <h3>Você não possui nenhum agendamento!</h3>
+        <h3>Você não possui agendamentos!</h3>
       )}
     </ContainerCardAppointment>
   );

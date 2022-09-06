@@ -64,7 +64,7 @@ const LabInfoComponent = () => {
           {" "}
           <AiOutlineSetting />
         </span>{" "}
-        <h2> Aguarde em breve agendamento online de exames</h2>
+        <h2> Aguarde, em breve agendamento online de exames</h2>
       </div>
     </ContainerConteudo>
   );
