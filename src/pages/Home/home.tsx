@@ -9,6 +9,7 @@ const Home = () => {
     <>
       <Header />
       <AnimatePresence>
+        <UnidadeInfoComponent />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -17,8 +18,7 @@ const Home = () => {
           style={{ width: "100%" }}
         >
           <Carousel />
-          <UnidadeInfoComponent />
-        </motion.div>        
+        </motion.div>
       </AnimatePresence>
       <Footer />
     </>
