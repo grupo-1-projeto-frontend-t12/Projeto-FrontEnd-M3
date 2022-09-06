@@ -90,7 +90,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
           theme: "colored",
           icon: <img src={iconerror} alt="icon error" />,
         });
-        console.log("CON-LOG CATCH ERROR SignIn", err.message);
+        console.log(err.message);
       } finally {
         setIsLoading(false);
       }

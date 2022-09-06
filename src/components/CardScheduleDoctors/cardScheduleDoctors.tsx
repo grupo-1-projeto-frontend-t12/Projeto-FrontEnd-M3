@@ -1,7 +1,4 @@
-import {
-  ContainerRenderDoctorSchedule,
-  ContainerSchedule,
-} from "./cardScheduleDoctorStyle";
+import { ContainerRenderDoctorSchedule, ContainerSchedule } from "./cardScheduleDoctorStyle";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
@@ -19,9 +16,9 @@ import iconerror from "../../assets/img/logo/errorico.svg";
 import { IError } from "../../interface/IError";
 import { StyledAlert } from "../EmptyObjectAlert/emptyObjectAlert";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
+
 const CardScheduleDoctor = () => {
-  const { doctorSchedule, doctor, user, setDoctorSchedule, setIsLoading } =
-    useContext(AuthContext);
+  const { doctorSchedule, doctor, user, setDoctorSchedule, setIsLoading } =  useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -62,8 +59,7 @@ const CardScheduleDoctor = () => {
       };
       const token = localStorage.getItem("@context-KenzieMed:token");
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      const res = await api.patch(`/doctors/${doctor.id}`, obj);
-
+      await api.patch(`/doctors/${doctor.id}`, obj);
       navigate("/dashboard", { replace: true });
     } catch (error) {
       const err = error as AxiosError<IError>;
