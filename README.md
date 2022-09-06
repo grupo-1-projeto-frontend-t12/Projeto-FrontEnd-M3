@@ -34,31 +34,32 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 ```
 [
 {
-		"id": 2,
-		"name": "Dra. Aline Rabech",
-		"email": "medaline@kenziemed.com",
-		"password": "fred123",
-		"CPF": "12312312312",
-		"CRM": "1991-SE",
-		"age": 24,
-		"sex": "F",
-		"type": "doctor",
-		"speciality": "Pneumologista",
-		"exames": [
-			{
-				"id": 1,
-				"exame": "Raio X do Tórax",
-				"dia": "Segunda-feira",
-				"hora": "9:00"
-			},
-			{
-				"id": 2,
-				"exame": "Volumes Pulmonares/Pletismografia",
-				"dia": "Segunda-feira",
-				"hora": "10:00"
-			}
-}
-...
+	"id": 2,
+	"name": "Dra. Aline Rabech",
+	"email": "medaline@kenziemed.com",
+	"password": "fred123",
+	"CPF": "12312312312",
+	"CRM": "1991-SE",
+	"age": 24,
+	"sex": "F",
+	"type": "doctor",
+	"speciality": "Pneumologista",
+	"exames": [
+	       {
+		"id": 1,
+		"exame": "Raio X do Tórax",
+		"dia": "Segunda-feira",
+		"hora": "9:00"
+		}
+	]
+	"schedules": [
+		{
+		"id": 1,
+		"dia": "28/08/2022",
+		"hora": "17:00"
+		}
+	]
+	...
 ]
 
 ```
@@ -207,7 +208,24 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
       "sex": "Masculino",
       "address": "Espirito Santo",
       "speciality": "Endocrinologista",
-      "type": "medico"
+      "type": "medico",
+      "exames":[
+	{
+	"id": 1,
+	"exame": "Ecocardiograma",
+	"dia": "Segunda-feira",
+	"hora": "9:00"
+	}
+	],
+	"schedules": [
+	{
+	"id": 1,
+	"dia": "28/08/2022",
+	"hora": "17:00"
+	}		
+	],
+	"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/492.png",
+	
 }
 ```
 	
@@ -227,7 +245,7 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 	"CPF": "12345678901",
 	"age": 75,
 	"sex": "Masculino",
-	"address": "Espirito Santo",
+	"address": "Unidade - Campo Largo",
 	"speciality": "Endocrinologista",
 	"type": "medico",
 	"id": 21
@@ -240,11 +258,8 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 
 ```
 {
-
 "status": "error",
-
 "message": ["password is required", "email is required"]
-
 }
 ```
 
@@ -255,11 +270,8 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 
 ```
 {
-
-  "status": "error",
-  
-  "message": ["password: minimum is 6 characters"]
-  
+  "status": "error",  
+  "message": ["password: minimum is 6 characters"]  
 }
 ```
 
@@ -270,11 +282,8 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 
 ```
 {
-
-  "status": "error",
-  
-  "message": "Email already exists"
-  
+  "status": "error",  
+  "message": "Email already exists"  
 }
 ```
 
@@ -295,19 +304,18 @@ acessar a lista dessa forma: Aqui conseguimos ver os usuários médicos e suas e
 ## POST /login - FORMATO DA RESPOSTA - STATUS 201
 
 ```
-
 {
 	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlbnppZUBrZW56aWVtZWQuY29tIiwiaWF0IjoxNjYyMzg0NDYzLCJleHAiOjE2NjIzODgwNjMsInN1YiI6IjMifQ.VsuNhaDkdq26TjQqUSUjDEqEv63CvtCIZjTN7JwcNZY",
 	"user": {
-		"email": "kenzie@kenziemed.com",
-		"name": "Kenzie Med",
-		"CPF": "12312312312",
-		"age": 20,
-		"sex": "M",
-		"type": "patient",
-		"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png",
-		"address": "kenzie academy",
-		"id": 3
+	"email": "kenzie@kenziemed.com",
+	"name": "Kenzie Med",
+	"CPF": "12312312312",
+	"age": 20,
+	"sex": "M",
+	"type": "patient",
+	"img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png",
+	"address": "kenzie academy",
+	"id": 3
 	}
 }
 ```
@@ -358,13 +366,13 @@ usuário logado no localStorage para fazer a gestão do usuário no seu frontend
 
 ```
 {
-      userId: 1,
-      doctor: 6
-      dia: "19-08-2022",
-      horario: "9:00",
-      address: "Unidade - Campo Largo",
-      speciality: "Cardiologista",
-      name: "Dr. Roberto Marcelo",
+      "userId": 1,
+      "doctor": 6
+     "dia": "19-08-2022",
+      "horario": "9:00",
+      "address": "Unidade - Campo Largo",
+      "speciality": "Cardiologista",
+      "name": "Dr. Roberto Marcelo",
     }
 
 ```
@@ -382,11 +390,8 @@ Caso você tente agendar com o mesmo médico, receberá este erro:
 
 ```
 {
-
-  "status": "error",
-  
-  "message": "Já possui uma consulta agendada com esté médico."
-  
+  "status": "error",  
+  "message": "Já possui uma consulta agendada com esté médico."  
 }
 ```
 
