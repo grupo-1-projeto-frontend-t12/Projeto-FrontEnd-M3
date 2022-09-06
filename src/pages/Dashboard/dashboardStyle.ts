@@ -5,8 +5,9 @@ export const Container = styled.div`
   max-width: 1395px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 20px;
+
 
   @media screen and (min-height: 800px) {
     height: 800px;
@@ -17,8 +18,7 @@ export const TagDivUser = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  width: 95%;
-  max-width: 1257px;
+  
   gap: 6px;
 
   button {

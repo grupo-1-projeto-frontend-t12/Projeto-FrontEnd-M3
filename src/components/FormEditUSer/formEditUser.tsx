@@ -39,7 +39,7 @@ const FormEditUser = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors },
   } = useForm<IEditProfile>({
     resolver: yupResolver(formSchema),
   });

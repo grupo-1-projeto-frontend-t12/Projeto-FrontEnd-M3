@@ -14,7 +14,7 @@ const Dashboard = () => {
     useContext(AuthContext);
 
   return (
-    <>
+    <div onClick={() => setIsOpenModal(false)}>
       <Header />
       <motion.div
         id="app__motion--content"
@@ -24,7 +24,10 @@ const Dashboard = () => {
         transition={{ duration: 0.5 }}
       >
         <Container>
-          <TagDivUser className="aqui">
+          <TagDivUser
+            className="aqui"
+            onClick={(event) => event.stopPropagation()}
+          >
             <button type="button" onClick={() => setIsOpenModal(!isOpenModal)}>
               {user.img ? (
                 <img src={user.img} alt="Avatar Usuário" />
@@ -48,7 +51,7 @@ const Dashboard = () => {
       </motion.div>
       <Footer />
       {isLoading && <Loading />}
-    </>
+    </div>
   );
 };
 

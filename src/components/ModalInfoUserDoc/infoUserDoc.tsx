@@ -2,7 +2,7 @@ import { RiUserSettingsLine } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 import { TagDiv } from "./infoUserDocStyle";
-import { useContext } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const InfoUserDoc = () => {
@@ -33,12 +33,16 @@ const InfoUserDoc = () => {
   };
 
   return (
-    <TagDiv>
-      <button className="btnEdit" onClick={altFunction}>
+    <TagDiv id="dropDown">
+      <button
+        type="button"
+        className="btnEdit"
+        onClick={altFunction}
+      >
         <RiUserSettingsLine className="IconPerfil" />
         {location.pathname === "/dashboard" ? "Editar Perfil" : "Perfil"}
       </button>
-      <button className="btnExit" onClick={logout}>
+      <button type="button" className="btnExit" onClick={logout}>
         <MdLogout className="IconExit" />
         Sair
       </button>

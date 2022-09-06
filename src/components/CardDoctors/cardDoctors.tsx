@@ -48,12 +48,6 @@ const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
   return (
     <ContainerDoctors>
       <div className="card-doctors-header">
-<<<<<<< HEAD
-        <h2>Corpo Clínico</h2>
-        {itemFilter.length > 0 && <button onClick={() => {setItemFilter([])}}>
-          <BsArrowLeftShort /> Voltar
-        </button>}
-=======
         <h2>Corpo Clinico</h2>
         {itemFilter.length > 0 && (
           <button
@@ -64,7 +58,6 @@ const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
             <BsArrowLeftShort /> Voltar
           </button>
         )}
->>>>>>> e7704bbd2e5127dc3b91a115813e0ea27af6ecaf
       </div>
       {doctorsList ? (
         <ListDoctors>
