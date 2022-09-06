@@ -3,7 +3,7 @@ import { MdOutlinePlace } from "react-icons/md";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { BsCalendar3 } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import api from "../../services/api";
 import { IUserAppointment } from "../../interface/IUserAppointment";
 import { toast } from "react-toastify";
@@ -11,12 +11,10 @@ import sucessicon from "../../assets/img/logo/sucessicon.svg";
 import { IError } from "../../interface/IError";
 import { AxiosError } from "axios";
 import iconerror from "../../assets/img/logo/errorico.svg";
-import { IDoctors } from "../../interface/IDoctors";
 
 const CardAppointment = () => {
-  const { setAppointment, appointment, user, doctor, setDoctor, setIsLoading } =
+  const { setAppointment, appointment, user, setIsLoading } =
     useContext(AuthContext);
-  const [medic, setMedic] = useState([] as IDoctors[]);
 
   const getAppointment = async () => {
     try {
@@ -43,7 +41,7 @@ const CardAppointment = () => {
       await api.delete(`/appointment/${appoint.id}`);
       const currentAppointments = await api
         .get(`/appointment/?userId=${user.id}`)
-        .then((res) => res.data);
+        .then((res) => res.data)
       setAppointment(currentAppointments);
       toast.success("Consulta cancelada!", {
         theme: "colored",
@@ -62,27 +60,29 @@ const CardAppointment = () => {
             return (
               <li key={appoint.id}>
                 <div className="containerHeader">
-                  <h2>{appoint.name}</h2>
+                  <h2 className="doctorName">{appoint.name}</h2>
                   <button onClick={() => cancelAppointment(appoint)}>
                     Cancelar Consulta
                   </button>
                 </div>
-                <span>{appoint.speciality}</span>
+                <h4>{appoint.speciality}</h4>
                 <div className="containerDataAppointment">
-                  <div>
-                    <h3>
-                      <BsCalendar3 />
-                      {appoint.dia}
-                    </h3>
-                    <h3>
-                      <AiOutlineClockCircle />
-                      {appoint.horario}
-                    </h3>
-                    <h3>
-                      <MdOutlinePlace />
-                      {appoint.address}
-                    </h3>
-                  </div>
+                  <div className="containerIcon">
+                      <span><BsCalendar3 /></span>
+                      <h3>{appoint.dia}</h3>
+                   </div>
+                   
+                   <div className="containerIcon">
+                    <span><AiOutlineClockCircle /> </span>
+                      <h3> {appoint.horario}</h3>
+                   </div>
+                    
+                    <div className="containerIcon">
+                        <span> <MdOutlinePlace /></span>
+                        <h3>{appoint.address}</h3> 
+                    </div>
+                  
+                  
                 </div>
               </li>
             );

@@ -10,35 +10,62 @@ export const ListDoctors = styled.ul`
   li {
     background-color: var(--color-green);
     width: 267px;
-    height: 160px;
+    height: 150px;
     color: var(--color-white);
     border-radius: 8px;
     padding: 10px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;   
   }
 
-  h2 {
-    font-size: 18px;
+  .doctorName {
+    font-size: 16px;
     font-weight: 800;
+    margin-bottom: 0;   
   }
-  span {
-    font-size: 12px;
+
+  h4{
+    font-size: 14px;
     font-weight: 300;
+    margin-top: 10px;
+    
   }
   h3 {
     font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 5px;
+    font-weight: 500;    
   }
   .containerHeader {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: flex-start;   
   }
   .containerHeader button {
     background-color: transparent;
     border: none;
     color: var(--color-white);
-    font-size: 20px;
+    font-size: 12px;
+  }
+
+  .containerHeader button:hover{
+    color: var(--color-green2);
+  }
+  .containerDataAppointment{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+
+  }
+  .containerDataAppointment span{
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  .containerIcon{
+    display: flex;
+    flex-direction: row;
   }
 `;
 

@@ -1,4 +1,7 @@
-import { ContainerRenderDoctorSchedule, ContainerSchedule } from "./cardScheduleDoctorStyle";
+import {
+  ContainerRenderDoctorSchedule,
+  ContainerSchedule,
+} from "./cardScheduleDoctorStyle";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
@@ -12,8 +15,10 @@ import { AxiosError } from "axios";
 import { IAppointmentInfo } from "../../interface/IAppointmentInfo";
 import { toast } from "react-toastify";
 import sucessicon from "../../assets/img/logo/sucessicon.svg";
+import iconerror from "../../assets/img/logo/errorico.svg";
 import { IError } from "../../interface/IError";
-
+import { StyledAlert } from "../EmptyObjectAlert/emptyObjectAlert";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 const CardScheduleDoctor = () => {
   const { doctorSchedule, doctor, user, setDoctorSchedule, setIsLoading } =
     useContext(AuthContext);
@@ -25,7 +30,6 @@ const CardScheduleDoctor = () => {
     schedule: IDoctorSchedule
   ) => {
     try {
-      
       await api.post(`/appointment`, data);
       navigate("/dashboard", { replace: true });
       setTimeout(() => {
@@ -42,28 +46,30 @@ const CardScheduleDoctor = () => {
     } catch (error) {
       const err = error as AxiosError<IError>;
       console.log(err.response?.data);
-      /* toast */
+      toast.error("Algo deu errado!", {
+        theme: "colored",
+        icon: <img src={iconerror} alt="icon error" />,
+      });
     }
   };
 
   const editScheduleDoctor = async (schedule: IDoctorSchedule) => {
     try {
       const obj = {
-        schedules: doctorSchedule.filter((horario) => horario.id !== schedule.id),
+        schedules: doctorSchedule.filter(
+          (horario) => horario.id !== schedule.id
+        ),
       };
       const token = localStorage.getItem("@context-KenzieMed:token");
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const res = await api.patch(`/doctors/${doctor.id}`, obj);
-      toast.success("Agendamento concluído!", {
-        theme: "colored",
-        icon: <img src={sucessicon} alt="icon sucess" />,
-      });
+
       navigate("/dashboard", { replace: true });
     } catch (error) {
       const err = error as AxiosError<IError>;
       console.log(err.response?.data);
     }
-  }
+  };
 
   const setAppointmentToUser = (schedule: IDoctorSchedule) => {
     const appointInfo: IAppointmentInfo = {
@@ -75,6 +81,7 @@ const CardScheduleDoctor = () => {
       speciality: doctor.speciality,
       name: doctor.name,
     };
+    setIsLoading(true);
     postAppointment(appointInfo, schedule);
     editScheduleDoctor(schedule)
     setIsLoading(true);
@@ -101,24 +108,31 @@ const CardScheduleDoctor = () => {
       <div className="containerSchedule">
         <ContainerSchedule>
           <ul>
-            {doctorSchedule.map((schedule) => (
-              <li key={schedule.id}>
-                <div className="containerList">
-                  <BsCalendar3 />
-                  <h3>{schedule.dia}</h3>
-                </div>
-                <div className="containerList">
-                  <AiOutlineClockCircle />
-                  <h3>{schedule.hora}</h3>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setAppointmentToUser(schedule)}
-                >
-                  <AiOutlinePlusCircle />
-                </button>
-              </li>
-            ))}
+            {doctorSchedule.length > 0 ? (
+              doctorSchedule.map((schedule) => (
+                <li key={schedule.id}>
+                  <div className="containerList">
+                    <BsCalendar3 />
+                    <h3>{schedule.dia}</h3>
+                  </div>
+                  <div className="containerList">
+                    <AiOutlineClockCircle />
+                    <h3>{schedule.hora}</h3>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setAppointmentToUser(schedule)}
+                  >
+                    <AiOutlinePlusCircle />
+                  </button>
+                </li>
+              ))
+            ) : (
+              <StyledAlert>
+                <AiOutlineExclamationCircle size={28} />
+                Horários indisponíveis
+              </StyledAlert>
+            )}
           </ul>
         </ContainerSchedule>
       </div>
