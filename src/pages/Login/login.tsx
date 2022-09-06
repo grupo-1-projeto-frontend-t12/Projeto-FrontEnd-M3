@@ -11,6 +11,7 @@ import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
+import Loading from "../../components/Loading/loading";
 
 const schema = yup.object().shape({
   email: yup
@@ -29,7 +30,7 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, isLoading } = useContext(AuthContext);
 
   const { SignIn } = useContext(AuthContext);
   const [isModal, setIsModal] = useState(true);
@@ -122,6 +123,7 @@ const Login = () => {
           </AnimatePresence>
         </motion.div>
       )}
+      {isLoading && <Loading />}
     </>
   );
 };

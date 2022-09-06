@@ -4,9 +4,10 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Header from "../../components/Header/header";
 import { motion, AnimatePresence } from "framer-motion";
+import Loading from "../../components/Loading/loading";
 
 const CorpoClinico = () => {
-  const { itemFilter, doctorsList } = useContext(AuthContext);
+  const { itemFilter, doctorsList, isLoading } = useContext(AuthContext);
   return (
     <>
       <Header />
@@ -26,6 +27,7 @@ const CorpoClinico = () => {
         </motion.div>
       </AnimatePresence>
       <Footer />
+      {isLoading && <Loading />}
     </>
   );
 };

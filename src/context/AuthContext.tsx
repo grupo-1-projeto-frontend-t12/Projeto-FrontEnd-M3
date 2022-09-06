@@ -20,6 +20,7 @@ import { IEditProfile } from "../interface/IEditProfile";
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider = ({ children }: IAuthProvider) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState<IUser>({} as IUser);
   const [doctorsList, setDoctorsList] = useState<IDoctors[]>([]);
   const [doctor, setDoctor] = useState<IDoctors>({} as IDoctors);
@@ -49,47 +50,51 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }, []);
 
   const SignIn = async (data: IUserLogin) => {
-    try {
-      const res = await api.post<IPost>("/login", data);
-      const { user: userResponse } = res.data;
-      const token = JSON.stringify(res.data.accessToken)?.replace(/"/gi, "");
+    setIsLoading(true);
 
-      setUser(userResponse);
+    setTimeout(async () => {
+      try {
+        const res = await api.post<IPost>("/login", data);
+        const { user: userResponse } = res.data;
+        const token = JSON.stringify(res.data.accessToken);
+        setUser(userResponse);
 
-      localStorage.setItem(
-        "@context-KenzieMed:user",
-        JSON.stringify(userResponse)
-      );
-      localStorage.setItem(
-        "@context-KenzieMed:userId",
-        JSON.stringify(res.data.user.id)
-      );
-      localStorage.setItem("@context-KenzieMed:token", token);
+        localStorage.setItem(
+          "@context-KenzieMed:user",
+          JSON.stringify(userResponse)
+        );
+        localStorage.setItem(
+          "@context-KenzieMed:userId",
+          JSON.stringify(res.data.user.id)
+        );
+        localStorage.setItem("@context-KenzieMed:token", token);
 
-      setLogin(true);
+        setLogin(true);
 
-      const state = location.state as ICustomizedState;
+        const state = location.state as ICustomizedState;
 
-      let toNavigate = "/dashboard";
+        let toNavigate = "/dashboard";
 
-      if (state) {
-        toNavigate = state.from;
+        if (state) {
+          toNavigate = state.from;
+        }
+        navigate(toNavigate, { replace: true });
+        setIsLoading(false);
+        toast.success("Login efetuado com sucesso!", {
+          theme: "colored",
+          icon: <img src={sucessicon} alt="icon sucess" />,
+        });
+      } catch (error) {
+        const err = error as AxiosError;
+        toast.error("Erro ao efetuar Login!", {
+          theme: "colored",
+          icon: <img src={iconerror} alt="icon error" />,
+        });
+        console.log("CON-LOG CATCH ERROR SignIn", err.message);
+      } finally {
+        setIsLoading(false);
       }
-
-      navigate(toNavigate, { replace: true });
-
-      toast.success("Login efetuado com sucesso!", {
-        theme: "colored",
-        icon: <img src={sucessicon} alt="icon sucess" />,
-      });
-    } catch (error) {
-      const err = error as AxiosError;
-      toast.error("Erro ao efetuar Login!", {
-        theme: "colored",
-        icon: <img src={iconerror} alt="icon error" />,
-      });
-      console.log("CON-LOG CATCH ERROR SignIn", err.message);
-    }
+    }, 2000);
   };
 
   const onSubmitRegister = async (data: IUser) => {
@@ -162,6 +167,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   return (
     <AuthContext.Provider
       value={{
+        isLoading,
+        setIsLoading,
         user,
         login,
         setLogin,

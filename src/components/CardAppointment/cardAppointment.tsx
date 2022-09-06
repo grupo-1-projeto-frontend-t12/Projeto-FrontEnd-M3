@@ -13,7 +13,9 @@ import { AxiosError } from "axios";
 import iconerror from "../../assets/img/logo/errorico.svg";
 
 const CardAppointment = () => {
-  const { setAppointment, appointment, user } = useContext(AuthContext);
+  const { setAppointment, appointment, user, doctor, setDoctor, setIsLoading } =
+    useContext(AuthContext);
+  const [medic, setMedic] = useState([] as IDoctors[]);
 
   const getAppointment = async () => {
     try {
@@ -34,15 +36,20 @@ const CardAppointment = () => {
   }, []);
 
   const cancelAppointment = async (appoint: IUserAppointment) => {
-    await api.delete(`/appointment/${appoint.id}`);
-    const currentAppointments = await api
-      .get(`/appointment/?userId=${user.id}`)
-      .then((res) => res.data);
-    setAppointment(currentAppointments);
-    toast.success("Consulta cancelada!", {
-      theme: "colored",
-      icon: <img src={sucessicon} alt="icon sucess" />,
-    });
+    setIsLoading(true);
+
+    setTimeout(async () => {
+      await api.delete(`/appointment/${appoint.id}`);
+      const currentAppointments = await api
+        .get(`/appointment/?userId=${user.id}`)
+        .then((res) => res.data);
+      setAppointment(currentAppointments);
+      toast.success("Consulta cancelada!", {
+        theme: "colored",
+        icon: <img src={sucessicon} alt="icon sucess" />,
+      });
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
