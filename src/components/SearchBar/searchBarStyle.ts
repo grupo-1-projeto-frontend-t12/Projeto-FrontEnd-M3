@@ -45,6 +45,9 @@ export const ContainerSearch = styled.div`
     border-bottom-left-radius: 4px;
   }
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 37px;
     height: 37px;
     border: none;
