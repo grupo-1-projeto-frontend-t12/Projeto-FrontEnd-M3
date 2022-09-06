@@ -12,28 +12,21 @@ const UnidadeInfoComponent = () => {
           <img src={Medico} alt="Imagem aparelho de ressonancia magnetica" />
         </ContainerImgUnid>
         <ContainerInfoUnid key="2-Container">
-          <h1>Conheça nossas unidades</h1>
+          <h1>Conheça nossas unidades</h1>   
+          <p> KenzieMed atendimento feito para você! </p>       
+          <p>         
+          Atendimento com várias especialidaeds, dentro do complexo hospitalar, aliando agilidade que você deseja, as melhores estruturas e os melhores profissionais.
+          </p>
+          <p>Ambiente seguro, agradável e atendimento <strong>humanizado</strong>. Nossa clínica tem referência em segurança do paciente.</p>
+
           <h2>
             <MdOutlinePlace /> Unidade Campo Largo
           </h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-            deleniti eos nemo excepturi rerum at voluptatum ad veniam,
-            repellendus quia eligendi consequuntur rem aliquid eum nostrum id
-            labore maxime recusandae?
-          </p>
-
           <h2>
             <MdOutlinePlace /> Unidade Rio Claro
-          </h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-            deleniti eos nemo excepturi rerum at voluptatum ad veniam,
-            repellendus quia eligendi consequuntur rem aliquid eum nostrum id
-            labore maxime recusandae?
-          </p>
+          </h2>       
 
-          <h1>Disponivel em todas unidades:</h1>
+          <h1>Disponível em todas unidades:</h1>
           <ul>
             <li key="List-1">
               <h3>
