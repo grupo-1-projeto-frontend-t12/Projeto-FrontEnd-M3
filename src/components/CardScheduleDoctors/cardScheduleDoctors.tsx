@@ -83,7 +83,8 @@ const CardScheduleDoctor = () => {
     };
     setIsLoading(true);
     postAppointment(appointInfo, schedule);
-    editScheduleDoctor(schedule);
+    editScheduleDoctor(schedule)
+    setIsLoading(true);
   };
 
   return (

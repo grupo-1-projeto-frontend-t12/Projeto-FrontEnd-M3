@@ -5,6 +5,7 @@ export const EditUserDiv = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  align-self: center;
   width: 95%;
   max-width: 500px;
   background-color: var(--color-white);

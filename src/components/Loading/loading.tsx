@@ -1,15 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { StyledLoader } from "./loadingStyle";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Modal } from "../Modal/modal";
 
 const Loading = () => {
-  useEffect(() => {
-    console.warn("hi");
-    return () => {
-      console.warn("bye");
-    };
-  }, []);
+
   return (
     <Modal>
       <AnimatePresence>
