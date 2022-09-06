@@ -25,6 +25,9 @@ const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
     try {
       if (doctorsList.length === 0) {
         setIsLoading(true);
+        const response = await api.get("/doctors");
+        setDoctorsList(response.data);
+
         setTimeout(async () => {
           setIsLoading(false);
         }, 2000);
