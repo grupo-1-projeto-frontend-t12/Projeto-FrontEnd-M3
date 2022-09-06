@@ -56,7 +56,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       try {
         const res = await api.post<IPost>("/login", data);
         const { user: userResponse } = res.data;
-        const token = JSON.stringify(res.data.accessToken);
+        const token = JSON.stringify(res.data.accessToken)?.replace(/"/gi, "");
         setUser(userResponse);
 
         localStorage.setItem(

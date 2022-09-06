@@ -65,32 +65,6 @@ const CardScheduleDoctor = () => {
     }
   }
 
-  const editScheduleDoctor = async (schedule: IDoctorSchedule) => {
-    try {
-      const obj = {
-        schedules: doctorSchedule.filter((horario) => horario.id !== schedule.id),
-      };
-<<<<<<< HEAD
-      const token = localStorage.getItem("@context-KenzieMed:token");
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      const res = await api.patch(`/doctors/${doctor.id}`, obj);
-      toast.success("Agendamento concluído!", {
-        theme: "colored",
-        icon: <img src={sucessicon} alt="icon sucess" />,
-      });
-      navigate("/dashboard", { replace: true });
-=======
-
-      const token = localStorage.getItem("@context-KenzieMed:token");
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      await api.patch(`/doctors/${doctor.id}`, obj);
->>>>>>> f6b08d576a908dd3cff4d80d6b2e75726298ac8f
-    } catch (error) {
-      const err = error as AxiosError<IError>;
-      console.log(err.response?.data);
-    }
-  }
-
   const setAppointmentToUser = (schedule: IDoctorSchedule) => {
     const appointInfo: IAppointmentInfo = {
       userId: user.id,
@@ -101,8 +75,8 @@ const CardScheduleDoctor = () => {
       speciality: doctor.speciality,
       name: doctor.name,
     };
-    console.log(pacote);
-    postAppointment(pacote, schedule);
+    postAppointment(appointInfo, schedule);
+    editScheduleDoctor(schedule)
     setIsLoading(true);
   };
 

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { StyledLoader } from "./loadingCSS";
+import { StyledLoader } from "./loadingStyle"
 import React, { useEffect } from "react";
 import { Modal } from "../Modal/modal";
 
@@ -20,7 +20,7 @@ const Loading = () => {
             transition: { duration: 8, yoyo: Infinity },
           }}
         >
-          <StyledLoader>Carregando....</StyledLoader>
+          <StyledLoader />
         </motion.div>
       </AnimatePresence>
     </Modal>
