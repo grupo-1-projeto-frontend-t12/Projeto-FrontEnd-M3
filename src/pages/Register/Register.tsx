@@ -63,7 +63,7 @@ const Register = () => {
   const GoToLogin = async () => {
     setIsModal(false);
     setTimeout(() => {
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
     }, 200);
   }
 
