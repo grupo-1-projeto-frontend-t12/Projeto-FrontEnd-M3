@@ -9,6 +9,8 @@ import { IDoctors } from "../../interface/IDoctors";
 import { IError } from "../../interface/IError";
 import { ICardDoctorProps } from "../../interface/ICardDoctorProps";
 import { ContainerDoctors, ListDoctors } from "./cardDoctorsStyle";
+import { toast } from "react-toastify";
+import iconerror from "../../assets/img/icons/errorico.svg";
 
 const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
   const {
@@ -37,7 +39,10 @@ const CardDoctors = ({ doctorsList }: ICardDoctorProps) => {
       }
     } catch (error) {
       const err = error as AxiosError<IError>;
-      console.log(err.message);
+      toast.error("Algo deu errado! Tente novamente!", {
+        theme: "colored",
+        icon: <img src={iconerror} alt="icon error" />
+      })
     }
   };
 

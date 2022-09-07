@@ -35,7 +35,6 @@ const CardScheduleDoctor = () => {
       }, 2000);
     } catch (error) {
       const err = error as AxiosError<IError>;
-      console.log(err.response?.data);
       toast.error("Algo deu errado!", {
         theme: "colored",
         icon: <img src={iconerror} alt="icon error" />,
@@ -59,7 +58,6 @@ const CardScheduleDoctor = () => {
       navigate("/dashboard", { replace: true });
     } catch (error) {
       const err = error as AxiosError<IError>;
-      console.log(err.response?.data);
     }
   };
 
