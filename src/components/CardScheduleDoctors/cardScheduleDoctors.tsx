@@ -42,7 +42,7 @@ const CardScheduleDoctor = () => {
       });
     }
   };
-  
+
   const editScheduleDoctor = async (schedule: IDoctorSchedule) => {
     try {
       setDoctorSchedule(
@@ -75,7 +75,7 @@ const CardScheduleDoctor = () => {
     };
     setIsLoading(true);
     postAppointment(appointInfo);
-    editScheduleDoctor(schedule)
+    editScheduleDoctor(schedule);
     setIsLoading(true);
   };
 
