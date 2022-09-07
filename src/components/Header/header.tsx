@@ -1,12 +1,12 @@
-import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
-import { TagHeader } from "./headerStyle";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 import ButtonAppointment from "../ButtonAppointment/buttonAppointment";
 import SearchBar from "../SearchBar/searchBar";
-import Medica from "../../assets/img/logo/medica.svg";
 import Menu from "../Menu/menu";
+import { TagHeader } from "./headerStyle";
+import Medica from "../../assets/img/logo/medica.svg";
 import Logo from "../../assets/img/logo/KenzieMED (1).svg";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const { login } = useContext(AuthContext);

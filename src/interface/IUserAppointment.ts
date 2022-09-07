@@ -8,4 +8,4 @@ export interface IUserAppointment {
   dia: string;
   horario: string;
   isConfirmed?: true;
-}
+};

@@ -12,8 +12,8 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
-import iconerror from "../assets/img/logo/errorico.svg";
-import sucessicon from "../assets/img/logo/sucessicon.svg";
+import iconerror from "../assets/img/icons/errorico.svg";
+import sucessicon from "../assets/img/icons/sucessicon.svg";
 import { IError } from "../interface/IError";
 import { IEditProfile } from "../interface/IEditProfile";
 

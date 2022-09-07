@@ -11,10 +11,8 @@ export const Container = styled.div`
   .divBtnReturn{
     display: flex;
     justify-content: flex-end;
-
     width: 95%;
     max-width: 1238px;
-    
 
     > button{
       background-color: transparent;
@@ -24,7 +22,6 @@ export const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      
     
       :hover{
         color: var(--color-green2);
