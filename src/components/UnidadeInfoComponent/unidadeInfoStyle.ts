@@ -19,7 +19,7 @@ export const UnidadeContainer = styled.div`
     flex-wrap: wrap;
   }
 
-  h1 {
+  .units-title {
     font-size: 20px;
     color: var(--color-green);
     margin-top: 1vw;
@@ -37,7 +37,7 @@ export const UnidadeContainer = styled.div`
   }
 
   @media (max-width: 400px) {
-    h1 {
+    .units-title {
       font-size: 16px;
     }
 

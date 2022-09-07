@@ -1,16 +1,16 @@
-import { ContainerCardAppointment, ListDoctors } from "./cardAppointmentStyle";
-import { MdOutlinePlace } from "react-icons/md";
+import { useContext, useEffect } from "react";
+import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { MdOutlinePlace } from "react-icons/md";
 import { BsCalendar3 } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthContext";
-import { useContext, useEffect } from "react";
 import api from "../../services/api";
 import { IUserAppointment } from "../../interface/IUserAppointment";
-import { toast } from "react-toastify";
-import sucessicon from "../../assets/img/logo/sucessicon.svg";
 import { IError } from "../../interface/IError";
-import { AxiosError } from "axios";
-import iconerror from "../../assets/img/logo/errorico.svg";
+import { ContainerCardAppointment, ListDoctors } from "./cardAppointmentStyle";
+import sucessicon from "../../assets/img/icons/sucessicon.svg";
+import iconerror from "../../assets/img/icons/errorico.svg";
 
 const CardAppointment = () => {
   const { setAppointment, appointment, user, setIsLoading } =
@@ -18,11 +18,10 @@ const CardAppointment = () => {
 
   const getAppointment = async () => {
     try {
-      const response = await api.get(`/appointment/?userId=${user.id}`);
+      const response = await api.get<IUserAppointment[]>(`/appointment/?userId=${user.id}`);
       setAppointment(response.data);
     } catch (error) {
       const err = error as AxiosError<IError>;
-      console.log(err.message);
       toast.error("Não foi possível fazer o agendamento!", {
         theme: "colored",
         icon: <img src={iconerror} alt="icon error" />,
@@ -40,7 +39,7 @@ const CardAppointment = () => {
     setTimeout(async () => {
       await api.delete(`/appointment/${appoint.id}`);
       const currentAppointments = await api
-        .get(`/appointment/?userId=${user.id}`)
+        .get<IUserAppointment[]>(`/appointment/?userId=${user.id}`)
         .then((res) => res.data);
       setAppointment(currentAppointments);
       toast.success("Consulta cancelada!", {

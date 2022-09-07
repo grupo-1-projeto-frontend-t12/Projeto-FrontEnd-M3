@@ -1,9 +1,9 @@
-import CardDoctors from "../../components/CardDoctors/cardDoctors";
-import Footer from "../../components/Footer/footer";
 import { useContext } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { AuthContext } from "../../context/AuthContext";
 import Header from "../../components/Header/header";
-import { motion, AnimatePresence } from "framer-motion";
+import CardDoctors from "../../components/CardDoctors/cardDoctors";
+import Footer from "../../components/Footer/footer";
 import Loading from "../../components/Loading/loading";
 
 const CorpoClinico = () => {

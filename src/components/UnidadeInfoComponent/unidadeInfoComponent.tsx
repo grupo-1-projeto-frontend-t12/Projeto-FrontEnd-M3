@@ -1,8 +1,8 @@
-import { ContainerImgUnid, ContainerInfoUnid, UnidadeContainer } from "./unidadeInfoStyle";
-import Medico from "../../assets/img/bancodeimagens/Medicina Geral (15).jpg";
-import { MdOutlinePlace } from "react-icons/md";
-
 import { TbReportMedical } from "react-icons/tb";
+import { MdOutlinePlace } from "react-icons/md";
+import Medico from "../../assets/img/bancodeimagens/Medicina Geral (15).jpg";
+import { ContainerImgUnid, ContainerInfoUnid, UnidadeContainer } from "./unidadeInfoStyle";
+
 
 const UnidadeInfoComponent = () => {
   return (
@@ -12,7 +12,7 @@ const UnidadeInfoComponent = () => {
           <img src={Medico} alt="Imagem aparelho de ressonancia magnetica" />
         </ContainerImgUnid>
         <ContainerInfoUnid key="2-Container">
-          <h1>Conheça nossas unidades</h1>   
+          <h2 className="units-title">Conheça nossas unidades</h2>   
           <p> KenzieMed atendimento feito para você! </p>       
           <p>         
           Atendimento com várias especialidaeds, dentro do complexo hospitalar, aliando agilidade que você deseja, as melhores estruturas e os melhores profissionais.
@@ -26,7 +26,7 @@ const UnidadeInfoComponent = () => {
             <MdOutlinePlace /> Unidade Rio Claro
           </h2>       
 
-          <h1>Disponível em todas unidades:</h1>
+          <h2 className="units-title">Disponível em todas unidades:</h2>
           <ul>
             <li key="List-1">
               <h3>

@@ -1,6 +1,6 @@
-import { AppDiv } from "./styles/appCSS/AppCSS"
 import AllRoutes from "./routes/Routes"
 import AuthProvider from "./context/AuthContext";
+import { AppDiv } from "./styles/appCSS/AppCSS"
 
 function App() {
   return (

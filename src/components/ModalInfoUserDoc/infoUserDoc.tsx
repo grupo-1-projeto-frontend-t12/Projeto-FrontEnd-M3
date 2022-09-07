@@ -1,9 +1,9 @@
-import { RiUserSettingsLine } from "react-icons/ri";
+import { useContext} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { RiUserSettingsLine } from "react-icons/ri";
 import { MdLogout } from "react-icons/md";
 import { TagDiv } from "./infoUserDocStyle";
-import { useContext} from "react";
-import { AuthContext } from "../../context/AuthContext";
 
 const InfoUserDoc = () => {
   const { setLogin, setIsOpenModal } = useContext(AuthContext);

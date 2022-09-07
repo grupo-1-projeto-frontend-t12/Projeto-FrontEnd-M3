@@ -1,9 +1,8 @@
-import { ContainerSearch } from "./searchBarStyle";
-import { AiOutlineSearch } from "react-icons/ai";
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { AuthContext } from "../../context/AuthContext";
+import { AiOutlineSearch } from "react-icons/ai";
+import { ContainerSearch } from "./searchBarStyle";
 
 const SearchBar = () => {
   const { inputFilter, setInputFilter, filterDoctors } =
