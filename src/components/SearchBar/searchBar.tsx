@@ -9,7 +9,7 @@ const SearchBar = () => {
     useContext(AuthContext);
   const navigate = useNavigate();
 
-  function search() {
+  const Search = () => {
     navigate("/corpoclinico");
     filterDoctors(inputFilter);
     setInputFilter("");
@@ -29,7 +29,7 @@ const SearchBar = () => {
             onChange={(event) => setInputFilter(event.target.value)}
             required
           />
-          <button onClick={search}>
+          <button onClick={Search}>
             <AiOutlineSearch />
           </button>
         </div>

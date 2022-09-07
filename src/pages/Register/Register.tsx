@@ -60,7 +60,7 @@ const Register = () => {
     resolver: yupResolver(formSchema),
   });
 
-  async function goToLogin() {
+  const GoToLogin = async () => {
     setIsModal(false);
     setTimeout(() => {
       navigate("/", { replace: true });
@@ -84,7 +84,7 @@ const Register = () => {
             <ContainerRegister>
               <div className="register">
                 <div className="divHeader">
-                  <button onClick={goToLogin} className="btnReturn">
+                  <button onClick={GoToLogin} className="btnReturn">
                     X
                   </button>
                 </div>

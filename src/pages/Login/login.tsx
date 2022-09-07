@@ -44,7 +44,7 @@ const Login = () => {
     reValidateMode: "onSubmit",
   });
 
-  async function goToHome() {
+  const GoToHome = async () => {
     setIsModal(false);
     setTimeout(() => {
       navigate("/", { replace: true });
@@ -75,7 +75,7 @@ const Login = () => {
                     <button
                       className="btnClose"
                       type="button"
-                      onClick={goToHome}
+                      onClick={GoToHome}
                     >
                       X
                     </button>
