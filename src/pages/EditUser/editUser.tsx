@@ -1,15 +1,15 @@
-import { TagDivUser, DivModalPerfil } from "../Dashboard/dashboardStyle";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { AuthContext } from "../../context/AuthContext";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { BsArrowLeftShort } from "react-icons/bs";
-import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { Container } from "./editUserSytle";
-import { motion } from "framer-motion";
+import Header from "../../components/Header/header";
 import FormEditUser from "../../components/FormEditUSer/formEditUser";
 import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
-import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
+import { Container } from "./editUserSytle";
+import { TagDivUser, DivModalPerfil } from "../Dashboard/dashboardStyle";
 
 const EditUser = () => {
   const { isOpenModal, setIsOpenModal, user } = useContext(AuthContext);

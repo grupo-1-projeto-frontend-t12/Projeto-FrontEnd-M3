@@ -1,7 +1,7 @@
-import { ContainerFooter } from "./footerStyle";
 import { AiFillPhone, AiOutlineMail } from "react-icons/ai";
 import { FiInstagram } from "react-icons/fi";
 import { ImFacebook2 } from "react-icons/im";
+import { ContainerFooter } from "./footerStyle";
 
 const Footer = () => {
   return (

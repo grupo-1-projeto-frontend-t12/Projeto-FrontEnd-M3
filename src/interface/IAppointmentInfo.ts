@@ -6,4 +6,4 @@ export interface IAppointmentInfo {
   address: string;
   speciality: string;
   name: string;
-}
+};

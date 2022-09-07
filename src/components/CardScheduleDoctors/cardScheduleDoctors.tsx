@@ -1,31 +1,28 @@
-import { ContainerRenderDoctorSchedule, ContainerSchedule } from "./cardScheduleDoctorStyle";
+import { useContext } from "react";
+import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import api from "../../services/api";
+import { AuthContext } from "../../context/AuthContext";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
-import { IDoctorSchedule } from "../../interface/IDoctorSchedule";
 import { BsCalendar3 } from "react-icons/bs";
-import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import api from "../../services/api";
-import { AxiosError } from "axios";
-import { IAppointmentInfo } from "../../interface/IAppointmentInfo";
-import { toast } from "react-toastify";
-import sucessicon from "../../assets/img/logo/sucessicon.svg";
-import iconerror from "../../assets/img/logo/errorico.svg";
 import { IError } from "../../interface/IError";
+import { IDoctorSchedule } from "../../interface/IDoctorSchedule";
 import { StyledAlert } from "../EmptyObjectAlert/emptyObjectAlert";
-import { AiOutlineExclamationCircle } from "react-icons/ai";
+import { IAppointmentInfo } from "../../interface/IAppointmentInfo";
+import { ContainerRenderDoctorSchedule, ContainerSchedule } from "./cardScheduleDoctorStyle";
+import sucessicon from "../../assets/img/icons/sucessicon.svg";
+import iconerror from "../../assets/img/icons/errorico.svg";
 
 const CardScheduleDoctor = () => {
   const { doctorSchedule, doctor, user, setDoctorSchedule, setIsLoading } =  useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  const postAppointment = async (
-    data: IAppointmentInfo,
-    schedule: IDoctorSchedule
-  ) => {
+  const postAppointment = async (data: IAppointmentInfo) => {
     try {
       await api.post(`/appointment`, data);
       navigate("/dashboard", { replace: true });
@@ -36,10 +33,6 @@ const CardScheduleDoctor = () => {
           icon: <img src={sucessicon} alt="icon sucess" />,
         });
       }, 2000);
-
-      setDoctorSchedule(
-        doctorSchedule.filter((horario) => horario.id !== schedule.id)
-      );
     } catch (error) {
       const err = error as AxiosError<IError>;
       console.log(err.response?.data);
@@ -49,9 +42,12 @@ const CardScheduleDoctor = () => {
       });
     }
   };
-
+  
   const editScheduleDoctor = async (schedule: IDoctorSchedule) => {
     try {
+      setDoctorSchedule(
+        doctorSchedule.filter((horario) => horario.id !== schedule.id)
+      );
       const obj = {
         schedules: doctorSchedule.filter(
           (horario) => horario.id !== schedule.id
@@ -78,7 +74,7 @@ const CardScheduleDoctor = () => {
       name: doctor.name,
     };
     setIsLoading(true);
-    postAppointment(appointInfo, schedule);
+    postAppointment(appointInfo);
     editScheduleDoctor(schedule)
     setIsLoading(true);
   };

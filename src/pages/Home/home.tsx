@@ -1,8 +1,8 @@
+import { motion, AnimatePresence } from "framer-motion";
+import Header from "../../components/Header/header";
+import UnidadeInfoComponent from "../../components/UnidadeInfoComponent/unidadeInfoComponent";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
-import Header from "../../components/Header/header";
-import { motion, AnimatePresence } from "framer-motion";
-import UnidadeInfoComponent from "../../components/UnidadeInfoComponent/unidadeInfoComponent";
 
 const Home = () => {
   return (

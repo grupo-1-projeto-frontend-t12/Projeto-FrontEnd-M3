@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { RiAccountCircleLine } from "react-icons/ri";
-import { AuthContext } from "../../context/AuthContext";
-import Header from "../../components/Header/header";
-import Footer from "../../components/Footer/footer";
-import CardAppointment from "../../components/CardAppointment/cardAppointment";
-import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
-import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyle";
 import { motion } from "framer-motion";
+import { AuthContext } from "../../context/AuthContext";
+import { RiAccountCircleLine } from "react-icons/ri";
+import Header from "../../components/Header/header";
+import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
+import CardAppointment from "../../components/CardAppointment/cardAppointment";
+import Footer from "../../components/Footer/footer";
 import Loading from "../../components/Loading/loading";
+import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyle";
 
 const Dashboard = () => {
   const { isOpenModal, setIsOpenModal, user, isLoading } =
