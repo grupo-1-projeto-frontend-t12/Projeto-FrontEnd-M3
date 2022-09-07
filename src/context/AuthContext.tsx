@@ -90,7 +90,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
           theme: "colored",
           icon: <img src={iconerror} alt="icon error" />,
         });
-        console.log(err.message);
       } finally {
         setIsLoading(false);
       }
@@ -116,7 +115,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
           theme: "colored",
           icon: <img src={iconerror} alt="icon error" />,
         });
-        console.log(error.message);
       });
   };
 
@@ -159,8 +157,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       navigate("/dashboard", { replace: true });
     } catch (error) {
       const err = error as AxiosError<IError>;
-      console.log(err.response?.data);
-      toast.error("Algo deu errado!", {
+      toast.error("Algo deu errado! Tente novamente!", {
         theme: "colored",
         icon: <img src={iconerror} alt="icon error" />,
       });
