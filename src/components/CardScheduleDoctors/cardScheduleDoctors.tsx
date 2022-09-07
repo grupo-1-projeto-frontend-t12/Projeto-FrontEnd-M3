@@ -43,22 +43,18 @@ const CardScheduleDoctor = () => {
   };
 
   const editScheduleDoctor = async (schedule: IDoctorSchedule) => {
-    try {
       setDoctorSchedule(
-        doctorSchedule.filter((horario) => horario.id !== schedule.id)
-      );
-      const obj = {
-        schedules: doctorSchedule.filter(
-          (horario) => horario.id !== schedule.id
-        ),
-      };
-      const token = localStorage.getItem("@context-KenzieMed:token");
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      await api.patch(`/doctors/${doctor.id}`, obj);
-      navigate("/dashboard", { replace: true });
-    } catch (error) {
-      const err = error as AxiosError<IError>;
-    }
+      doctorSchedule.filter((horario) => horario.id !== schedule.id)
+    );
+    const obj = {
+      schedules: doctorSchedule.filter(
+        (horario) => horario.id !== schedule.id
+      ),
+    };
+    const token = localStorage.getItem("@context-KenzieMed:token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api.patch(`/doctors/${doctor.id}`, obj);
+    navigate("/dashboard", { replace: true });
   };
 
   const setAppointmentToUser = (schedule: IDoctorSchedule) => {
