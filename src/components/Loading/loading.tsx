@@ -1,15 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { StyledLoader } from "./loadingStyle"
-import React, { useEffect } from "react";
 import { Modal } from "../Modal/modal";
+import { StyledLoader } from "./loadingStyle";
 
 const Loading = () => {
-  useEffect(() => {
-    console.warn("hi");
-    return () => {
-      console.warn("bye");
-    };
-  }, []);
+
   return (
     <Modal>
       <AnimatePresence>
@@ -17,7 +11,7 @@ const Loading = () => {
           animate={{
             rotate: [500, -600, 1000, -600, 500],
             scale: [0.5, 0.6, 0.5, 0.6, 0.5],
-            transition: { duration: 8, yoyo: Infinity },
+            transition: { duration: 8, repeat: Infinity },
           }}
         >
           <StyledLoader />

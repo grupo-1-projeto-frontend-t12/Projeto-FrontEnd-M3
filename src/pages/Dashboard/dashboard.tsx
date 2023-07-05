@@ -1,20 +1,20 @@
 import { useContext } from "react";
-import { RiAccountCircleLine } from "react-icons/ri";
-import { AuthContext } from "../../context/AuthContext";
-import Header from "../../components/Header/header";
-import Footer from "../../components/Footer/footer";
-import CardAppointment from "../../components/CardAppointment/cardAppointment";
-import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
-import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyle";
 import { motion } from "framer-motion";
+import { AuthContext } from "../../context/AuthContext";
+import { RiAccountCircleLine } from "react-icons/ri";
+import Header from "../../components/Header/header";
+import InfoUserDoc from "../../components/ModalInfoUserDoc/infoUserDoc";
+import CardAppointment from "../../components/CardAppointment/cardAppointment";
+import Footer from "../../components/Footer/footer";
 import Loading from "../../components/Loading/loading";
+import { TagDivUser, DivModalPerfil, Container } from "./dashboardStyle";
 
 const Dashboard = () => {
   const { isOpenModal, setIsOpenModal, user, isLoading } =
     useContext(AuthContext);
 
   return (
-    <>
+    <div onClick={() => setIsOpenModal(false)} style={{ width: "100%" }}>
       <Header />
       <motion.div
         id="app__motion--content"
@@ -24,7 +24,9 @@ const Dashboard = () => {
         transition={{ duration: 0.5 }}
       >
         <Container>
-          <TagDivUser className="aqui">
+          <TagDivUser
+            onClick={(event) => event.stopPropagation()}
+          >
             <button type="button" onClick={() => setIsOpenModal(!isOpenModal)}>
               {user.img ? (
                 <img src={user.img} alt="Avatar Usuário" />
@@ -48,7 +50,7 @@ const Dashboard = () => {
       </motion.div>
       <Footer />
       {isLoading && <Loading />}
-    </>
+    </div>
   );
 };
 

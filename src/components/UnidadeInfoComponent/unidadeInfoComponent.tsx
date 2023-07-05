@@ -1,59 +1,52 @@
-import { ContainerImgUnid, ContainerInfoUnid, UnidadeContainer } from "./unidadeInfoStyle";
-import Medico from "../../assets/img/bancodeimagens/Medicina Geral (15).jpg";
-import { MdOutlinePlace } from "react-icons/md";
-
 import { TbReportMedical } from "react-icons/tb";
+import { MdOutlinePlace } from "react-icons/md";
+import Medico from "../../assets/img/bancodeimagens/Medicina Geral (15).jpg";
+import { ContainerImgUnid, ContainerInfoUnid, UnidadeContainer } from "./unidadeInfoStyle";
+
 
 const UnidadeInfoComponent = () => {
   return (
     <UnidadeContainer>
       <div className="container">
-        <ContainerImgUnid>
+        <ContainerImgUnid key="1-Container">
           <img src={Medico} alt="Imagem aparelho de ressonancia magnetica" />
         </ContainerImgUnid>
-        <ContainerInfoUnid>
-          <h1>Conheça nossas unidades</h1>
+        <ContainerInfoUnid key="2-Container">
+          <h2 className="units-title">Conheça nossas unidades</h2>   
+          <p> KenzieMed atendimento feito para você! </p>       
+          <p>         
+          Atendimento com várias especialidaeds, dentro do complexo hospitalar, aliando agilidade que você deseja, as melhores estruturas e os melhores profissionais.
+          </p>
+          <p>Ambiente seguro, agradável e atendimento <strong>humanizado</strong>. Nossa clínica tem referência em segurança do paciente.</p>
+
           <h2>
             <MdOutlinePlace /> Unidade Campo Largo
           </h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-            deleniti eos nemo excepturi rerum at voluptatum ad veniam,
-            repellendus quia eligendi consequuntur rem aliquid eum nostrum id
-            labore maxime recusandae?
-          </p>
-
           <h2>
             <MdOutlinePlace /> Unidade Rio Claro
-          </h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-            deleniti eos nemo excepturi rerum at voluptatum ad veniam,
-            repellendus quia eligendi consequuntur rem aliquid eum nostrum id
-            labore maxime recusandae?
-          </p>
+          </h2>       
 
-          <h1>Disponivel em todas unidades:</h1>
+          <h2 className="units-title">Disponível em todas unidades:</h2>
           <ul>
-            <li>
+            <li key="List-1">
               <h3>
                 <TbReportMedical />
               </h3>
               Exames Laboratoriais;
             </li>
-            <li>
+            <li key="List-2">
               <h3>
                 <TbReportMedical />
               </h3>
               Exames de Imagem ;
             </li>
-            <li>
+            <li key="List-3">
               <h3>
                 <TbReportMedical />
               </h3>
               Exames de Toxicológicos;
             </li>
-            <li>
+            <li key="List-4">
               <h3>
                 <TbReportMedical />
               </h3>

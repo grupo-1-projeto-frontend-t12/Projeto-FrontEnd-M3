@@ -19,24 +19,25 @@ export const UnidadeContainer = styled.div`
     flex-wrap: wrap;
   }
 
-  h1 {
+  .units-title {
     font-size: 20px;
     color: var(--color-green);
     margin-top: 1vw;
   }
 
   h2 {
-    font-size: 18px;
-    color: var(--color-green);
-    margin-top: 2vw;
+    font-size: 16px;
+    color: var(--color-green);  
+    margin-top: 1em; 
   }
 
   p {
     font-size: 14px;
+    margin-top: 1em;   
   }
 
   @media (max-width: 400px) {
-    h1 {
+    .units-title {
       font-size: 16px;
     }
 

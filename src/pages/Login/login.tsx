@@ -1,17 +1,17 @@
-import { CotainerForm, Modal } from "./loginStyle";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { IUserLogin } from "../../interface/IUserLogin";
 import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiAlertCircle } from "react-icons/fi";
+import { AuthContext } from "../../context/AuthContext";
+import { CotainerForm, Modal } from "./loginStyle";
 import Header from "../../components/Header/header";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
-import { motion, AnimatePresence } from "framer-motion";
-import { FiAlertCircle } from "react-icons/fi";
 import Loading from "../../components/Loading/loading";
+import { IUserLogin } from "../../interface/IUserLogin";
 
 const schema = yup.object().shape({
   email: yup
@@ -44,7 +44,7 @@ const Login = () => {
     reValidateMode: "onSubmit",
   });
 
-  async function goToHome() {
+  const GoToHome = async () => {
     setIsModal(false);
     setTimeout(() => {
       navigate("/", { replace: true });
@@ -75,7 +75,7 @@ const Login = () => {
                     <button
                       className="btnClose"
                       type="button"
-                      onClick={goToHome}
+                      onClick={GoToHome}
                     >
                       X
                     </button>

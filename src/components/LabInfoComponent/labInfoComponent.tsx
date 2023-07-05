@@ -1,9 +1,9 @@
+import { AiOutlineSetting } from "react-icons/ai";
 import Analise from "../../assets/img/bancodeimagens/analise.jpg";
 import Coleta from "../../assets/img/bancodeimagens/coleta.jpg";
 import Orientacao from "../../assets/img/bancodeimagens/orientacao.jpg";
 import Laudo from "../../assets/img/bancodeimagens/laudo.jpg";
 import { ContainerConteudo, ContainerInfo } from "./labInfoStyle";
-import { AiOutlineSetting } from "react-icons/ai";
 
 const LabInfoComponent = () => {
   return (
@@ -64,7 +64,7 @@ const LabInfoComponent = () => {
           {" "}
           <AiOutlineSetting />
         </span>{" "}
-        <h2> Aguarde em breve agendamento online de exames</h2>
+        <h2> Aguarde, em breve agendamento online de exames</h2>
       </div>
     </ContainerConteudo>
   );

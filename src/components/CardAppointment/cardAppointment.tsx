@@ -1,30 +1,27 @@
-import { ContainerCardAppointment, ListDoctors } from "./cardAppointmentStyle";
-import { MdOutlinePlace } from "react-icons/md";
+import { useContext, useEffect } from "react";
+import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { MdOutlinePlace } from "react-icons/md";
 import { BsCalendar3 } from "react-icons/bs";
 import { AuthContext } from "../../context/AuthContext";
-import { useContext, useEffect, useState } from "react";
 import api from "../../services/api";
 import { IUserAppointment } from "../../interface/IUserAppointment";
-import { toast } from "react-toastify";
-import sucessicon from "../../assets/img/logo/sucessicon.svg";
 import { IError } from "../../interface/IError";
-import { AxiosError } from "axios";
-import iconerror from "../../assets/img/logo/errorico.svg";
-import { IDoctors } from "../../interface/IDoctors";
+import { ContainerCardAppointment, ListDoctors } from "./cardAppointmentStyle";
+import sucessicon from "../../assets/img/icons/sucessicon.svg";
+import iconerror from "../../assets/img/icons/errorico.svg";
 
 const CardAppointment = () => {
-  const { setAppointment, appointment, user, doctor, setDoctor, setIsLoading } =
+  const { setAppointment, appointment, user, setIsLoading } =
     useContext(AuthContext);
-  const [medic, setMedic] = useState([] as IDoctors[]);
 
   const getAppointment = async () => {
     try {
-      const response = await api.get(`/appointment/?userId=${user.id}`);
+      const response = await api.get<IUserAppointment[]>(`/appointment/?userId=${user.id}`);
       setAppointment(response.data);
     } catch (error) {
       const err = error as AxiosError<IError>;
-      console.log(err.message);
       toast.error("Não foi possível fazer o agendamento!", {
         theme: "colored",
         icon: <img src={iconerror} alt="icon error" />,
@@ -42,7 +39,7 @@ const CardAppointment = () => {
     setTimeout(async () => {
       await api.delete(`/appointment/${appoint.id}`);
       const currentAppointments = await api
-        .get(`/appointment/?userId=${user.id}`)
+        .get<IUserAppointment[]>(`/appointment/?userId=${user.id}`)
         .then((res) => res.data);
       setAppointment(currentAppointments);
       toast.success("Consulta cancelada!", {
@@ -62,26 +59,33 @@ const CardAppointment = () => {
             return (
               <li key={appoint.id}>
                 <div className="containerHeader">
-                  <h2>{appoint.name}</h2>
+                  <h2 className="doctorName">{appoint.name}</h2>
                   <button onClick={() => cancelAppointment(appoint)}>
                     Cancelar Consulta
                   </button>
                 </div>
-                <span>{appoint.speciality}</span>
+                <h4>{appoint.speciality}</h4>
                 <div className="containerDataAppointment">
-                  <div>
-                    <h3>
+                  <div className="containerIcon">
+                    <span>
                       <BsCalendar3 />
-                      {appoint.dia}
-                    </h3>
-                    <h3>
-                      <AiOutlineClockCircle />
-                      {appoint.horario}
-                    </h3>
-                    <h3>
+                    </span>
+                    <h3>{appoint.dia}</h3>
+                  </div>
+
+                  <div className="containerIcon">
+                    <span>
+                      <AiOutlineClockCircle />{" "}
+                    </span>
+                    <h3> {appoint.horario}</h3>
+                  </div>
+
+                  <div className="containerIcon">
+                    <span>
+                      {" "}
                       <MdOutlinePlace />
-                      {appoint.address}
-                    </h3>
+                    </span>
+                    <h3>{appoint.address}</h3>
                   </div>
                 </div>
               </li>
@@ -89,7 +93,7 @@ const CardAppointment = () => {
           })}
         </ListDoctors>
       ) : (
-        <h3>Você não possui nenhum agendamento!</h3>
+        <h3>Você não possui agendamentos!</h3>
       )}
     </ContainerCardAppointment>
   );

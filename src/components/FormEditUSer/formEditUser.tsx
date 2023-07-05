@@ -1,11 +1,11 @@
-import { EditUserDiv } from "./formEditUserStyle";
+import { useContext } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { IEditProfile } from "../../interface/IEditProfile";
-import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { IEditProfile } from "../../interface/IEditProfile";
 import { FiAlertCircle } from "react-icons/fi";
+import { EditUserDiv } from "./formEditUserStyle";
 
 const FormEditUser = () => {
   const { EditUserProfile, user } = useContext(AuthContext);
@@ -39,7 +39,7 @@ const FormEditUser = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors },
   } = useForm<IEditProfile>({
     resolver: yupResolver(formSchema),
   });

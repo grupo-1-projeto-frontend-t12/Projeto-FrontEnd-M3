@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiAlertCircle } from "react-icons/fi";
 import { AuthContext } from "../../context/AuthContext";
 import { IUser } from "../../interface/IUser";
-import { ContainerRegister } from "./registerStyle";
 import Header from "../../components/Header/header";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/footer";
-import { motion, AnimatePresence } from "framer-motion";
-import { FiAlertCircle } from "react-icons/fi";
+import { ContainerRegister } from "./registerStyle";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -60,10 +60,10 @@ const Register = () => {
     resolver: yupResolver(formSchema),
   });
 
-  async function goToLogin() {
+  const GoToLogin = async () => {
     setIsModal(false);
     setTimeout(() => {
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
     }, 200);
   }
 
@@ -84,7 +84,7 @@ const Register = () => {
             <ContainerRegister>
               <div className="register">
                 <div className="divHeader">
-                  <button onClick={goToLogin} className="btnReturn">
+                  <button onClick={GoToLogin} className="btnReturn">
                     X
                   </button>
                 </div>

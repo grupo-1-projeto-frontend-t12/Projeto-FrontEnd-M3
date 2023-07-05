@@ -12,8 +12,8 @@ import { IUser } from "../interface/IUser";
 import { toast } from "react-toastify";
 import { IPost } from "../interface/IPost";
 import api from "../services/api";
-import iconerror from "../assets/img/logo/errorico.svg";
-import sucessicon from "../assets/img/logo/sucessicon.svg";
+import iconerror from "../assets/img/icons/errorico.svg";
+import sucessicon from "../assets/img/icons/sucessicon.svg";
 import { IError } from "../interface/IError";
 import { IEditProfile } from "../interface/IEditProfile";
 
@@ -90,7 +90,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
           theme: "colored",
           icon: <img src={iconerror} alt="icon error" />,
         });
-        console.log("CON-LOG CATCH ERROR SignIn", err.message);
       } finally {
         setIsLoading(false);
       }
@@ -116,7 +115,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
           theme: "colored",
           icon: <img src={iconerror} alt="icon error" />,
         });
-        console.log(error.message);
       });
   };
 
@@ -124,8 +122,11 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     const ArrayfilterDoctors = doctorsList.filter((elem) =>
       elem.speciality.toLowerCase().includes(inputFilter.toLowerCase())
     );
-
-    if (itemFilter.length < 0) {
+    if (ArrayfilterDoctors.length === 0) {
+      toast.error("Não conseguimos encontrar essa especialidade..", {
+        theme: "colored",
+        icon: <img src={iconerror} alt="icon error" />,
+      });
       setItemFilter(doctorsList);
     } else {
       setItemFilter(ArrayfilterDoctors);
@@ -156,8 +157,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       navigate("/dashboard", { replace: true });
     } catch (error) {
       const err = error as AxiosError<IError>;
-      console.log(err.response?.data);
-      toast.error("Algo deu errado!", {
+      toast.error("Algo deu errado! Tente novamente!", {
         theme: "colored",
         icon: <img src={iconerror} alt="icon error" />,
       });
